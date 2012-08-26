@@ -1,0 +1,192 @@
+Waf: Entering directory `/home/juan/repos/lena/build'
+[ 665/1392] cxx: scratch/mihtest1.cc -> build/scratch/mihtest1.cc.9.o
+[ 818/1392] cxx: src/mih/model/mih-net-device.cc -> build/src/mih/model/mih-net-device.cc.1.o
+[1357/1392] cxxshlib: build/src/mih/model/mih-net-device.cc.1.o build/src/mih/helper/mih-helper.cc.1.o -> build/libns3-dev-mih-debug.so
+[1374/1392] cxxprogram: build/scratch/udp-recommit.cc.3.o -> build/scratch/udp-recommit
+[1375/1392] cxxprogram: build/scratch/lte-wifi.cc.5.o -> build/scratch/lte-wifi
+[1376/1392] cxxprogram: build/scratch/mylte.cc.10.o -> build/scratch/mylte
+[1377/1392] cxxprogram: build/scratch/mihtest1.cc.9.o -> build/scratch/mihtest1
+[1378/1392] cxxprogram: build/scratch/lteepc-moving-ues.cc.7.o -> build/scratch/lteepc-moving-ues
+[1379/1392] cxxprogram: build/scratch/wimax-lte.cc.8.o -> build/scratch/wimax-lte
+[1380/1392] cxxprogram: build/utils/test-runner.cc.1.o -> build/utils/ns3-dev-test-runner-debug
+[1381/1392] cxxprogram: build/scratch/mywimax.cc.11.o -> build/scratch/mywimax
+[1382/1392] cxxprogram: build/scratch/subdir/scratch-simulator-subdir.cc.6.o -> build/scratch/subdir/subdir
+[1383/1392] cxxprogram: build/utils/print-introspected-doxygen.cc.4.o -> build/utils/ns3-dev-print-introspected-doxygen-debug
+[1384/1392] cxxprogram: build/scratch/scratch-simulator.cc.2.o -> build/scratch/scratch-simulator
+[1385/1392] cxxprogram: build/scratch/wimax-wifi.cc.1.o -> build/scratch/wimax-wifi
+[1386/1392] cxxprogram: build/scratch/blah.cc.4.o -> build/scratch/blah
+Waf: Leaving directory `/home/juan/repos/lena/build'
+'build' finished successfully (13.785s)
+Send!!
+At time 2s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 3973 Time: 2
+At time 2.00528s server received 1024 bytes from 11.1.3.2 port 49153
+At time 2.00528s server sent 1024 bytes to 11.1.3.2 port 49153
+At time 2.01094s client received 1024 bytes from 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 4946 Time: 2.5
+Send!!
+At time 3s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 5899 Time: 3
+At time 3.00525s server received 1024 bytes from 11.1.3.2 port 49153
+At time 3.00525s server sent 1024 bytes to 11.1.3.2 port 49153
+At time 3.01051s client received 1024 bytes from 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 6888 Time: 3.5
+Send!!
+At time 4s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 7876 Time: 4
+At time 4.00525s server received 1024 bytes from 11.1.3.2 port 49153
+At time 4.00525s server sent 1024 bytes to 11.1.3.2 port 49153
+At time 4.01051s client received 1024 bytes from 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 8899 Time: 4.5
+Send!!
+At time 5s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 9929 Time: 5
+At time 5.00525s server received 1024 bytes from 11.1.3.2 port 49153
+At time 5.00525s server sent 1024 bytes to 11.1.3.2 port 49153
+At time 5.01051s client received 1024 bytes from 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 10841 Time: 5.5
+Send!!
+At time 6s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 11821 Time: 6
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 11822 Time: 6
+At time 6.00477s server received 1024 bytes from 11.1.3.2 port 49153
+At time 6.00477s server sent 1024 bytes to 11.1.3.2 port 49153
+At time 6.01003s client received 1024 bytes from 11.1.2.4 port 9
+Receive!!
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 12803 Time: 6.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 12804 Time: 6.5
+Receive!!
+Send!!
+At time 7s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 13875 Time: 7
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 13876 Time: 7
+At time 7.00477s server received 1024 bytes from 11.1.3.2 port 49153
+At time 7.00477s server sent 1024 bytes to 11.1.3.2 port 49153
+At time 7.01003s client received 1024 bytes from 11.1.2.4 port 9
+Receive!!
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 14857 Time: 7.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 14858 Time: 7.5
+Receive!!
+Send!!
+At time 8s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 15894 Time: 8
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 15895 Time: 8
+At time 8.00477s server received 1024 bytes from 11.1.3.2 port 49153
+At time 8.00477s server sent 1024 bytes to 11.1.3.2 port 49153
+At time 8.01003s client received 1024 bytes from 11.1.2.4 port 9
+Receive!!
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 16848 Time: 8.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 16849 Time: 8.5
+Receive!!
+Send!!
+At time 9s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 17856 Time: 9
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 17857 Time: 9
+At time 9.00477s server received 1024 bytes from 11.1.3.2 port 49153
+At time 9.00477s server sent 1024 bytes to 11.1.3.2 port 49153
+At time 9.01003s client received 1024 bytes from 11.1.2.4 port 9
+Receive!!
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 18859 Time: 9.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 18860 Time: 9.5
+Receive!!
+10: Device Swapped 
+Send!!
+At time 10s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 19798 Time: 10
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 19799 Time: 10
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 16 Uid: 19798 TXtime: +10000000000.0ns RXtime: +10020870278.0ns Delay: +20870278.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 8 Uid: 19799 TXtime: +10000000000.0ns RXtime: +10021537027.0ns Delay: +21537027.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 20842 Time: 10.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 20843 Time: 10.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 17 Uid: 20842 TXtime: +10500000000.0ns RXtime: +10516213991.0ns Delay: +16213991.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 9 Uid: 20843 TXtime: +10500000000.0ns RXtime: +10516880740.0ns Delay: +16880740.0ns
+Send!!
+At time 11s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 21872 Time: 11
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 21873 Time: 11
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 18 Uid: 21872 TXtime: +11000000000.0ns RXtime: +11021696237.0ns Delay: +21696237.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 10 Uid: 21873 TXtime: +11000000000.0ns RXtime: +11022362986.0ns Delay: +22362986.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 22902 Time: 11.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 22903 Time: 11.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 19 Uid: 22902 TXtime: +11500000000.0ns RXtime: +11517123281.0ns Delay: +17123281.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 11 Uid: 22903 TXtime: +11500000000.0ns RXtime: +11517790030.0ns Delay: +17790030.0ns
+Send!!
+At time 12s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 23953 Time: 12
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 23954 Time: 12
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 20 Uid: 23953 TXtime: +12000000000.0ns RXtime: +12022549973.0ns Delay: +22549973.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 12 Uid: 23954 TXtime: +12000000000.0ns RXtime: +12023216722.0ns Delay: +23216722.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 25046 Time: 12.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 25047 Time: 12.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 21 Uid: 25046 TXtime: +12500000000.0ns RXtime: +12518088125.0ns Delay: +18088125.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 13 Uid: 25047 TXtime: +12500000000.0ns RXtime: +12518754874.0ns Delay: +18754874.0ns
+Send!!
+At time 13s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 26019 Time: 13
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 26020 Time: 13
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 22 Uid: 26019 TXtime: +13000000000.0ns RXtime: +13023542594.0ns Delay: +23542594.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 14 Uid: 26020 TXtime: +13000000000.0ns RXtime: +13024209343.0ns Delay: +24209343.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 27117 Time: 13.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 27118 Time: 13.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 23 Uid: 27117 TXtime: +13500000000.0ns RXtime: +13519080746.0ns Delay: +19080746.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 15 Uid: 27118 TXtime: +13500000000.0ns RXtime: +13519747495.0ns Delay: +19747495.0ns
+Send!!
+At time 14s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 28119 Time: 14
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 28120 Time: 14
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 24 Uid: 28119 TXtime: +14000000000.0ns RXtime: +14014507790.0ns Delay: +14507790.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 16 Uid: 28120 TXtime: +14000000000.0ns RXtime: +14015174539.0ns Delay: +15174539.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 29175 Time: 14.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 29176 Time: 14.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 25 Uid: 29175 TXtime: +14500000000.0ns RXtime: +14520045590.0ns Delay: +20045590.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 17 Uid: 29176 TXtime: +14500000000.0ns RXtime: +14520712339.0ns Delay: +20712339.0ns
+Send!!
+At time 15s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 30226 Time: 15
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 30227 Time: 15
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 26 Uid: 30226 TXtime: +15000000000.0ns RXtime: +15025555613.0ns Delay: +25555613.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 18 Uid: 30227 TXtime: +15000000000.0ns RXtime: +15026222362.0ns Delay: +26222362.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 31324 Time: 15.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 31325 Time: 15.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 27 Uid: 31324 TXtime: +15500000000.0ns RXtime: +15520982657.0ns Delay: +20982657.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 19 Uid: 31325 TXtime: +15500000000.0ns RXtime: +15521649406.0ns Delay: +21649406.0ns
+Send!!
+At time 16s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 32333 Time: 16
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 32334 Time: 16
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 28 Uid: 32333 TXtime: +16000000000.0ns RXtime: +16016437478.0ns Delay: +16437478.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 20 Uid: 32334 TXtime: +16000000000.0ns RXtime: +16017104227.0ns Delay: +17104227.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 33368 Time: 16.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 33369 Time: 16.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 29 Uid: 33368 TXtime: +16500000000.0ns RXtime: +16521975278.0ns Delay: +21975278.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 21 Uid: 33369 TXtime: +16500000000.0ns RXtime: +16522642027.0ns Delay: +22642027.0ns
+Send!!
+At time 17s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 34412 Time: 17
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 34413 Time: 17
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 30 Uid: 34412 TXtime: +17000000000.0ns RXtime: +17017513430.0ns Delay: +17513430.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 22 Uid: 34413 TXtime: +17000000000.0ns RXtime: +17018180179.0ns Delay: +18180179.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 35453 Time: 17.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 35454 Time: 17.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 31 Uid: 35453 TXtime: +17500000000.0ns RXtime: +17522912345.0ns Delay: +22912345.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 23 Uid: 35454 TXtime: +17500000000.0ns RXtime: +17523579094.0ns Delay: +23579094.0ns
+Send!!
+At time 18s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 36511 Time: 18
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 36512 Time: 18
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 32 Uid: 36511 TXtime: +18000000000.0ns RXtime: +18018478274.0ns Delay: +18478274.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 24 Uid: 36512 TXtime: +18000000000.0ns RXtime: +18019145023.0ns Delay: +19145023.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 37546 Time: 18.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 37547 Time: 18.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 33 Uid: 37546 TXtime: +18500000000.0ns RXtime: +18523932743.0ns Delay: +23932743.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 25 Uid: 37547 TXtime: +18500000000.0ns RXtime: +18524599492.0ns Delay: +24599492.0ns
+Send!!
+At time 19s client sent 1024 bytes to 11.1.2.4 port 9
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 38597 Time: 19
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 38598 Time: 19
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 34 Uid: 38597 TXtime: +19000000000.0ns RXtime: +19019193125.0ns Delay: +19193125.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 26 Uid: 38598 TXtime: +19000000000.0ns RXtime: +19019859874.0ns Delay: +19859874.0ns
+TraceDelay TX 1024 bytes to 11.1.3.3 Uid: 39646 Time: 19.5
+TraceDelay TX 1024 bytes to 11.1.3.2 Uid: 39647 Time: 19.5
+TraceDelay: RX 1012 bytes from 11.1.3.2 Sequence Number: 35 Uid: 39646 TXtime: +19500000000.0ns RXtime: +19514620169.0ns Delay: +14620169.0ns
+TraceDelay: RX 1012 bytes from 11.1.3.3 Sequence Number: 27 Uid: 39647 TXtime: +19500000000.0ns RXtime: +19515286918.0ns Delay: +15286918.0ns
