@@ -43,6 +43,8 @@
 #include "bandwidth-manager.h"
 #include "ns3/ipv4-address.h"
 #include "ns3/llc-snap-header.h"
+#include "ns3/mih-tag.h"
+
 
 NS_LOG_COMPONENT_DEFINE ("BaseStationNetDevice");
 
@@ -664,6 +666,11 @@ BaseStationNetDevice::DoReceive (Ptr<Packet> packet)
   ManagementMessageType msgType;
   RngReq rngReq;
   Cid cid;
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    return;
+  }
   uint8_t type = 0;
   GrantManagementSubheader grantMgmntSubhdr;
   Mac48Address source;

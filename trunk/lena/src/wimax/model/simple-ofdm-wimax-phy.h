@@ -256,6 +256,7 @@ private:
   double m_noiseFigure;
   double m_txGain;
   double m_rxGain;
+  double rate;
   /**
    * The trace source fired when a packet begins the transmission process on
    * the medium.

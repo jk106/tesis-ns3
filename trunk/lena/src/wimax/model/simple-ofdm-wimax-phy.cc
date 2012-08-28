@@ -33,6 +33,7 @@
 #include "simple-ofdm-wimax-channel.h"
 #include "ns3/trace-source-accessor.h"
 #include "ns3/random-variable.h"
+#include "ns3/mih-tag.h"
 #include <string>
 #include <math.h>
 NS_LOG_COMPONENT_DEFINE ("SimpleOfdmWimaxPhy");
@@ -150,6 +151,7 @@ SimpleOfdmWimaxPhy::InitSimpleOfdmWimaxPhy (void)
   m_nbErroneousBlock = 0;
   m_nrRecivedFecBlocks = 0;
   m_snrToBlockErrorRateManager = new SNRToBlockErrorRateManager ();
+  rate=0;
 }
 
 SimpleOfdmWimaxPhy::SimpleOfdmWimaxPhy (void)
@@ -376,6 +378,7 @@ SimpleOfdmWimaxPhy::StartReceive (uint32_t burstSize,
 
   NS_LOG_INFO ("PHY: Receive rxPower=" << rxPower << ", Nwb=" << Nwb << ", SNR=" << SNR << ", Modulation="
                                        << modulationType << ", BlocErrorRate=" << blockErrorRate << ", drop=" << (int) drop);
+  rate=(1-blockErrorRate)*10000;//We set up an analogy to 10Mbps
 
   switch (GetState ())
     {
@@ -461,7 +464,13 @@ SimpleOfdmWimaxPhy::EndReceiveFecBlock (uint32_t burstSize,
 void
 SimpleOfdmWimaxPhy::EndReceive (Ptr<const PacketBurst> burst)
 {
+  Ptr<Packet> packet=Create<Packet>();
+  MihTag tag;
+  tag.SetCommand(2);//WiMAX is No.2
+  tag.SetParameter(rate);
+  packet->AddPacketTag(tag);
   Ptr<PacketBurst> b = burst->Copy ();
+  b->AddPacket(packet);
   GetReceiveCallback () (b);
   m_traceRx (burst);
 }

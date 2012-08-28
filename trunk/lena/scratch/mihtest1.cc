@@ -68,7 +68,7 @@ int main (int argc, char *argv[])
 {
   bool verbose = false;
 
-  int duration = 20.2, schedType = 0;
+  int duration = 120.2, schedType = 0;
   WimaxHelper::SchedulerType scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
 
   CommandLine cmd;
@@ -76,10 +76,10 @@ int main (int argc, char *argv[])
   cmd.AddValue ("duration", "duration of the simulation in seconds", duration);
   cmd.AddValue ("verbose", "turn on all WimaxNetDevice log components", verbose);
   cmd.Parse (argc, argv);
-  LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
-  LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
-  LogComponentEnable ("UdpEchoClientApplication", LOG_LEVEL_INFO);
-  LogComponentEnable ("UdpEchoServerApplication", LOG_LEVEL_INFO);
+  //LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
+  //LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
+  //LogComponentEnable ("UdpEchoClientApplication", LOG_LEVEL_INFO);
+  //LogComponentEnable ("UdpEchoServerApplication", LOG_LEVEL_INFO);
 
   switch (schedType)
     {
