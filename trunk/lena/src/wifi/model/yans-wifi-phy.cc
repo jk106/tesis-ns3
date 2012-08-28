@@ -35,6 +35,7 @@
 #include "ns3/pointer.h"
 #include "ns3/net-device.h"
 #include "ns3/trace-source-accessor.h"
+#include "ns3/mih-tag.h"
 #include <math.h>
 
 NS_LOG_COMPONENT_DEFINE ("YansWifiPhy");
@@ -129,7 +130,8 @@ YansWifiPhy::YansWifiPhy ()
   :  m_channelNumber (1),
     m_endRxEvent (),
     m_random (0.0, 1.0),
-    m_channelStartingFrequency (0)
+    m_channelStartingFrequency (0),
+    rate(0)
 {
   NS_LOG_FUNCTION (this);
   m_state = CreateObject<WifiPhyStateHelper> ();
@@ -515,6 +517,8 @@ YansWifiPhy::SendPacket (Ptr<const Packet> packet, WifiMode txMode, WifiPreamble
     }
   NotifyTxBegin (packet);
   uint32_t dataRate500KbpsUnits = txMode.GetDataRate () / 500000;
+  //We make an analogy to 20Mbps for comfort.
+  rate=txMode.GetDataRate ()/2700;
   bool isShortPreamble = (WIFI_PREAMBLE_SHORT == preamble);
   NotifyMonitorSniffTx (packet, (uint16_t)GetChannelFrequencyMhz (), GetChannelNumber (), dataRate500KbpsUnits, isShortPreamble);
   m_state->SwitchToTx (txDuration, packet, txMode, preamble, txPower);
@@ -782,6 +786,13 @@ YansWifiPhy::EndReceive (Ptr<Packet> packet, Ptr<InterferenceHelper::Event> even
                 ", snr=" << snrPer.snr << ", per=" << snrPer.per << ", size=" << packet->GetSize ());
   if (m_random.GetValue () > snrPer.per)
     {
+      rate=(1-snrPer.per)*rate;
+      MihTag tag;
+      tag.SetCommand(1);//WiFi is No. 1
+      tag.SetParameter(rate);
+      Ptr<Packet> p=Create<Packet>();
+      p->AddPacketTag(tag);
+      m_state->SwitchFromRxEndOk (p, snrPer.snr, event->GetPayloadMode (), event->GetPreambleType ());
       NotifyRxEnd (packet);
       uint32_t dataRate500KbpsUnits = event->GetPayloadMode ().GetDataRate () / 500000;
       bool isShortPreamble = (WIFI_PREAMBLE_SHORT == event->GetPreambleType ());

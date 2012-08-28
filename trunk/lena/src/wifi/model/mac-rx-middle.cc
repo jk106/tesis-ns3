@@ -26,6 +26,7 @@
 #include "ns3/packet.h"
 #include "ns3/simulator.h"
 #include "ns3/sequence-number.h"
+#include "ns3/mih-tag.h"
 #include <list>
 
 NS_LOG_COMPONENT_DEFINE ("MacRxMiddle");
@@ -246,6 +247,12 @@ void
 MacRxMiddle::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
 {
   NS_LOG_FUNCTION (packet << hdr);
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    m_callback (packet, hdr);
+    return;
+  }
   NS_ASSERT (hdr->IsData () || hdr->IsMgt ());
   OriginatorRxStatus *originator = Lookup (hdr);
   /**

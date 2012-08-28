@@ -77,6 +77,7 @@ class NetDevice : public Object
 public:
   static TypeId GetTypeId (void);
   virtual ~NetDevice();
+  virtual void UpdateParameter(uint8_t command, double parameter){};
 
   /**
    * \param index ifIndex of the device 

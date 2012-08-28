@@ -37,6 +37,7 @@
 #include "msdu-aggregator.h"
 #include "amsdu-subframe-header.h"
 #include "mgt-headers.h"
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("StaWifiMac");
 
@@ -374,6 +375,12 @@ void
 StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
 {
   NS_LOG_FUNCTION (this << packet << hdr);
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    ForwardUp(packet, Mac48Address("aa:bb:cc:dd:ee:ff"),Mac48Address("aa:bb:cc:dd:ee:ff"));
+    return;
+  }
   NS_ASSERT (!hdr->IsCtl ());
   if (hdr->GetAddr3 () == GetAddress ())
     {

@@ -21,6 +21,7 @@
 #include "ns3/log.h"
 #include "ns3/simulator.h"
 #include "ns3/trace-source-accessor.h"
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("WifiPhyStateHelper");
 
@@ -367,6 +368,12 @@ WifiPhyStateHelper::SwitchToChannelSwitching (Time switchingDuration)
 void
 WifiPhyStateHelper::SwitchFromRxEndOk (Ptr<Packet> packet, double snr, WifiMode mode, enum WifiPreamble preamble)
 {
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    m_rxOkCallback (packet, snr, mode, preamble);
+    return;
+  }
   m_rxOkTrace (packet, snr, mode, preamble);
   NotifyRxEndOk ();
   DoSwitchFromRx ();

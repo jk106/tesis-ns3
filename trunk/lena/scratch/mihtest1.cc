@@ -235,14 +235,14 @@ uint32_t nCsma = 3;
   Ptr<ListPositionAllocator> positionAlloc;
   positionAlloc = CreateObject<ListPositionAllocator> ();
   
-  positionAlloc->Add (Vector (0.0, 70.0, 0.0)); //STA
+  positionAlloc->Add (Vector (0.0, 0.0, 0.0)); //STA
   
   mobility.SetPositionAllocator (positionAlloc);
   mobility.SetMobilityModel ("ns3::ConstantVelocityMobilityModel");  
   mobility.Install(ssNodes.Get(0));
   
   Ptr<ConstantVelocityMobilityModel> cvm = ssNodes.Get(0)->GetObject<ConstantVelocityMobilityModel>();
-  cvm->SetVelocity(Vector (0, 0, 0)); //move to left to right 10.0m/s
+  cvm->SetVelocity(Vector (10, 0, 0)); //move to left to right 10.0m/s
 
   positionAlloc = CreateObject<ListPositionAllocator> ();
   

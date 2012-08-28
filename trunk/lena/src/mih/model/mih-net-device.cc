@@ -25,6 +25,7 @@
 #include "ns3/pointer.h"
 #include "ns3/error-model.h"
 #include "ns3/trace-source-accessor.h"
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("MihNetDevice");
 
@@ -56,6 +57,13 @@ MihNetDevice::NonPromiscReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Pack
                                 const Address &from)
 {
   NS_LOG_FUNCTION (this);
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    UpdateParameter(tag.GetCommand(),tag.GetParameter());
+    return true;
+  }
+
   if(device == m_devices[m_active])
   {
      m_rxCallback (this, packet, protocol, from);
@@ -66,6 +74,19 @@ MihNetDevice::NonPromiscReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Pack
   }
 
   return true;
+}
+
+void
+MihNetDevice::UpdateParameter(uint8_t command, double parameter)
+{
+  if(command==1)
+  {
+     std::cout<<"Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+  }
+  else
+  {
+     std::cout<<"Recibido de WTF "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+  }
 }
 
 void

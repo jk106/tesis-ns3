@@ -219,6 +219,7 @@ private:
   Ptr<WifiPhyStateHelper> m_state;
   InterferenceHelper m_interference;
   Time m_channelSwitchDelay;
+  double rate;
 
 };
 

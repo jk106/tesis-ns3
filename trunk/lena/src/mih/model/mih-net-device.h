@@ -58,6 +58,7 @@ public:
   void SetNetDevices(std::vector<Ptr<NetDevice> > &c);
   void Activate(uint8_t index);
   void SetAddress(Ipv4Address addr);
+  virtual void UpdateParameter(uint8_t command, double parameter);
   
   // inherited from NetDevice base class.
   virtual void SetIfIndex (const uint32_t index);
