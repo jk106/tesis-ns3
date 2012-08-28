@@ -38,6 +38,8 @@
 #include "service-flow-manager.h"
 #include "connection-manager.h"
 #include "bandwidth-manager.h"
+#include "ns3/mih-tag.h"
+
 
 NS_LOG_COMPONENT_DEFINE ("WimaxNetDevice");
 
@@ -338,6 +340,12 @@ WimaxNetDevice::SetReceiveCallback (ReceiveCallback cb)
 void
 WimaxNetDevice::ForwardUp (Ptr<Packet> packet, const Mac48Address &source, const Mac48Address &dest)
 {
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    m_forwardUp (this, packet, 55, source);
+    return;
+  }
   m_traceRx (packet, source);
   LlcSnapHeader llc;
   packet->RemoveHeader (llc);

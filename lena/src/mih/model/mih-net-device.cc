@@ -81,7 +81,27 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
 {
   if(command==1)
   {
-     std::cout<<"Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     //std::cout<<"Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     if(parameter<1200&&parameter >800)
+     {
+       std::cout<<"Perdiendo WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     }
+     if(parameter<800)
+     {
+       std::cout<<"Wifi Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     }
+  }
+  else if(command==2)
+  {
+     //std::cout<<"Recibido de WiMAX "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     if(parameter<10000&&parameter >9970)
+     {
+       std::cout<<"Perdiendo WiMAX "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     }
+     if(parameter<9870)
+     {
+       std::cout<<"WiMAX Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     }
   }
   else
   {

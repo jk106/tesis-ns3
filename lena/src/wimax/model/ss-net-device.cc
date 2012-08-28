@@ -41,6 +41,8 @@
 #include "burst-profile-manager.h"
 #include "ss-link-manager.h"
 #include "bandwidth-manager.h"
+#include "ns3/mih-tag.h"
+
 
 NS_LOG_COMPONENT_DEFINE ("SubscriberStationNetDevice");
 
@@ -738,6 +740,12 @@ SubscriberStationNetDevice::DoReceive (Ptr<Packet> packet)
   ManagementMessageType msgType;
   RngRsp rngrsp;
   Cid cid;
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    ForwardUp (packet, m_baseStationId, GetMacAddress ()); // source shall be BS's address or sender SS's?
+    return;
+  }
   uint32_t pktSize = packet->GetSize ();
   packet->RemoveHeader (gnrcMacHdr);
   FragmentationSubheader fragSubhdr;
