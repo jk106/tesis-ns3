@@ -37,6 +37,7 @@
 #include "mac-low.h"
 #include "amsdu-subframe-header.h"
 #include "msdu-aggregator.h"
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("ApWifiMac");
 
@@ -400,7 +401,11 @@ void
 ApWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
 {
   NS_LOG_FUNCTION (this << packet << hdr);
-
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    return;
+  }
   Mac48Address from = hdr->GetAddr2 ();
 
   if (hdr->IsData ())

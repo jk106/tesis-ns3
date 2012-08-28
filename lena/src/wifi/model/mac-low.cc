@@ -33,6 +33,7 @@
 #include "wifi-mac-trailer.h"
 #include "qos-utils.h"
 #include "edca-txop-n.h"
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("MacLow");
 
@@ -670,9 +671,18 @@ MacLow::ReceiveOk (Ptr<Packet> packet, double rxSnr, WifiMode txMode, WifiPreamb
    * we handle any packet present in the
    * packet queue.
    */
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    WifiMacHeader ack;
+    m_rxCallback (packet, &ack);
+    return;
+  }  
   WifiMacHeader hdr;
   packet->RemoveHeader (hdr);
 
+  
+  
   bool isPrevNavZero = IsNavZero ();
   NS_LOG_DEBUG ("duration/id=" << hdr.GetDuration ());
   NotifyNav (hdr, txMode, preamble);

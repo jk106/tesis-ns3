@@ -29,6 +29,7 @@
 #include "ns3/node.h"
 #include "ns3/trace-source-accessor.h"
 #include "ns3/log.h"
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("WifiNetDevice");
 
@@ -287,6 +288,12 @@ WifiNetDevice::SetReceiveCallback (NetDevice::ReceiveCallback cb)
 void
 WifiNetDevice::ForwardUp (Ptr<Packet> packet, Mac48Address from, Mac48Address to)
 {
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    m_forwardUp (this, packet, 55, from);
+    return;
+  }
   LlcSnapHeader llc;
   packet->RemoveHeader (llc);
   enum NetDevice::PacketType type;

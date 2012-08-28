@@ -31,6 +31,7 @@
 #include "ns3/global-value.h"
 #include "ns3/boolean.h"
 #include "ns3/simulator.h"
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("Node");
 
@@ -287,6 +288,13 @@ Node::ReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Packet> packet, uint16
                         << device->GetIfIndex () << " (type=" << device->GetInstanceTypeId ().GetName ()
                         << ") Packet UID " << packet->GetUid ());
   bool found = false;
+
+  MihTag tag;
+  if(packet->PeekPacketTag(tag))
+  {
+    GetDevice(GetNDevices()-1)->UpdateParameter(tag.GetCommand(),tag.GetParameter());
+    return true;
+  }
 
   for (ProtocolHandlerList::iterator i = m_handlers.begin ();
        i != m_handlers.end (); i++)
