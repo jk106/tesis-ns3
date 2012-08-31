@@ -25,6 +25,7 @@
 #include "ns3/lte-rlc-um.h"
 #include "ns3/lte-rlc-sdu-status-tag.h"
 #include "ns3/lte-rlc-tag.h"
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("LteRlcUm");
 
@@ -392,7 +393,12 @@ void
 LteRlcUm::DoReceivePdu (Ptr<Packet> p)
 {
   NS_LOG_FUNCTION (this << m_rnti << (uint32_t) m_lcid << p->GetSize ());
-
+  MihTag tag;
+  if(p->PeekPacketTag(tag))
+  {
+    m_rlcSapUser->ReceivePdcpPdu (p);
+    return;
+  }
   // Receiver timestamp
   RlcTag rlcTag;
   Time delay;

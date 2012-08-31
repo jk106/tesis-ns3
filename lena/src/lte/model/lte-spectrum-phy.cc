@@ -37,6 +37,7 @@
 #include <ns3/lte-radio-bearer-tag.h>
 #include <ns3/boolean.h>
 #include <ns3/double.h>
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("LteSpectrumPhy");
 
@@ -752,7 +753,8 @@ LteSpectrumPhy::EndRxData ()
   NS_LOG_DEBUG (this << " txMode " << (uint16_t)m_transmissionMode << " gain " << m_txModeGain.at (m_transmissionMode));
   NS_ASSERT (m_transmissionMode < m_txModeGain.size ());
   m_sinrPerceived *= m_txModeGain.at (m_transmissionMode);
-  
+  double a=0;
+  int b=0;
   while (itTb!=m_expectedTbs.end ())
     {
       if (m_dataErrorModelEnabled)
@@ -760,6 +762,8 @@ LteSpectrumPhy::EndRxData ()
           double errorRate = LteMiErrorModel::GetTbError (m_sinrPerceived, (*itTb).second.rbBitmap, (*itTb).second.size, (*itTb).second.mcs);
           (*itTb).second.corrupt = m_random.GetValue () > errorRate ? false : true;
           NS_LOG_DEBUG (this << "RNTI " << (*itTb).first.m_rnti << " size " << (*itTb).second.size << " mcs " << (uint32_t)(*itTb).second.mcs << " bitmap " << (*itTb).second.rbBitmap.size () << " layer " << (uint16_t)(*itTb).first.m_layer << " ErrorRate " << errorRate << " corrupted " << (*itTb).second.corrupt);
+          b++;
+          a=a+errorRate;
        }
       
 //       for (uint16_t i = 0; i < (*itTb).second.rbBitmap.size (); i++)
@@ -768,6 +772,7 @@ LteSpectrumPhy::EndRxData ()
 //         }
       itTb++;
     }
+    double errorRate=a/b;                     
     for (std::list<Ptr<PacketBurst> >::const_iterator i = m_rxPacketBurstList.begin (); 
     i != m_rxPacketBurstList.end (); ++i)
       {
@@ -800,6 +805,16 @@ LteSpectrumPhy::EndRxData ()
               }
           }
       }
+if(b!=0)
+{
+    MihTag tag1;
+    tag1.SetCommand(3);//Lte is number 3
+    tag1.SetParameter(errorRate);
+    Ptr<Packet> p=Create<Packet>();
+    p->AddPacketTag(tag1);
+    m_ltePhyRxDataEndOkCallback (p);
+}
+   
       
   if (!m_rxControlMessageList.empty ())
     {

@@ -33,6 +33,7 @@
 #include <ns3/lte-control-messages.h>
 #include <ns3/simulator.h>
 #include <ns3/lte-common.h>
+#include "ns3/mih-tag.h"
 
 
 NS_LOG_COMPONENT_DEFINE ("LteUeMac");
@@ -352,6 +353,13 @@ LteUeMac::DoRrcUpdateConfigurationReq (LteUeConfig_t params)
 void
 LteUeMac::DoReceivePhyPdu (Ptr<Packet> p)
 {
+  MihTag tag1;
+  if(p->PeekPacketTag(tag1))
+  {
+    std::map <uint8_t, LteMacSapUser*>::const_iterator it = m_macSapUserMap.begin();
+    it->second->ReceivePdu (p);
+    return;
+  }
   LteRadioBearerTag tag;
   p->RemovePacketTag (tag);
   if (tag.GetRnti () == m_rnti)
