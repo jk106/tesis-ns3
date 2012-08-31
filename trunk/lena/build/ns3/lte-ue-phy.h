@@ -241,6 +241,7 @@ private:
   
   uint16_t m_srsPeriodicity;
   uint16_t m_srsCounter;
+  int rate;
 
 };
 

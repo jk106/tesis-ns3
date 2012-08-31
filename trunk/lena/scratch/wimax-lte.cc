@@ -163,7 +163,7 @@ Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
   mobility.Install(ssNodes.Get(0));
   
   Ptr<ConstantVelocityMobilityModel> cvm = ssNodes.Get(0)->GetObject<ConstantVelocityMobilityModel>();
-  cvm->SetVelocity(Vector (40, 0, 0)); //move to left to right 10.0m/s
+  cvm->SetVelocity(Vector (100, 0, 0)); //move to left to right 10.0m/s
 
   positionAlloc = CreateObject<ListPositionAllocator> ();
   
@@ -293,12 +293,14 @@ Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
 
   UdpEchoClientHelper echoClient (iueIpIface.GetAddress (0), 9);
   echoClient.SetAttribute ("MaxPackets", UintegerValue (200000));
-  echoClient.SetAttribute ("Interval", TimeValue (Seconds (0.004)));
+  //echoClient.SetAttribute ("Interval", TimeValue (Seconds (0.004)));
+  echoClient.SetAttribute ("Interval", TimeValue (Seconds (1)));
   echoClient.SetAttribute ("PacketSize", UintegerValue (1024));
 
-  ApplicationContainer clientApps1 = echoClient.Install (remoteHost);
+  ApplicationContainer clientApps1 = echoClient.Install (pgw);
   clientApps1.Start (Seconds (2.0));
   clientApps1.Stop (Seconds (duration));
+
 
 	 		  
   lteHelper->EnableTraces ();

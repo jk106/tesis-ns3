@@ -25,6 +25,7 @@
 #include "ns3/lte-pdcp-header.h"
 #include "ns3/lte-pdcp-sap.h"
 #include "ns3/lte-pdcp-tag.h"
+#include "ns3/mih-tag.h"
 
 NS_LOG_COMPONENT_DEFINE ("LtePdcp");
 
@@ -180,7 +181,16 @@ void
 LtePdcp::DoReceivePdu (Ptr<Packet> p)
 {
   NS_LOG_FUNCTION (this << m_rnti << (uint32_t) m_lcid << p->GetSize ());
-
+  MihTag tag;
+  if(p->PeekPacketTag(tag))
+  {
+    LtePdcpSapUser::ReceiveRrcPduParameters params;
+    params.rrcPdu = p;
+    params.rnti = m_rnti;
+    params.lcid = m_lcid;
+    m_pdcpSapUser->ReceiveRrcPdu (params);
+    return;
+  }
   // Receiver timestamp
   PdcpTag pdcpTag;
   Time delay;

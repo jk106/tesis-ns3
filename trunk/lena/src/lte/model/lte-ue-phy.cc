@@ -36,6 +36,7 @@
 #include "ff-mac-common.h"
 #include "lte-sinr-chunk-processor.h"
 #include <ns3/lte-common.h>
+#include "ns3/mih-tag.h"
 
 
 NS_LOG_COMPONENT_DEFINE ("LteUePhy");
@@ -43,7 +44,12 @@ NS_LOG_COMPONENT_DEFINE ("LteUePhy");
 namespace ns3 {
 
 
+int McsToItbss[29] = {
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 14, 15, 15, 16, 17, 18,
+  19, 20, 21, 22, 23, 24, 25, 26
+};
 
+int rates[27]={ 3112, 4008, 4968, 6456, 7992, 9528, 11448, 13536, 15264, 17568, 19080, 22152, 25456, 28336, 31704, 34008, 35160, 39232, 43816, 46888, 51024, 55056, 59256, 63776, 66592, 71112, 75376};
 
 // duration of data portion of UL subframe
 // = TTI - 1 symbol for SRS - 1ns as margin to avoid overlapping simulator events
@@ -139,7 +145,8 @@ LteUePhy::LteUePhy (Ptr<LteSpectrumPhy> dlPhy, Ptr<LteSpectrumPhy> ulPhy)
     // ideal behavior
     m_a30CqiLast (MilliSeconds (0)),
     m_rnti (0),
-    m_srsPeriodicity (0)
+    m_srsPeriodicity (0),
+    rate(28)
 {
   m_amc = CreateObject <LteAmc> ();
   m_uePhySapProvider = new UeMemberLteUePhySapProvider (this);
@@ -308,6 +315,17 @@ LteUePhy::DoSendMacPdu (Ptr<Packet> p)
 void
 LteUePhy::PhyPduReceived (Ptr<Packet> p)
 {
+  MihTag tag;
+  double error=0;
+  if(p->PeekPacketTag(tag))
+  {
+    p->RemovePacketTag(tag);
+    error=tag.GetParameter();
+    MihTag t;
+    t.SetCommand(3);
+    t.SetParameter((1-error)*rates[McsToItbss[rate]]);
+    p->AddPacketTag(t);
+  }
   m_uePhySapUser->ReceivePhyPdu (p);
 }
 
@@ -560,6 +578,8 @@ LteUePhy::ReceiveLteControlMessageList (std::list<Ptr<LteControlMessage> > msgLi
       NS_LOG_DEBUG (this << " UL DCI");
       Ptr<UlDciLteControlMessage> msg2 = DynamicCast<UlDciLteControlMessage> (msg);
       UlDciListElement_s dci = msg2->GetDci ();
+      rate=(int) dci.m_mcs;
+      //std::cout<<"Number: "<<rate<<std::endl;
       if (dci.m_rnti != m_rnti)
         {
           // DCI not for me

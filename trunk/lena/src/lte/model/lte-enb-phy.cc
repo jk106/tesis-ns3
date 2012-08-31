@@ -35,6 +35,7 @@
 #include "lte-enb-mac.h"
 #include <ns3/lte-common.h>
 #include <ns3/lte-vendor-specific-parameters.h>
+#include "ns3/mih-tag.h"
 
 
 NS_LOG_COMPONENT_DEFINE ("LteEnbPhy");
@@ -328,6 +329,11 @@ void
 LteEnbPhy::PhyPduReceived (Ptr<Packet> p)
 {
   NS_LOG_FUNCTION (this);
+  MihTag tag;
+  if(p->PeekPacketTag(tag))
+  {
+    return;
+  }
   m_enbPhySapUser->ReceivePhyPdu (p);
 }
 
