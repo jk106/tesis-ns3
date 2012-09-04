@@ -1,0 +1,2076 @@
+Waf: Entering directory `/home/juan/test/lena/build'
+[ 721/1628] cxx: scratch/mihtest2.cc -> build/scratch/mihtest2.cc.2.o
+[1619/1628] cxxprogram: build/scratch/mihtest2.cc.2.o -> build/scratch/mihtest2
+Waf: Leaving directory `/home/juan/test/lena/build'
+'build' finished successfully (6.353s)
+MIH adress: 7.0.0.2
+Wifi Perdido 0 en tiempo 0.000133 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 13052 Time: 6
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 0 Uid: 13052 TXtime: +6000000000.0ns RXtime: +6005162599.0ns Delay: +5162599.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 14110 Time: 6.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 1 Uid: 14110 TXtime: +6500000000.0ns RXtime: +6505162616.0ns Delay: +5162616.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 15261 Time: 7
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 2 Uid: 15261 TXtime: +7000000000.0ns RXtime: +7005162633.0ns Delay: +5162633.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 16319 Time: 7.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 3 Uid: 16319 TXtime: +7500000000.0ns RXtime: +7505162649.0ns Delay: +5162649.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 17435 Time: 8
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 4 Uid: 17435 TXtime: +8000000000.0ns RXtime: +8005162666.0ns Delay: +5162666.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 18465 Time: 8.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 5 Uid: 18465 TXtime: +8500000000.0ns RXtime: +8505162683.0ns Delay: +5162683.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 19551 Time: 9
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 6 Uid: 19551 TXtime: +9000000000.0ns RXtime: +9005162699.0ns Delay: +5162699.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 20630 Time: 9.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 7 Uid: 20630 TXtime: +9500000000.0ns RXtime: +9505162716.0ns Delay: +5162716.0ns
+10: Device Swapped 
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 21648 Time: 10
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 22751 Time: 10.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 23854 Time: 11
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 24945 Time: 11.5
+Perdiendo WiFi 1151.01 en tiempo 11.8785 s
+Perdiendo WiFi 840.124 en tiempo 11.9809 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 26069 Time: 12
+Wifi Perdido 529.801 en tiempo 12.0833 s
+Wifi Perdido 269.769 en tiempo 12.1857 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 27220 Time: 12.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 28261 Time: 13
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 29430 Time: 13.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 30510 Time: 14
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 31641 Time: 14.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 32770 Time: 15
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 33941 Time: 15.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 35030 Time: 16
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 36138 Time: 16.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 37262 Time: 17
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 38376 Time: 17.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 39514 Time: 18
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 40622 Time: 18.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 41753 Time: 19
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 42875 Time: 19.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 44076 Time: 20
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 45191 Time: 20.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 46306 Time: 21
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 47492 Time: 21.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 48579 Time: 22
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 49710 Time: 22.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 50811 Time: 23
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 51963 Time: 23.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 53071 Time: 24
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 54181 Time: 24.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 55261 Time: 25
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 56406 Time: 25.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 57583 Time: 26
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 58677 Time: 26.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 59794 Time: 27
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 60937 Time: 27.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 62075 Time: 28
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 63141 Time: 28.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 64272 Time: 29
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 65415 Time: 29.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 66545 Time: 30
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 67646 Time: 30.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 68784 Time: 31
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 69920 Time: 31.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 71028 Time: 32
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 72229 Time: 32.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 73295 Time: 33
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 74419 Time: 33.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 75569 Time: 34
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 76650 Time: 34.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 77653 Time: 35
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 78763 Time: 35.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 79843 Time: 36
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 81009 Time: 36.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 82082 Time: 37
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 83155 Time: 37.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 84209 Time: 38
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 85253 Time: 38.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 86447 Time: 39
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 87597 Time: 39.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 88770 Time: 40
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 89864 Time: 40.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 90960 Time: 41
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 92054 Time: 41.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 93141 Time: 42
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 94293 Time: 42.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 95414 Time: 43
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 96524 Time: 43.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 97569 Time: 44
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 98714 Time: 44.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 99780 Time: 45
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 100883 Time: 45.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 101942 Time: 46
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 103108 Time: 46.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 104187 Time: 47
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 105316 Time: 47.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 106454 Time: 48
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 107583 Time: 48.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 108714 Time: 49
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 109801 Time: 49.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 110925 Time: 50
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 112019 Time: 50.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 113108 Time: 51
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 114271 Time: 51.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 115395 Time: 52
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 116531 Time: 52.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 117625 Time: 53
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 118798 Time: 53.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 119927 Time: 54
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 121079 Time: 54.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 122264 Time: 55
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 123324 Time: 55.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 124439 Time: 56
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 125500 Time: 56.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 126650 Time: 57
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 127730 Time: 57.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 128896 Time: 58
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 129990 Time: 58.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 131135 Time: 59
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 132271 Time: 59.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 133345 Time: 60
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 134453 Time: 60.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 135514 Time: 61
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 136657 Time: 61.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 137795 Time: 62
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 138931 Time: 62.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 140039 Time: 63
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 141184 Time: 63.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 142298 Time: 64
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 143457 Time: 64.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 144544 Time: 65
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 145717 Time: 65.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 146839 Time: 66
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 147949 Time: 66.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 149078 Time: 67
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 150181 Time: 67.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 151317 Time: 68
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 152410 Time: 68.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 153562 Time: 69
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 154698 Time: 69.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 155829 Time: 70
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 156944 Time: 70.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 158068 Time: 71
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 159183 Time: 71.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 160300 Time: 72
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 161408 Time: 72.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 162489 Time: 73
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 163611 Time: 73.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 164746 Time: 74
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 165877 Time: 74.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 167026 Time: 75
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 168122 Time: 75.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 169215 Time: 76
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 170358 Time: 76.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 171430 Time: 77
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 172533 Time: 77.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 173641 Time: 78
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 174733 Time: 78.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 175906 Time: 79
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 176942 Time: 79.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 178031 Time: 80
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 179123 Time: 80.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 180275 Time: 81
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 181388 Time: 81.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 182540 Time: 82
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 183689 Time: 82.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 184762 Time: 83
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 185868 Time: 83.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 186939 Time: 84
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 188054 Time: 84.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 189175 Time: 85
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 190221 Time: 85.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 191293 Time: 86
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 192395 Time: 86.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 193494 Time: 87
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 194574 Time: 87.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 195736 Time: 88
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 196866 Time: 88.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 197916 Time: 89
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 198952 Time: 89.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 200080 Time: 90
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 201214 Time: 90.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 202364 Time: 91
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 203568 Time: 91.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 204698 Time: 92
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 205741 Time: 92.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 206835 Time: 93
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 207934 Time: 93.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 209069 Time: 94
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 210168 Time: 94.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 211274 Time: 95
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 212389 Time: 95.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 213467 Time: 96
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 214568 Time: 96.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 215632 Time: 97
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 216768 Time: 97.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 217888 Time: 98
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 218974 Time: 98.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 220115 Time: 99
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 221270 Time: 99.5
+100: Device Swapped 
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 222378 Time: 100
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 188 Uid: 222378 TXtime: +100000000000.0ns RXtime: +100019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 223480 Time: 100.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 189 Uid: 223480 TXtime: +100500000000.0ns RXtime: +100517687275.0ns Delay: +17687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 224587 Time: 101
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 190 Uid: 224587 TXtime: +101000000000.0ns RXtime: +101019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 225696 Time: 101.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 191 Uid: 225696 TXtime: +101500000000.0ns RXtime: +101519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 226779 Time: 102
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 192 Uid: 226779 TXtime: +102000000000.0ns RXtime: +102019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 227908 Time: 102.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 193 Uid: 227908 TXtime: +102500000000.0ns RXtime: +102519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 229019 Time: 103
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 194 Uid: 229019 TXtime: +103000000000.0ns RXtime: +103019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 230163 Time: 103.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 195 Uid: 230163 TXtime: +103500000000.0ns RXtime: +103519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 231288 Time: 104
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 196 Uid: 231288 TXtime: +104000000000.0ns RXtime: +104019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 232313 Time: 104.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 197 Uid: 232313 TXtime: +104500000000.0ns RXtime: +104519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 233408 Time: 105
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 198 Uid: 233408 TXtime: +105000000000.0ns RXtime: +105019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 234554 Time: 105.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 199 Uid: 234554 TXtime: +105500000000.0ns RXtime: +105519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 235670 Time: 106
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 200 Uid: 235670 TXtime: +106000000000.0ns RXtime: +106019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 236802 Time: 106.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 201 Uid: 236802 TXtime: +106500000000.0ns RXtime: +106519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 237959 Time: 107
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 202 Uid: 237959 TXtime: +107000000000.0ns RXtime: +107019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 239098 Time: 107.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 203 Uid: 239098 TXtime: +107500000000.0ns RXtime: +107519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 240193 Time: 108
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 204 Uid: 240193 TXtime: +108000000000.0ns RXtime: +108019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 241332 Time: 108.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 205 Uid: 241332 TXtime: +108500000000.0ns RXtime: +108519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 242420 Time: 109
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 206 Uid: 242420 TXtime: +109000000000.0ns RXtime: +109019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 243538 Time: 109.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 207 Uid: 243538 TXtime: +109500000000.0ns RXtime: +109519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 244605 Time: 110
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 208 Uid: 244605 TXtime: +110000000000.0ns RXtime: +110019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 245707 Time: 110.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 209 Uid: 245707 TXtime: +110500000000.0ns RXtime: +110519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 246824 Time: 111
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 210 Uid: 246824 TXtime: +111000000000.0ns RXtime: +111019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 247898 Time: 111.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 211 Uid: 247898 TXtime: +111500000000.0ns RXtime: +111519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 249051 Time: 112
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 212 Uid: 249051 TXtime: +112000000000.0ns RXtime: +112019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 250125 Time: 112.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 213 Uid: 250125 TXtime: +112500000000.0ns RXtime: +112519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 251250 Time: 113
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 214 Uid: 251250 TXtime: +113000000000.0ns RXtime: +113019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 252268 Time: 113.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 215 Uid: 252268 TXtime: +113500000000.0ns RXtime: +113519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 253386 Time: 114
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 216 Uid: 253386 TXtime: +114000000000.0ns RXtime: +114019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 254418 Time: 114.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 217 Uid: 254418 TXtime: +114500000000.0ns RXtime: +114519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 255506 Time: 115
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 218 Uid: 255506 TXtime: +115000000000.0ns RXtime: +115019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 256553 Time: 115.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 219 Uid: 256553 TXtime: +115500000000.0ns RXtime: +115519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 257662 Time: 116
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 220 Uid: 257662 TXtime: +116000000000.0ns RXtime: +116019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 258696 Time: 116.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 221 Uid: 258696 TXtime: +116500000000.0ns RXtime: +116519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 259826 Time: 117
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 222 Uid: 259826 TXtime: +117000000000.0ns RXtime: +117019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 260930 Time: 117.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 223 Uid: 260930 TXtime: +117500000000.0ns RXtime: +117519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 262025 Time: 118
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 224 Uid: 262025 TXtime: +118000000000.0ns RXtime: +118019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 263136 Time: 118.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 225 Uid: 263136 TXtime: +118500000000.0ns RXtime: +118519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 264231 Time: 119
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 226 Uid: 264231 TXtime: +119000000000.0ns RXtime: +119019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 265327 Time: 119.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 227 Uid: 265327 TXtime: +119500000000.0ns RXtime: +119519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 266359 Time: 120
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 228 Uid: 266359 TXtime: +120000000000.0ns RXtime: +120019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 267433 Time: 120.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 229 Uid: 267433 TXtime: +120500000000.0ns RXtime: +120519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 268495 Time: 121
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 230 Uid: 268495 TXtime: +121000000000.0ns RXtime: +121019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 269562 Time: 121.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 231 Uid: 269562 TXtime: +121500000000.0ns RXtime: +121519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 270652 Time: 122
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 232 Uid: 270652 TXtime: +122000000000.0ns RXtime: +122019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 271831 Time: 122.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 233 Uid: 271831 TXtime: +122500000000.0ns RXtime: +122519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 272900 Time: 123
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 234 Uid: 272900 TXtime: +123000000000.0ns RXtime: +123019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 273988 Time: 123.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 235 Uid: 273988 TXtime: +123500000000.0ns RXtime: +123519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 275063 Time: 124
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 236 Uid: 275063 TXtime: +124000000000.0ns RXtime: +124019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 276116 Time: 124.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 237 Uid: 276116 TXtime: +124500000000.0ns RXtime: +124519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 277234 Time: 125
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 238 Uid: 277234 TXtime: +125000000000.0ns RXtime: +125019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 278336 Time: 125.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 239 Uid: 278336 TXtime: +125500000000.0ns RXtime: +125519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 279459 Time: 126
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 240 Uid: 279459 TXtime: +126000000000.0ns RXtime: +126019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 280626 Time: 126.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 241 Uid: 280626 TXtime: +126500000000.0ns RXtime: +126519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 281658 Time: 127
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 282719 Time: 127.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 242 Uid: 281658 TXtime: +127000000000.0ns RXtime: +127528687275.0ns Delay: +528687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 243 Uid: 281658 TXtime: +127500000000.0ns RXtime: +127531687275.0ns Delay: +31687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 283910 Time: 128
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 285006 Time: 128.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 286100 Time: 129
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 287161 Time: 129.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 288206 Time: 130
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 289260 Time: 130.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 290347 Time: 131
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 291413 Time: 131.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 292495 Time: 132
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 293595 Time: 132.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 294663 Time: 133
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 295729 Time: 133.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 296818 Time: 134
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 297919 Time: 134.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 298938 Time: 135
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 300074 Time: 135.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 301121 Time: 136
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 302187 Time: 136.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 303238 Time: 137
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 304341 Time: 137.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 305421 Time: 138
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 306482 Time: 138.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 244 Uid: 283910 TXtime: +128000000000.0ns RXtime: +138774687275.0ns Delay: +10774687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 307511 Time: 139
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 308607 Time: 139.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 245 Uid: 283910 TXtime: +128500000000.0ns RXtime: +139782687275.0ns Delay: +11282687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 246 Uid: 285006 TXtime: +129000000000.0ns RXtime: +139785687275.0ns Delay: +10785687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 309699 Time: 140
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 310781 Time: 140.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 247 Uid: 286100 TXtime: +129500000000.0ns RXtime: +140793687275.0ns Delay: +11293687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 248 Uid: 287161 TXtime: +130000000000.0ns RXtime: +140796687275.0ns Delay: +10796687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 311963 Time: 141
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 313043 Time: 141.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 249 Uid: 288206 TXtime: +130500000000.0ns RXtime: +141804687275.0ns Delay: +11304687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 250 Uid: 289260 TXtime: +131000000000.0ns RXtime: +141807687275.0ns Delay: +10807687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 251 Uid: 290347 TXtime: +131500000000.0ns RXtime: +141810687275.0ns Delay: +10310687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 314202 Time: 142
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 315282 Time: 142.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 252 Uid: 291413 TXtime: +132000000000.0ns RXtime: +142818687275.0ns Delay: +10818687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 253 Uid: 292495 TXtime: +132500000000.0ns RXtime: +142821687275.0ns Delay: +10321687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 316413 Time: 143
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 317514 Time: 143.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 254 Uid: 293595 TXtime: +133000000000.0ns RXtime: +143829687275.0ns Delay: +10829687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 255 Uid: 294663 TXtime: +133500000000.0ns RXtime: +143832687275.0ns Delay: +10332687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 318664 Time: 144
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 319667 Time: 144.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 256 Uid: 295729 TXtime: +134000000000.0ns RXtime: +144840687275.0ns Delay: +10840687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 257 Uid: 296818 TXtime: +134500000000.0ns RXtime: +144843687275.0ns Delay: +10343687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 320747 Time: 145
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 321819 Time: 145.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 258 Uid: 297919 TXtime: +135000000000.0ns RXtime: +145850687275.0ns Delay: +10850687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 259 Uid: 298938 TXtime: +135500000000.0ns RXtime: +145853687275.0ns Delay: +10353687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 322906 Time: 146
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 323965 Time: 146.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 260 Uid: 300074 TXtime: +136000000000.0ns RXtime: +146860687275.0ns Delay: +10860687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 261 Uid: 301121 TXtime: +136500000000.0ns RXtime: +146863687275.0ns Delay: +10363687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 325064 Time: 147
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 326188 Time: 147.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 262 Uid: 302187 TXtime: +137000000000.0ns RXtime: +147870687275.0ns Delay: +10870687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 263 Uid: 303238 TXtime: +137500000000.0ns RXtime: +147873687275.0ns Delay: +10373687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 327273 Time: 148
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 328355 Time: 148.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 264 Uid: 304341 TXtime: +138000000000.0ns RXtime: +148880687275.0ns Delay: +10880687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 265 Uid: 305421 TXtime: +138500000000.0ns RXtime: +148883687275.0ns Delay: +10383687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 329398 Time: 149
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 330500 Time: 149.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 266 Uid: 306482 TXtime: +139000000000.0ns RXtime: +149890687275.0ns Delay: +10890687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 267 Uid: 307511 TXtime: +139500000000.0ns RXtime: +149894687275.0ns Delay: +10394687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 331585 Time: 150
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 332681 Time: 150.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 268 Uid: 308607 TXtime: +140000000000.0ns RXtime: +150901687275.0ns Delay: +10901687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 269 Uid: 309699 TXtime: +140500000000.0ns RXtime: +150904687275.0ns Delay: +10404687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 333808 Time: 151
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 334946 Time: 151.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 270 Uid: 310781 TXtime: +141000000000.0ns RXtime: +151911687275.0ns Delay: +10911687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 271 Uid: 311963 TXtime: +141500000000.0ns RXtime: +151914687275.0ns Delay: +10414687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 336059 Time: 152
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 337132 Time: 152.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 272 Uid: 313043 TXtime: +142000000000.0ns RXtime: +152921687275.0ns Delay: +10921687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 273 Uid: 314202 TXtime: +142500000000.0ns RXtime: +152924687275.0ns Delay: +10424687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 274 Uid: 315282 TXtime: +143000000000.0ns RXtime: +152927687275.0ns Delay: +9927687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 275 Uid: 316413 TXtime: +143500000000.0ns RXtime: +152930687275.0ns Delay: +9430687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 276 Uid: 317514 TXtime: +144000000000.0ns RXtime: +152933687275.0ns Delay: +8933687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 277 Uid: 318664 TXtime: +144500000000.0ns RXtime: +152936687275.0ns Delay: +8436687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 278 Uid: 319667 TXtime: +145000000000.0ns RXtime: +152939687275.0ns Delay: +7939687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 279 Uid: 320747 TXtime: +145500000000.0ns RXtime: +152942687275.0ns Delay: +7442687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 280 Uid: 321819 TXtime: +146000000000.0ns RXtime: +152945687275.0ns Delay: +6945687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 281 Uid: 322906 TXtime: +146500000000.0ns RXtime: +152948687275.0ns Delay: +6448687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 282 Uid: 323965 TXtime: +147000000000.0ns RXtime: +152951687275.0ns Delay: +5951687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 283 Uid: 325064 TXtime: +147500000000.0ns RXtime: +152954687275.0ns Delay: +5454687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 284 Uid: 326188 TXtime: +148000000000.0ns RXtime: +152957687275.0ns Delay: +4957687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 285 Uid: 327273 TXtime: +148500000000.0ns RXtime: +152960687275.0ns Delay: +4460687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 286 Uid: 328355 TXtime: +149000000000.0ns RXtime: +152963687275.0ns Delay: +3963687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 287 Uid: 329398 TXtime: +149500000000.0ns RXtime: +152966687275.0ns Delay: +3466687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 288 Uid: 330500 TXtime: +150000000000.0ns RXtime: +152969687275.0ns Delay: +2969687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 289 Uid: 331585 TXtime: +150500000000.0ns RXtime: +152972687275.0ns Delay: +2472687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 290 Uid: 332681 TXtime: +151000000000.0ns RXtime: +152976687275.0ns Delay: +1976687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 291 Uid: 333808 TXtime: +151500000000.0ns RXtime: +152979687275.0ns Delay: +1479687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 292 Uid: 334946 TXtime: +152000000000.0ns RXtime: +152982687275.0ns Delay: +982687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 293 Uid: 336059 TXtime: +152500000000.0ns RXtime: +152994687275.0ns Delay: +494687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 338369 Time: 153
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 294 Uid: 338369 TXtime: +153000000000.0ns RXtime: +153019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 339429 Time: 153.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 295 Uid: 339429 TXtime: +153500000000.0ns RXtime: +153519687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 340525 Time: 154
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 341626 Time: 154.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 296 Uid: 340525 TXtime: +154000000000.0ns RXtime: +154528687275.0ns Delay: +528687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 297 Uid: 340525 TXtime: +154500000000.0ns RXtime: +154531687275.0ns Delay: +31687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 342666 Time: 155
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 343753 Time: 155.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 298 Uid: 342666 TXtime: +155000000000.0ns RXtime: +155540687275.0ns Delay: +540687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 344861 Time: 156
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 345969 Time: 156.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 299 Uid: 342666 TXtime: +155500000000.0ns RXtime: +156548687275.0ns Delay: +1048687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 300 Uid: 343753 TXtime: +156000000000.0ns RXtime: +156551687275.0ns Delay: +551687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 347049 Time: 157
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 348122 Time: 157.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 301 Uid: 344861 TXtime: +156500000000.0ns RXtime: +157559687275.0ns Delay: +1059687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 302 Uid: 345969 TXtime: +157000000000.0ns RXtime: +157562687275.0ns Delay: +562687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 349220 Time: 158
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 350330 Time: 158.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 303 Uid: 347049 TXtime: +157500000000.0ns RXtime: +158569687275.0ns Delay: +1069687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 304 Uid: 348122 TXtime: +158000000000.0ns RXtime: +158572687275.0ns Delay: +572687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 351443 Time: 159
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 352623 Time: 159.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 305 Uid: 349220 TXtime: +158500000000.0ns RXtime: +159579687275.0ns Delay: +1079687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 306 Uid: 350330 TXtime: +159000000000.0ns RXtime: +159582687275.0ns Delay: +582687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 353701 Time: 160
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 354811 Time: 160.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 307 Uid: 351443 TXtime: +159500000000.0ns RXtime: +160589687275.0ns Delay: +1089687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 308 Uid: 352623 TXtime: +160000000000.0ns RXtime: +160592687275.0ns Delay: +592687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 355868 Time: 161
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 356964 Time: 161.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 309 Uid: 353701 TXtime: +160500000000.0ns RXtime: +161599687275.0ns Delay: +1099687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 310 Uid: 354811 TXtime: +161000000000.0ns RXtime: +161602687275.0ns Delay: +602687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 358028 Time: 162
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 359121 Time: 162.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 311 Uid: 355868 TXtime: +161500000000.0ns RXtime: +162609687275.0ns Delay: +1109687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 312 Uid: 356964 TXtime: +162000000000.0ns RXtime: +162612687275.0ns Delay: +612687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 360194 Time: 163
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 361239 Time: 163.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 362300 Time: 164
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 363373 Time: 164.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 313 Uid: 358028 TXtime: +162500000000.0ns RXtime: +164762687275.0ns Delay: +2262687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 314 Uid: 359121 TXtime: +163000000000.0ns RXtime: +164765687275.0ns Delay: +1765687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 315 Uid: 360194 TXtime: +163500000000.0ns RXtime: +164768687275.0ns Delay: +1268687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 364522 Time: 165
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 365637 Time: 165.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 316 Uid: 361239 TXtime: +164000000000.0ns RXtime: +165776687275.0ns Delay: +1776687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 317 Uid: 362300 TXtime: +164500000000.0ns RXtime: +165779687275.0ns Delay: +1279687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 318 Uid: 363373 TXtime: +165000000000.0ns RXtime: +165782687275.0ns Delay: +782687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 366712 Time: 166
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 367840 Time: 166.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 319 Uid: 364522 TXtime: +165500000000.0ns RXtime: +166790687275.0ns Delay: +1290687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 320 Uid: 365637 TXtime: +166000000000.0ns RXtime: +166793687275.0ns Delay: +793687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 368983 Time: 167
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 370070 Time: 167.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 321 Uid: 366712 TXtime: +166500000000.0ns RXtime: +167802687275.0ns Delay: +1302687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 371162 Time: 168
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 372216 Time: 168.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 322 Uid: 367840 TXtime: +167000000000.0ns RXtime: +168809687275.0ns Delay: +1809687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 323 Uid: 368983 TXtime: +167500000000.0ns RXtime: +168812687275.0ns Delay: +1312687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 373315 Time: 169
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 374432 Time: 169.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 324 Uid: 370070 TXtime: +168000000000.0ns RXtime: +169819687275.0ns Delay: +1819687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 325 Uid: 371162 TXtime: +168500000000.0ns RXtime: +169822687275.0ns Delay: +1322687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 375524 Time: 170
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 376627 Time: 170.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 326 Uid: 372216 TXtime: +169000000000.0ns RXtime: +170829687275.0ns Delay: +1829687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 327 Uid: 373315 TXtime: +169500000000.0ns RXtime: +170832687275.0ns Delay: +1332687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 377683 Time: 171
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 378744 Time: 171.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 328 Uid: 374432 TXtime: +170000000000.0ns RXtime: +171839687275.0ns Delay: +1839687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 329 Uid: 375524 TXtime: +170500000000.0ns RXtime: +171842687275.0ns Delay: +1342687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 379808 Time: 172
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 380897 Time: 172.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 330 Uid: 376627 TXtime: +171000000000.0ns RXtime: +172849687275.0ns Delay: +1849687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 331 Uid: 377683 TXtime: +171500000000.0ns RXtime: +172852687275.0ns Delay: +1352687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 381961 Time: 173
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 383027 Time: 173.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 332 Uid: 378744 TXtime: +172000000000.0ns RXtime: +173859687275.0ns Delay: +1859687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 333 Uid: 379808 TXtime: +172500000000.0ns RXtime: +173862687275.0ns Delay: +1362687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 384128 Time: 174
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 385236 Time: 174.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 334 Uid: 380897 TXtime: +173000000000.0ns RXtime: +174869687275.0ns Delay: +1869687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 335 Uid: 381961 TXtime: +173500000000.0ns RXtime: +174872687275.0ns Delay: +1372687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 386273 Time: 175
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 387290 Time: 175.5
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 336 Uid: 383027 TXtime: +174000000000.0ns RXtime: +175879687275.0ns Delay: +1879687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 337 Uid: 384128 TXtime: +174500000000.0ns RXtime: +175882687275.0ns Delay: +1382687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 338 Uid: 385236 TXtime: +175000000000.0ns RXtime: +175885687275.0ns Delay: +885687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 339 Uid: 386273 TXtime: +175500000000.0ns RXtime: +175888687275.0ns Delay: +388687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 388413 Time: 176
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 340 Uid: 388413 TXtime: +176000000000.0ns RXtime: +176019687275.0ns Delay: +19687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 389487 Time: 176.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 390611 Time: 177
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 341 Uid: 389487 TXtime: +176500000000.0ns RXtime: +177028687275.0ns Delay: +528687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 391696 Time: 177.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 392735 Time: 178
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 342 Uid: 389487 TXtime: +177000000000.0ns RXtime: +178036687275.0ns Delay: +1036687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 343 Uid: 390611 TXtime: +177500000000.0ns RXtime: +178039687275.0ns Delay: +539687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 393828 Time: 178.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 394901 Time: 179
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 344 Uid: 391696 TXtime: +178000000000.0ns RXtime: +179047687275.0ns Delay: +1047687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 345 Uid: 392735 TXtime: +178500000000.0ns RXtime: +179050687275.0ns Delay: +550687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 396008 Time: 179.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 397095 Time: 180
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 346 Uid: 393828 TXtime: +179000000000.0ns RXtime: +180058687275.0ns Delay: +1058687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 347 Uid: 394901 TXtime: +179500000000.0ns RXtime: +180061687275.0ns Delay: +561687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 398189 Time: 180.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 399227 Time: 181
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 348 Uid: 396008 TXtime: +180000000000.0ns RXtime: +181069687275.0ns Delay: +1069687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 349 Uid: 397095 TXtime: +180500000000.0ns RXtime: +181072687275.0ns Delay: +572687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 400356 Time: 181.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 401394 Time: 182
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 350 Uid: 398189 TXtime: +181000000000.0ns RXtime: +182079687275.0ns Delay: +1079687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 351 Uid: 399227 TXtime: +181500000000.0ns RXtime: +182082687275.0ns Delay: +582687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 402572 Time: 182.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 403729 Time: 183
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 352 Uid: 400356 TXtime: +182000000000.0ns RXtime: +183089687275.0ns Delay: +1089687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 353 Uid: 401394 TXtime: +182500000000.0ns RXtime: +183092687275.0ns Delay: +592687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 404834 Time: 183.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 405965 Time: 184
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 354 Uid: 402572 TXtime: +183000000000.0ns RXtime: +184099687275.0ns Delay: +1099687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 355 Uid: 403729 TXtime: +183500000000.0ns RXtime: +184102687275.0ns Delay: +602687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 407043 Time: 184.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 408202 Time: 185
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 356 Uid: 404834 TXtime: +184000000000.0ns RXtime: +185109687275.0ns Delay: +1109687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 357 Uid: 405965 TXtime: +184500000000.0ns RXtime: +185112687275.0ns Delay: +612687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 409294 Time: 185.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 410446 Time: 186
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 358 Uid: 407043 TXtime: +185000000000.0ns RXtime: +186119687275.0ns Delay: +1119687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 359 Uid: 408202 TXtime: +185500000000.0ns RXtime: +186122687275.0ns Delay: +622687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 411524 Time: 186.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 412634 Time: 187
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 360 Uid: 409294 TXtime: +186000000000.0ns RXtime: +187129687275.0ns Delay: +1129687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 361 Uid: 410446 TXtime: +186500000000.0ns RXtime: +187132687275.0ns Delay: +632687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 413670 Time: 187.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 414737 Time: 188
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 362 Uid: 411524 TXtime: +187000000000.0ns RXtime: +188139687275.0ns Delay: +1139687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 363 Uid: 412634 TXtime: +187500000000.0ns RXtime: +188142687275.0ns Delay: +642687275.0ns
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 415829 Time: 188.5
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 416895 Time: 189
+Perdiendo WiMAX 9999.99 en tiempo 189.072 s
+Perdiendo WiMAX 9999.97 en tiempo 189.082 s
+Perdiendo WiMAX 9999.96 en tiempo 189.092 s
+Perdiendo WiMAX 9999.93 en tiempo 189.102 s
+Perdiendo WiMAX 9999.93 en tiempo 189.112 s
+Perdiendo WiMAX 9999.88 en tiempo 189.122 s
+Perdiendo WiMAX 9999.85 en tiempo 189.132 s
+Perdiendo WiMAX 9999.9 en tiempo 189.142 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 364 Uid: 413670 TXtime: +188000000000.0ns RXtime: +189150687275.0ns Delay: +1150687275.0ns
+Perdiendo WiMAX 9999.83 en tiempo 189.152 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 365 Uid: 414737 TXtime: +188500000000.0ns RXtime: +189153687275.0ns Delay: +653687275.0ns
+Perdiendo WiMAX 9999.81 en tiempo 189.162 s
+Perdiendo WiMAX 9999.79 en tiempo 189.173 s
+Perdiendo WiMAX 9999.76 en tiempo 189.183 s
+Perdiendo WiMAX 9999.74 en tiempo 189.193 s
+Perdiendo WiMAX 9999.76 en tiempo 189.203 s
+Perdiendo WiMAX 9999.81 en tiempo 189.213 s
+Perdiendo WiMAX 9999.74 en tiempo 189.223 s
+Perdiendo WiMAX 9999.83 en tiempo 189.233 s
+Perdiendo WiMAX 9999.83 en tiempo 189.243 s
+Perdiendo WiMAX 9999.59 en tiempo 189.253 s
+Perdiendo WiMAX 9999.82 en tiempo 189.264 s
+Perdiendo WiMAX 9999.61 en tiempo 189.274 s
+Perdiendo WiMAX 9999.75 en tiempo 189.284 s
+Perdiendo WiMAX 9999.7 en tiempo 189.294 s
+Perdiendo WiMAX 9999.63 en tiempo 189.304 s
+Perdiendo WiMAX 9999.44 en tiempo 189.314 s
+Perdiendo WiMAX 9999.64 en tiempo 189.324 s
+Perdiendo WiMAX 9999.77 en tiempo 189.334 s
+Perdiendo WiMAX 9999.35 en tiempo 189.344 s
+Perdiendo WiMAX 9999.74 en tiempo 189.355 s
+Perdiendo WiMAX 9999.4 en tiempo 189.365 s
+Perdiendo WiMAX 9999.36 en tiempo 189.375 s
+Perdiendo WiMAX 9999.56 en tiempo 189.385 s
+Perdiendo WiMAX 9999.67 en tiempo 189.395 s
+Perdiendo WiMAX 9999.58 en tiempo 189.405 s
+Perdiendo WiMAX 9999.55 en tiempo 189.415 s
+Perdiendo WiMAX 9999.37 en tiempo 189.425 s
+Perdiendo WiMAX 9999.6 en tiempo 189.435 s
+Perdiendo WiMAX 9999.67 en tiempo 189.446 s
+Perdiendo WiMAX 9999.25 en tiempo 189.456 s
+Perdiendo WiMAX 9999.21 en tiempo 189.466 s
+Perdiendo WiMAX 9999.1 en tiempo 189.476 s
+Perdiendo WiMAX 9999.22 en tiempo 189.486 s
+Perdiendo WiMAX 9999.53 en tiempo 189.496 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 418038 Time: 189.5
+Perdiendo WiMAX 9999.25 en tiempo 189.506 s
+Perdiendo WiMAX 9999.14 en tiempo 189.516 s
+Perdiendo WiMAX 9999.35 en tiempo 189.526 s
+Perdiendo WiMAX 9999.47 en tiempo 189.537 s
+Perdiendo WiMAX 9999.44 en tiempo 189.547 s
+Perdiendo WiMAX 9999.32 en tiempo 189.557 s
+Perdiendo WiMAX 9999.55 en tiempo 189.567 s
+Perdiendo WiMAX 9999.05 en tiempo 189.577 s
+Perdiendo WiMAX 9999.59 en tiempo 189.587 s
+Perdiendo WiMAX 9999.02 en tiempo 189.597 s
+Perdiendo WiMAX 9999.11 en tiempo 189.607 s
+Perdiendo WiMAX 9998.9 en tiempo 189.617 s
+Perdiendo WiMAX 9998.91 en tiempo 189.627 s
+Perdiendo WiMAX 9998.78 en tiempo 189.638 s
+Perdiendo WiMAX 9999.4 en tiempo 189.648 s
+Perdiendo WiMAX 9999.21 en tiempo 189.658 s
+Perdiendo WiMAX 9999.02 en tiempo 189.668 s
+Perdiendo WiMAX 9999.02 en tiempo 189.678 s
+Perdiendo WiMAX 9998.55 en tiempo 189.688 s
+Perdiendo WiMAX 9999.01 en tiempo 189.698 s
+Perdiendo WiMAX 9999.35 en tiempo 189.708 s
+Perdiendo WiMAX 9998.79 en tiempo 189.718 s
+Perdiendo WiMAX 9998.76 en tiempo 189.729 s
+Perdiendo WiMAX 9999.27 en tiempo 189.739 s
+Perdiendo WiMAX 9999.34 en tiempo 189.749 s
+Perdiendo WiMAX 9999.16 en tiempo 189.759 s
+Perdiendo WiMAX 9999.25 en tiempo 189.769 s
+Perdiendo WiMAX 9998.96 en tiempo 189.779 s
+Perdiendo WiMAX 9998.39 en tiempo 189.789 s
+Perdiendo WiMAX 9998.87 en tiempo 189.799 s
+Perdiendo WiMAX 9999.13 en tiempo 189.81 s
+Perdiendo WiMAX 9999.37 en tiempo 189.82 s
+Perdiendo WiMAX 9998.5 en tiempo 189.83 s
+Perdiendo WiMAX 9999.33 en tiempo 189.84 s
+Perdiendo WiMAX 9999.29 en tiempo 189.85 s
+Perdiendo WiMAX 9998.86 en tiempo 189.86 s
+Perdiendo WiMAX 9998.97 en tiempo 189.87 s
+Perdiendo WiMAX 9999.08 en tiempo 189.88 s
+Perdiendo WiMAX 9998.41 en tiempo 189.89 s
+Perdiendo WiMAX 9998.27 en tiempo 189.9 s
+Perdiendo WiMAX 9998.53 en tiempo 189.91 s
+Perdiendo WiMAX 9998.45 en tiempo 189.921 s
+Perdiendo WiMAX 9998.92 en tiempo 189.931 s
+Perdiendo WiMAX 9998.8 en tiempo 189.941 s
+Perdiendo WiMAX 9997.97 en tiempo 189.951 s
+Perdiendo WiMAX 9997.92 en tiempo 189.961 s
+Perdiendo WiMAX 9998.83 en tiempo 189.971 s
+Perdiendo WiMAX 9998.52 en tiempo 189.981 s
+Perdiendo WiMAX 9998.37 en tiempo 189.992 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 419048 Time: 190
+Perdiendo WiMAX 9998.09 en tiempo 190.002 s
+Perdiendo WiMAX 9998.82 en tiempo 190.012 s
+Perdiendo WiMAX 9999.11 en tiempo 190.022 s
+Perdiendo WiMAX 9997.87 en tiempo 190.032 s
+Perdiendo WiMAX 9997.98 en tiempo 190.042 s
+Perdiendo WiMAX 9998.13 en tiempo 190.052 s
+Perdiendo WiMAX 9999.16 en tiempo 190.062 s
+Perdiendo WiMAX 9999.15 en tiempo 190.072 s
+Perdiendo WiMAX 9997.87 en tiempo 190.082 s
+Perdiendo WiMAX 9998.25 en tiempo 190.093 s
+Perdiendo WiMAX 9999.18 en tiempo 190.103 s
+Perdiendo WiMAX 9998.77 en tiempo 190.113 s
+Perdiendo WiMAX 9997.79 en tiempo 190.123 s
+Perdiendo WiMAX 9997.73 en tiempo 190.133 s
+Perdiendo WiMAX 9997.62 en tiempo 190.143 s
+Perdiendo WiMAX 9998.53 en tiempo 190.153 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 366 Uid: 415829 TXtime: +189000000000.0ns RXtime: +190160687275.0ns Delay: +1160687275.0ns
+Perdiendo WiMAX 9998.34 en tiempo 190.163 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 367 Uid: 416895 TXtime: +189500000000.0ns RXtime: +190163687275.0ns Delay: +663687275.0ns
+Perdiendo WiMAX 9997.71 en tiempo 190.173 s
+Perdiendo WiMAX 9997.62 en tiempo 190.184 s
+Perdiendo WiMAX 9997.75 en tiempo 190.194 s
+Perdiendo WiMAX 9997.69 en tiempo 190.204 s
+Perdiendo WiMAX 9997.55 en tiempo 190.214 s
+Perdiendo WiMAX 9998.36 en tiempo 190.224 s
+Perdiendo WiMAX 9997.87 en tiempo 190.234 s
+Perdiendo WiMAX 9998.89 en tiempo 190.244 s
+Perdiendo WiMAX 9997.67 en tiempo 190.254 s
+Perdiendo WiMAX 9998.55 en tiempo 190.264 s
+Perdiendo WiMAX 9998.22 en tiempo 190.274 s
+Perdiendo WiMAX 9997.43 en tiempo 190.285 s
+Perdiendo WiMAX 9998.48 en tiempo 190.295 s
+Perdiendo WiMAX 9998.01 en tiempo 190.305 s
+Perdiendo WiMAX 9997.45 en tiempo 190.315 s
+Perdiendo WiMAX 9997.2 en tiempo 190.325 s
+Perdiendo WiMAX 9998.4 en tiempo 190.335 s
+Perdiendo WiMAX 9997.23 en tiempo 190.345 s
+Perdiendo WiMAX 9997.19 en tiempo 190.355 s
+Perdiendo WiMAX 9998.63 en tiempo 190.365 s
+Perdiendo WiMAX 9997.26 en tiempo 190.376 s
+Perdiendo WiMAX 9998.91 en tiempo 190.386 s
+Perdiendo WiMAX 9998.36 en tiempo 190.396 s
+Perdiendo WiMAX 9997.03 en tiempo 190.406 s
+Perdiendo WiMAX 9997.73 en tiempo 190.416 s
+Perdiendo WiMAX 9998.17 en tiempo 190.426 s
+Perdiendo WiMAX 9998.03 en tiempo 190.436 s
+Perdiendo WiMAX 9998.81 en tiempo 190.447 s
+Perdiendo WiMAX 9998.83 en tiempo 190.457 s
+Perdiendo WiMAX 9998.43 en tiempo 190.467 s
+Perdiendo WiMAX 9997.21 en tiempo 190.477 s
+Perdiendo WiMAX 9998.51 en tiempo 190.487 s
+Perdiendo WiMAX 9997.89 en tiempo 190.497 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 420121 Time: 190.5
+Perdiendo WiMAX 9997.07 en tiempo 190.507 s
+Perdiendo WiMAX 9998.24 en tiempo 190.517 s
+Perdiendo WiMAX 9998.24 en tiempo 190.527 s
+Perdiendo WiMAX 9998.01 en tiempo 190.537 s
+Perdiendo WiMAX 9998.18 en tiempo 190.548 s
+Perdiendo WiMAX 9997.52 en tiempo 190.558 s
+Perdiendo WiMAX 9998.12 en tiempo 190.568 s
+Perdiendo WiMAX 9997.1 en tiempo 190.578 s
+Perdiendo WiMAX 9997.95 en tiempo 190.588 s
+Perdiendo WiMAX 9997.04 en tiempo 190.598 s
+Perdiendo WiMAX 9997.71 en tiempo 190.608 s
+Perdiendo WiMAX 9998.79 en tiempo 190.619 s
+Perdiendo WiMAX 9998.82 en tiempo 190.628 s
+Perdiendo WiMAX 9997.89 en tiempo 190.638 s
+Perdiendo WiMAX 9998.99 en tiempo 190.649 s
+Perdiendo WiMAX 9997.79 en tiempo 190.659 s
+Perdiendo WiMAX 9998.09 en tiempo 190.669 s
+Perdiendo WiMAX 9998.4 en tiempo 190.679 s
+Perdiendo WiMAX 9997.32 en tiempo 190.689 s
+Perdiendo WiMAX 9997.09 en tiempo 190.699 s
+Perdiendo WiMAX 9998.62 en tiempo 190.71 s
+Perdiendo WiMAX 9998.75 en tiempo 190.719 s
+Perdiendo WiMAX 9998.73 en tiempo 190.729 s
+Perdiendo WiMAX 9997.08 en tiempo 190.74 s
+Perdiendo WiMAX 9998.86 en tiempo 190.75 s
+Perdiendo WiMAX 9997.07 en tiempo 190.76 s
+Perdiendo WiMAX 9997.9 en tiempo 190.77 s
+Perdiendo WiMAX 9997.43 en tiempo 190.78 s
+Perdiendo WiMAX 9998.11 en tiempo 190.79 s
+Perdiendo WiMAX 9997.92 en tiempo 190.8 s
+Perdiendo WiMAX 9998.23 en tiempo 190.81 s
+Perdiendo WiMAX 9998.59 en tiempo 190.821 s
+Perdiendo WiMAX 9998.9 en tiempo 190.831 s
+Perdiendo WiMAX 9997.9 en tiempo 190.841 s
+Perdiendo WiMAX 9998.3 en tiempo 190.851 s
+Perdiendo WiMAX 9998.36 en tiempo 190.861 s
+Perdiendo WiMAX 9998.48 en tiempo 190.871 s
+Perdiendo WiMAX 9997.51 en tiempo 190.881 s
+Perdiendo WiMAX 9998.97 en tiempo 190.891 s
+Perdiendo WiMAX 9998.87 en tiempo 190.901 s
+Perdiendo WiMAX 9998.8 en tiempo 190.911 s
+Perdiendo WiMAX 9997 en tiempo 190.922 s
+Perdiendo WiMAX 9997.54 en tiempo 190.932 s
+Perdiendo WiMAX 9998.04 en tiempo 190.942 s
+Perdiendo WiMAX 9997.72 en tiempo 190.952 s
+Perdiendo WiMAX 9998.1 en tiempo 190.962 s
+Perdiendo WiMAX 9997.86 en tiempo 190.972 s
+Perdiendo WiMAX 9998.45 en tiempo 190.982 s
+Perdiendo WiMAX 9997.39 en tiempo 190.992 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 421243 Time: 191
+Perdiendo WiMAX 9998.1 en tiempo 191.002 s
+Perdiendo WiMAX 9998.7 en tiempo 191.013 s
+Perdiendo WiMAX 9998.57 en tiempo 191.023 s
+Perdiendo WiMAX 9997.98 en tiempo 191.033 s
+Perdiendo WiMAX 9998.59 en tiempo 191.043 s
+Perdiendo WiMAX 9997.42 en tiempo 191.053 s
+Perdiendo WiMAX 9998.74 en tiempo 191.063 s
+Perdiendo WiMAX 9997.95 en tiempo 191.073 s
+Perdiendo WiMAX 9998.39 en tiempo 191.083 s
+Perdiendo WiMAX 9998.03 en tiempo 191.093 s
+Perdiendo WiMAX 9997.84 en tiempo 191.104 s
+Perdiendo WiMAX 9998.7 en tiempo 191.114 s
+Perdiendo WiMAX 9997.38 en tiempo 191.124 s
+Perdiendo WiMAX 9998.67 en tiempo 191.134 s
+Perdiendo WiMAX 9998.87 en tiempo 191.144 s
+Perdiendo WiMAX 9997.73 en tiempo 191.154 s
+Perdiendo WiMAX 9998.86 en tiempo 191.164 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 368 Uid: 418038 TXtime: +190000000000.0ns RXtime: +191170687275.0ns Delay: +1170687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 369 Uid: 419048 TXtime: +190500000000.0ns RXtime: +191173687275.0ns Delay: +673687275.0ns
+Perdiendo WiMAX 9998.84 en tiempo 191.174 s
+Perdiendo WiMAX 9998.48 en tiempo 191.185 s
+Perdiendo WiMAX 9998.73 en tiempo 191.195 s
+Perdiendo WiMAX 9998.05 en tiempo 191.205 s
+Perdiendo WiMAX 9997.44 en tiempo 191.215 s
+Perdiendo WiMAX 9998.47 en tiempo 191.225 s
+Perdiendo WiMAX 9997.39 en tiempo 191.235 s
+Perdiendo WiMAX 9998.13 en tiempo 191.245 s
+Perdiendo WiMAX 9998.63 en tiempo 191.255 s
+Perdiendo WiMAX 9997.75 en tiempo 191.265 s
+Perdiendo WiMAX 9997.24 en tiempo 191.276 s
+Perdiendo WiMAX 9998.57 en tiempo 191.286 s
+Perdiendo WiMAX 9998 en tiempo 191.296 s
+Perdiendo WiMAX 9998.2 en tiempo 191.306 s
+Perdiendo WiMAX 9998.53 en tiempo 191.316 s
+Perdiendo WiMAX 9997.26 en tiempo 191.326 s
+Perdiendo WiMAX 9998.57 en tiempo 191.336 s
+Perdiendo WiMAX 9998.84 en tiempo 191.346 s
+Perdiendo WiMAX 9998.8 en tiempo 191.356 s
+Perdiendo WiMAX 9998.13 en tiempo 191.367 s
+Perdiendo WiMAX 9997.7 en tiempo 191.377 s
+Perdiendo WiMAX 9997.13 en tiempo 191.387 s
+Perdiendo WiMAX 9997.85 en tiempo 191.397 s
+Perdiendo WiMAX 9998.33 en tiempo 191.407 s
+Perdiendo WiMAX 9997.9 en tiempo 191.417 s
+Perdiendo WiMAX 9997.82 en tiempo 191.427 s
+Perdiendo WiMAX 9997.13 en tiempo 191.437 s
+Perdiendo WiMAX 9997.11 en tiempo 191.447 s
+Perdiendo WiMAX 9997.27 en tiempo 191.458 s
+Perdiendo WiMAX 9997.11 en tiempo 191.468 s
+Perdiendo WiMAX 9997.21 en tiempo 191.478 s
+Perdiendo WiMAX 9997.6 en tiempo 191.488 s
+Perdiendo WiMAX 9998.76 en tiempo 191.498 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 422323 Time: 191.5
+Perdiendo WiMAX 9998.57 en tiempo 191.508 s
+Perdiendo WiMAX 9998.41 en tiempo 191.518 s
+Perdiendo WiMAX 9997.29 en tiempo 191.528 s
+Perdiendo WiMAX 9997.65 en tiempo 191.538 s
+Perdiendo WiMAX 9998.39 en tiempo 191.548 s
+Perdiendo WiMAX 9998.45 en tiempo 191.559 s
+Perdiendo WiMAX 9997.47 en tiempo 191.569 s
+Perdiendo WiMAX 9998.72 en tiempo 191.579 s
+Perdiendo WiMAX 9997.47 en tiempo 191.589 s
+Perdiendo WiMAX 9998.95 en tiempo 191.599 s
+Perdiendo WiMAX 9997.47 en tiempo 191.609 s
+Perdiendo WiMAX 9997.1 en tiempo 191.619 s
+Perdiendo WiMAX 9997.66 en tiempo 191.629 s
+Perdiendo WiMAX 9997.73 en tiempo 191.639 s
+Perdiendo WiMAX 9997.36 en tiempo 191.65 s
+Perdiendo WiMAX 9998.8 en tiempo 191.66 s
+Perdiendo WiMAX 9998.78 en tiempo 191.67 s
+Perdiendo WiMAX 9997.24 en tiempo 191.68 s
+Perdiendo WiMAX 9998.77 en tiempo 191.69 s
+Perdiendo WiMAX 9998.46 en tiempo 191.7 s
+Perdiendo WiMAX 9997.26 en tiempo 191.71 s
+Perdiendo WiMAX 9998.88 en tiempo 191.72 s
+Perdiendo WiMAX 9997.35 en tiempo 191.731 s
+Perdiendo WiMAX 9998.08 en tiempo 191.741 s
+Perdiendo WiMAX 9998.25 en tiempo 191.751 s
+Perdiendo WiMAX 9998.78 en tiempo 191.761 s
+Perdiendo WiMAX 9998.23 en tiempo 191.771 s
+Perdiendo WiMAX 9998.46 en tiempo 191.781 s
+Perdiendo WiMAX 9997.31 en tiempo 191.791 s
+Perdiendo WiMAX 9997.44 en tiempo 191.801 s
+Perdiendo WiMAX 9998.33 en tiempo 191.811 s
+Perdiendo WiMAX 9998.09 en tiempo 191.822 s
+Perdiendo WiMAX 9998.36 en tiempo 191.832 s
+Perdiendo WiMAX 9998.26 en tiempo 191.842 s
+Perdiendo WiMAX 9998.96 en tiempo 191.852 s
+Perdiendo WiMAX 9998 en tiempo 191.862 s
+Perdiendo WiMAX 9997.87 en tiempo 191.872 s
+Perdiendo WiMAX 9998.82 en tiempo 191.882 s
+Perdiendo WiMAX 9997.61 en tiempo 191.892 s
+Perdiendo WiMAX 9998.14 en tiempo 191.902 s
+Perdiendo WiMAX 9998.4 en tiempo 191.912 s
+Perdiendo WiMAX 9998.22 en tiempo 191.923 s
+Perdiendo WiMAX 9998.91 en tiempo 191.933 s
+Perdiendo WiMAX 9999.19 en tiempo 191.943 s
+Perdiendo WiMAX 9998.88 en tiempo 191.953 s
+Perdiendo WiMAX 9997.78 en tiempo 191.963 s
+Perdiendo WiMAX 9998.22 en tiempo 191.973 s
+Perdiendo WiMAX 9998.28 en tiempo 191.983 s
+Perdiendo WiMAX 9998.77 en tiempo 191.993 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 423353 Time: 192
+Perdiendo WiMAX 9999.25 en tiempo 192.003 s
+Perdiendo WiMAX 9998.53 en tiempo 192.014 s
+Perdiendo WiMAX 9998.29 en tiempo 192.024 s
+Perdiendo WiMAX 9998.96 en tiempo 192.034 s
+Perdiendo WiMAX 9999.02 en tiempo 192.044 s
+Perdiendo WiMAX 9998 en tiempo 192.054 s
+Perdiendo WiMAX 9998.64 en tiempo 192.064 s
+Perdiendo WiMAX 9998.45 en tiempo 192.074 s
+Perdiendo WiMAX 9998.5 en tiempo 192.084 s
+Perdiendo WiMAX 9998.66 en tiempo 192.094 s
+Perdiendo WiMAX 9998.58 en tiempo 192.105 s
+Perdiendo WiMAX 9998.64 en tiempo 192.115 s
+Perdiendo WiMAX 9999.26 en tiempo 192.125 s
+Perdiendo WiMAX 9999.13 en tiempo 192.135 s
+Perdiendo WiMAX 9998.23 en tiempo 192.145 s
+Perdiendo WiMAX 9998.24 en tiempo 192.155 s
+Perdiendo WiMAX 9998.17 en tiempo 192.165 s
+Perdiendo WiMAX 9998.2 en tiempo 192.175 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 370 Uid: 420121 TXtime: +191000000000.0ns RXtime: +192180687275.0ns Delay: +1180687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 371 Uid: 421243 TXtime: +191500000000.0ns RXtime: +192183687275.0ns Delay: +683687275.0ns
+Perdiendo WiMAX 9998.9 en tiempo 192.186 s
+Perdiendo WiMAX 9998.25 en tiempo 192.196 s
+Perdiendo WiMAX 9998.46 en tiempo 192.206 s
+Perdiendo WiMAX 9998.47 en tiempo 192.216 s
+Perdiendo WiMAX 9999.23 en tiempo 192.226 s
+Perdiendo WiMAX 9999.14 en tiempo 192.236 s
+Perdiendo WiMAX 9999.34 en tiempo 192.246 s
+Perdiendo WiMAX 9998.42 en tiempo 192.256 s
+Perdiendo WiMAX 9998.6 en tiempo 192.266 s
+Perdiendo WiMAX 9999.03 en tiempo 192.277 s
+Perdiendo WiMAX 9998.9 en tiempo 192.287 s
+Perdiendo WiMAX 9998.67 en tiempo 192.297 s
+Perdiendo WiMAX 9998.62 en tiempo 192.307 s
+Perdiendo WiMAX 9998.87 en tiempo 192.317 s
+Perdiendo WiMAX 9999.05 en tiempo 192.327 s
+Perdiendo WiMAX 9998.61 en tiempo 192.337 s
+Perdiendo WiMAX 9999.25 en tiempo 192.347 s
+Perdiendo WiMAX 9998.69 en tiempo 192.357 s
+Perdiendo WiMAX 9998.71 en tiempo 192.368 s
+Perdiendo WiMAX 9999.22 en tiempo 192.378 s
+Perdiendo WiMAX 9998.81 en tiempo 192.388 s
+Perdiendo WiMAX 9998.97 en tiempo 192.398 s
+Perdiendo WiMAX 9999.5 en tiempo 192.408 s
+Perdiendo WiMAX 9999.05 en tiempo 192.418 s
+Perdiendo WiMAX 9998.94 en tiempo 192.428 s
+Perdiendo WiMAX 9999.33 en tiempo 192.438 s
+Perdiendo WiMAX 9999.31 en tiempo 192.448 s
+Perdiendo WiMAX 9998.96 en tiempo 192.459 s
+Perdiendo WiMAX 9998.97 en tiempo 192.469 s
+Perdiendo WiMAX 9999.14 en tiempo 192.479 s
+Perdiendo WiMAX 9999.47 en tiempo 192.489 s
+Perdiendo WiMAX 9999.38 en tiempo 192.499 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 424510 Time: 192.5
+Perdiendo WiMAX 9999.02 en tiempo 192.509 s
+Perdiendo WiMAX 9999.26 en tiempo 192.519 s
+Perdiendo WiMAX 9999.11 en tiempo 192.529 s
+Perdiendo WiMAX 9999.03 en tiempo 192.539 s
+Perdiendo WiMAX 9999.68 en tiempo 192.55 s
+Perdiendo WiMAX 9999.57 en tiempo 192.56 s
+Perdiendo WiMAX 9999.35 en tiempo 192.57 s
+Perdiendo WiMAX 9999.16 en tiempo 192.58 s
+Perdiendo WiMAX 9999.26 en tiempo 192.59 s
+Perdiendo WiMAX 9999.44 en tiempo 192.6 s
+Perdiendo WiMAX 9999.22 en tiempo 192.61 s
+Perdiendo WiMAX 9999.39 en tiempo 192.62 s
+Perdiendo WiMAX 9999.32 en tiempo 192.63 s
+Perdiendo WiMAX 9999.74 en tiempo 192.64 s
+Perdiendo WiMAX 9999.28 en tiempo 192.65 s
+Perdiendo WiMAX 9999.5 en tiempo 192.661 s
+Perdiendo WiMAX 9999.56 en tiempo 192.671 s
+Perdiendo WiMAX 9999.56 en tiempo 192.681 s
+Perdiendo WiMAX 9999.44 en tiempo 192.691 s
+Perdiendo WiMAX 9999.42 en tiempo 192.701 s
+Perdiendo WiMAX 9999.77 en tiempo 192.711 s
+Perdiendo WiMAX 9999.48 en tiempo 192.721 s
+Perdiendo WiMAX 9999.64 en tiempo 192.732 s
+Perdiendo WiMAX 9999.71 en tiempo 192.742 s
+Perdiendo WiMAX 9999.79 en tiempo 192.752 s
+Perdiendo WiMAX 9999.8 en tiempo 192.762 s
+Perdiendo WiMAX 9999.68 en tiempo 192.772 s
+Perdiendo WiMAX 9999.73 en tiempo 192.782 s
+Perdiendo WiMAX 9999.83 en tiempo 192.792 s
+Perdiendo WiMAX 9999.8 en tiempo 192.802 s
+Perdiendo WiMAX 9999.76 en tiempo 192.812 s
+Perdiendo WiMAX 9999.83 en tiempo 192.822 s
+Perdiendo WiMAX 9999.86 en tiempo 192.833 s
+Perdiendo WiMAX 9999.83 en tiempo 192.843 s
+Perdiendo WiMAX 9999.89 en tiempo 192.853 s
+Perdiendo WiMAX 9999.9 en tiempo 192.863 s
+Perdiendo WiMAX 9999.85 en tiempo 192.873 s
+Perdiendo WiMAX 9999.85 en tiempo 192.883 s
+Perdiendo WiMAX 9999.88 en tiempo 192.893 s
+Perdiendo WiMAX 9999.92 en tiempo 192.903 s
+Perdiendo WiMAX 9999.89 en tiempo 192.914 s
+Perdiendo WiMAX 9999.9 en tiempo 192.924 s
+Perdiendo WiMAX 9999.96 en tiempo 192.934 s
+Perdiendo WiMAX 9999.97 en tiempo 192.944 s
+Perdiendo WiMAX 9999.97 en tiempo 192.954 s
+Perdiendo WiMAX 9999.99 en tiempo 192.964 s
+Perdiendo WiMAX 10000 en tiempo 192.974 s
+Perdiendo WiMAX 9999.94 en tiempo 192.984 s
+Perdiendo WiMAX 9999.96 en tiempo 192.994 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 425548 Time: 193
+Perdiendo WiMAX 9999.92 en tiempo 193.004 s
+Perdiendo WiMAX 9999.71 en tiempo 193.014 s
+Perdiendo WiMAX 9999.7 en tiempo 193.025 s
+Perdiendo WiMAX 9999.89 en tiempo 193.035 s
+Perdiendo WiMAX 9999.51 en tiempo 193.045 s
+Perdiendo WiMAX 9999.79 en tiempo 193.055 s
+Perdiendo WiMAX 9999.36 en tiempo 193.065 s
+Perdiendo WiMAX 9999.27 en tiempo 193.075 s
+Perdiendo WiMAX 9999.3 en tiempo 193.085 s
+Perdiendo WiMAX 9999.31 en tiempo 193.096 s
+Perdiendo WiMAX 9999.36 en tiempo 193.106 s
+Perdiendo WiMAX 9999.05 en tiempo 193.116 s
+Perdiendo WiMAX 9998.89 en tiempo 193.126 s
+Perdiendo WiMAX 9998.79 en tiempo 193.136 s
+Perdiendo WiMAX 9998.74 en tiempo 193.146 s
+Perdiendo WiMAX 9999.38 en tiempo 193.156 s
+Perdiendo WiMAX 9998.56 en tiempo 193.166 s
+Perdiendo WiMAX 9999.37 en tiempo 193.176 s
+Perdiendo WiMAX 9998.91 en tiempo 193.186 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 372 Uid: 422323 TXtime: +192000000000.0ns RXtime: +193190687275.0ns Delay: +1190687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 373 Uid: 423353 TXtime: +192500000000.0ns RXtime: +193193687275.0ns Delay: +693687275.0ns
+Perdiendo WiMAX 9998.84 en tiempo 193.196 s
+Perdiendo WiMAX 9999.31 en tiempo 193.207 s
+Perdiendo WiMAX 9999.39 en tiempo 193.217 s
+Perdiendo WiMAX 9999.01 en tiempo 193.227 s
+Perdiendo WiMAX 9998.07 en tiempo 193.237 s
+Perdiendo WiMAX 9998.28 en tiempo 193.247 s
+Perdiendo WiMAX 9999.21 en tiempo 193.257 s
+Perdiendo WiMAX 9998.58 en tiempo 193.267 s
+Perdiendo WiMAX 9999.2 en tiempo 193.277 s
+Perdiendo WiMAX 9998.79 en tiempo 193.288 s
+Perdiendo WiMAX 9998.72 en tiempo 193.298 s
+Perdiendo WiMAX 9998.79 en tiempo 193.308 s
+Perdiendo WiMAX 9999.48 en tiempo 193.318 s
+Perdiendo WiMAX 9999.52 en tiempo 193.328 s
+Perdiendo WiMAX 9999.51 en tiempo 193.338 s
+Perdiendo WiMAX 9998.33 en tiempo 193.348 s
+Perdiendo WiMAX 9997.15 en tiempo 193.359 s
+Perdiendo WiMAX 9999.12 en tiempo 193.368 s
+Perdiendo WiMAX 9997.51 en tiempo 193.378 s
+Perdiendo WiMAX 9999.09 en tiempo 193.389 s
+Perdiendo WiMAX 9998.71 en tiempo 193.399 s
+Perdiendo WiMAX 9999.02 en tiempo 193.409 s
+Perdiendo WiMAX 9998.66 en tiempo 193.419 s
+Perdiendo WiMAX 9998.45 en tiempo 193.429 s
+Perdiendo WiMAX 9999.37 en tiempo 193.439 s
+Perdiendo WiMAX 9996.43 en tiempo 193.449 s
+Perdiendo WiMAX 9998.34 en tiempo 193.459 s
+Perdiendo WiMAX 9997.84 en tiempo 193.47 s
+Perdiendo WiMAX 9997.16 en tiempo 193.48 s
+Perdiendo WiMAX 9998.97 en tiempo 193.49 s
+Perdiendo WiMAX 9998.43 en tiempo 193.5 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 426663 Time: 193.5
+Perdiendo WiMAX 9997.37 en tiempo 193.51 s
+Perdiendo WiMAX 9995.71 en tiempo 193.52 s
+Perdiendo WiMAX 9995.86 en tiempo 193.53 s
+Perdiendo WiMAX 9996.5 en tiempo 193.54 s
+Perdiendo WiMAX 9997.68 en tiempo 193.551 s
+Perdiendo WiMAX 9998.37 en tiempo 193.561 s
+Perdiendo WiMAX 9995.76 en tiempo 193.571 s
+Perdiendo WiMAX 9999.43 en tiempo 193.581 s
+Perdiendo WiMAX 9999.37 en tiempo 193.591 s
+Perdiendo WiMAX 9994.89 en tiempo 193.601 s
+Perdiendo WiMAX 9996.19 en tiempo 193.611 s
+Perdiendo WiMAX 9996.74 en tiempo 193.621 s
+Perdiendo WiMAX 9995.5 en tiempo 193.631 s
+Perdiendo WiMAX 9995.04 en tiempo 193.642 s
+Perdiendo WiMAX 9997.12 en tiempo 193.652 s
+Perdiendo WiMAX 9998.57 en tiempo 193.662 s
+Perdiendo WiMAX 9998.15 en tiempo 193.672 s
+Perdiendo WiMAX 9994.81 en tiempo 193.682 s
+Perdiendo WiMAX 9995.02 en tiempo 193.692 s
+Perdiendo WiMAX 9998.12 en tiempo 193.702 s
+Perdiendo WiMAX 9996.08 en tiempo 193.712 s
+Perdiendo WiMAX 9996.1 en tiempo 193.723 s
+Perdiendo WiMAX 9999.23 en tiempo 193.733 s
+Perdiendo WiMAX 9999.21 en tiempo 193.743 s
+Perdiendo WiMAX 9996.25 en tiempo 193.753 s
+Perdiendo WiMAX 9996.44 en tiempo 193.763 s
+Perdiendo WiMAX 9996.71 en tiempo 193.773 s
+Perdiendo WiMAX 9994.76 en tiempo 193.783 s
+Perdiendo WiMAX 9995.34 en tiempo 193.793 s
+Perdiendo WiMAX 9994.41 en tiempo 193.803 s
+Perdiendo WiMAX 9996.45 en tiempo 193.813 s
+Perdiendo WiMAX 9994.63 en tiempo 193.823 s
+Perdiendo WiMAX 9996.14 en tiempo 193.833 s
+Perdiendo WiMAX 9993.76 en tiempo 193.844 s
+Perdiendo WiMAX 9995.14 en tiempo 193.854 s
+Perdiendo WiMAX 9996.64 en tiempo 193.864 s
+Perdiendo WiMAX 9992.91 en tiempo 193.874 s
+Perdiendo WiMAX 9992.69 en tiempo 193.884 s
+Perdiendo WiMAX 9997.67 en tiempo 193.894 s
+Perdiendo WiMAX 9995.77 en tiempo 193.904 s
+Perdiendo WiMAX 9998.14 en tiempo 193.914 s
+Perdiendo WiMAX 9996.58 en tiempo 193.925 s
+Perdiendo WiMAX 9996.99 en tiempo 193.935 s
+Perdiendo WiMAX 9998.11 en tiempo 193.945 s
+Perdiendo WiMAX 9993.23 en tiempo 193.955 s
+Perdiendo WiMAX 9995.67 en tiempo 193.965 s
+Perdiendo WiMAX 9992.38 en tiempo 193.985 s
+Perdiendo WiMAX 9991.88 en tiempo 193.995 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 427805 Time: 194
+Perdiendo WiMAX 9991.96 en tiempo 194.005 s
+Perdiendo WiMAX 9991.98 en tiempo 194.016 s
+Perdiendo WiMAX 9993.22 en tiempo 194.026 s
+Perdiendo WiMAX 9993.5 en tiempo 194.036 s
+Perdiendo WiMAX 9997.13 en tiempo 194.046 s
+Perdiendo WiMAX 9996.65 en tiempo 194.056 s
+Perdiendo WiMAX 9994.7 en tiempo 194.066 s
+Perdiendo WiMAX 9994.66 en tiempo 194.076 s
+Perdiendo WiMAX 9992.29 en tiempo 194.086 s
+Perdiendo WiMAX 9991.46 en tiempo 194.096 s
+Perdiendo WiMAX 9997.49 en tiempo 194.107 s
+Perdiendo WiMAX 9998.13 en tiempo 194.117 s
+Perdiendo WiMAX 9996.9 en tiempo 194.127 s
+Perdiendo WiMAX 9997.01 en tiempo 194.137 s
+Perdiendo WiMAX 9994.36 en tiempo 194.147 s
+Perdiendo WiMAX 9993.12 en tiempo 194.157 s
+Perdiendo WiMAX 9995.75 en tiempo 194.167 s
+Perdiendo WiMAX 9998.61 en tiempo 194.177 s
+Perdiendo WiMAX 9997.13 en tiempo 194.187 s
+Perdiendo WiMAX 9995.89 en tiempo 194.198 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 374 Uid: 424510 TXtime: +193000000000.0ns RXtime: +194200687275.0ns Delay: +1200687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 375 Uid: 425548 TXtime: +193500000000.0ns RXtime: +194203687275.0ns Delay: +703687275.0ns
+Perdiendo WiMAX 9996.45 en tiempo 194.208 s
+Perdiendo WiMAX 9996.78 en tiempo 194.218 s
+Perdiendo WiMAX 9996.75 en tiempo 194.228 s
+Perdiendo WiMAX 9990.75 en tiempo 194.238 s
+Perdiendo WiMAX 9992.13 en tiempo 194.248 s
+Perdiendo WiMAX 9998.13 en tiempo 194.258 s
+Perdiendo WiMAX 9993.11 en tiempo 194.268 s
+Perdiendo WiMAX 9993.45 en tiempo 194.278 s
+Perdiendo WiMAX 9995.15 en tiempo 194.289 s
+Perdiendo WiMAX 9989.78 en tiempo 194.299 s
+Perdiendo WiMAX 9992.83 en tiempo 194.309 s
+Perdiendo WiMAX 9998.53 en tiempo 194.319 s
+Perdiendo WiMAX 9996.4 en tiempo 194.329 s
+Perdiendo WiMAX 9996.41 en tiempo 194.339 s
+Perdiendo WiMAX 9997.85 en tiempo 194.349 s
+Perdiendo WiMAX 9993.58 en tiempo 194.359 s
+Perdiendo WiMAX 9992.45 en tiempo 194.369 s
+Perdiendo WiMAX 9998.55 en tiempo 194.379 s
+Perdiendo WiMAX 9991 en tiempo 194.39 s
+Perdiendo WiMAX 9994.96 en tiempo 194.4 s
+Perdiendo WiMAX 9997.54 en tiempo 194.41 s
+Perdiendo WiMAX 9995.19 en tiempo 194.42 s
+Perdiendo WiMAX 9990.24 en tiempo 194.43 s
+Perdiendo WiMAX 9992.71 en tiempo 194.44 s
+Perdiendo WiMAX 9996.02 en tiempo 194.45 s
+Perdiendo WiMAX 9998.67 en tiempo 194.46 s
+Perdiendo WiMAX 9991.71 en tiempo 194.471 s
+Perdiendo WiMAX 9990.6 en tiempo 194.481 s
+Perdiendo WiMAX 9993.21 en tiempo 194.491 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 428925 Time: 194.5
+Perdiendo WiMAX 9995.01 en tiempo 194.501 s
+Perdiendo WiMAX 9998.7 en tiempo 194.511 s
+Perdiendo WiMAX 9993.05 en tiempo 194.521 s
+Perdiendo WiMAX 9993.36 en tiempo 194.531 s
+Perdiendo WiMAX 9991.71 en tiempo 194.541 s
+Perdiendo WiMAX 9997.33 en tiempo 194.551 s
+Perdiendo WiMAX 9996.14 en tiempo 194.562 s
+Perdiendo WiMAX 9996.24 en tiempo 194.572 s
+Perdiendo WiMAX 9992.16 en tiempo 194.582 s
+Perdiendo WiMAX 9992.91 en tiempo 194.592 s
+Perdiendo WiMAX 9994.52 en tiempo 194.602 s
+Perdiendo WiMAX 9998.77 en tiempo 194.612 s
+Perdiendo WiMAX 9991.65 en tiempo 194.622 s
+Perdiendo WiMAX 9996.17 en tiempo 194.632 s
+Perdiendo WiMAX 9998.38 en tiempo 194.643 s
+Perdiendo WiMAX 9994.31 en tiempo 194.652 s
+Perdiendo WiMAX 9992.22 en tiempo 194.663 s
+Perdiendo WiMAX 9997.1 en tiempo 194.673 s
+Perdiendo WiMAX 9991.19 en tiempo 194.683 s
+Perdiendo WiMAX 9997.3 en tiempo 194.693 s
+Perdiendo WiMAX 9991.23 en tiempo 194.703 s
+Perdiendo WiMAX 9995.27 en tiempo 194.713 s
+Perdiendo WiMAX 9993.74 en tiempo 194.723 s
+Perdiendo WiMAX 9992.71 en tiempo 194.733 s
+Perdiendo WiMAX 9998.86 en tiempo 194.744 s
+Perdiendo WiMAX 9998.6 en tiempo 194.754 s
+Perdiendo WiMAX 9998.58 en tiempo 194.764 s
+Perdiendo WiMAX 9992.19 en tiempo 194.774 s
+Perdiendo WiMAX 9992.8 en tiempo 194.784 s
+Perdiendo WiMAX 9993.12 en tiempo 194.794 s
+Perdiendo WiMAX 9993.45 en tiempo 194.804 s
+Perdiendo WiMAX 9992.98 en tiempo 194.814 s
+Perdiendo WiMAX 9996.89 en tiempo 194.824 s
+Perdiendo WiMAX 9995.6 en tiempo 194.835 s
+Perdiendo WiMAX 9995.88 en tiempo 194.845 s
+Perdiendo WiMAX 9992.73 en tiempo 194.855 s
+Perdiendo WiMAX 9998.75 en tiempo 194.865 s
+Perdiendo WiMAX 9997.12 en tiempo 194.875 s
+Perdiendo WiMAX 9996.31 en tiempo 194.885 s
+Perdiendo WiMAX 9992.85 en tiempo 194.895 s
+Perdiendo WiMAX 9992 en tiempo 194.905 s
+Perdiendo WiMAX 9992.05 en tiempo 194.915 s
+Perdiendo WiMAX 9998.25 en tiempo 194.926 s
+Perdiendo WiMAX 9993.22 en tiempo 194.936 s
+Perdiendo WiMAX 9992.69 en tiempo 194.946 s
+Perdiendo WiMAX 9996.2 en tiempo 194.956 s
+Perdiendo WiMAX 9992.63 en tiempo 194.966 s
+Perdiendo WiMAX 9994.08 en tiempo 194.976 s
+Perdiendo WiMAX 9993.56 en tiempo 194.986 s
+Perdiendo WiMAX 9995.96 en tiempo 194.996 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 429958 Time: 195
+Perdiendo WiMAX 9994.57 en tiempo 195.006 s
+Perdiendo WiMAX 9996.25 en tiempo 195.017 s
+Perdiendo WiMAX 9993.08 en tiempo 195.027 s
+Perdiendo WiMAX 9996.66 en tiempo 195.037 s
+Perdiendo WiMAX 9994.72 en tiempo 195.047 s
+Perdiendo WiMAX 9996.39 en tiempo 195.057 s
+Perdiendo WiMAX 9994.25 en tiempo 195.067 s
+Perdiendo WiMAX 9996.19 en tiempo 195.077 s
+Perdiendo WiMAX 9993.66 en tiempo 195.087 s
+Perdiendo WiMAX 9996.74 en tiempo 195.097 s
+Perdiendo WiMAX 9998.51 en tiempo 195.107 s
+Perdiendo WiMAX 9995.8 en tiempo 195.118 s
+Perdiendo WiMAX 9995.97 en tiempo 195.128 s
+Perdiendo WiMAX 9998.45 en tiempo 195.138 s
+Perdiendo WiMAX 9996.83 en tiempo 195.148 s
+Perdiendo WiMAX 9998.74 en tiempo 195.158 s
+Perdiendo WiMAX 9998.09 en tiempo 195.168 s
+Perdiendo WiMAX 9996.84 en tiempo 195.178 s
+Perdiendo WiMAX 9993.47 en tiempo 195.189 s
+Perdiendo WiMAX 9993.35 en tiempo 195.199 s
+Perdiendo WiMAX 9993.36 en tiempo 195.209 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 376 Uid: 426663 TXtime: +194000000000.0ns RXtime: +195210687275.0ns Delay: +1210687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 377 Uid: 427805 TXtime: +194500000000.0ns RXtime: +195213687275.0ns Delay: +713687275.0ns
+Perdiendo WiMAX 9995.96 en tiempo 195.219 s
+Perdiendo WiMAX 9994.8 en tiempo 195.229 s
+Perdiendo WiMAX 9994.8 en tiempo 195.239 s
+Perdiendo WiMAX 9994.09 en tiempo 195.249 s
+Perdiendo WiMAX 9995.29 en tiempo 195.259 s
+Perdiendo WiMAX 9994.12 en tiempo 195.269 s
+Perdiendo WiMAX 9997.75 en tiempo 195.279 s
+Perdiendo WiMAX 9998.51 en tiempo 195.29 s
+Perdiendo WiMAX 9994.98 en tiempo 195.3 s
+Perdiendo WiMAX 9998.76 en tiempo 195.31 s
+Perdiendo WiMAX 9994.72 en tiempo 195.32 s
+Perdiendo WiMAX 9996.27 en tiempo 195.33 s
+Perdiendo WiMAX 9996.01 en tiempo 195.34 s
+Perdiendo WiMAX 9995.25 en tiempo 195.35 s
+Perdiendo WiMAX 9997.23 en tiempo 195.36 s
+Perdiendo WiMAX 9997.84 en tiempo 195.37 s
+Perdiendo WiMAX 9998.39 en tiempo 195.381 s
+Perdiendo WiMAX 9997.82 en tiempo 195.391 s
+Perdiendo WiMAX 9998.02 en tiempo 195.401 s
+Perdiendo WiMAX 9995.92 en tiempo 195.411 s
+Perdiendo WiMAX 9997.13 en tiempo 195.421 s
+Perdiendo WiMAX 9998.52 en tiempo 195.431 s
+Perdiendo WiMAX 9998.09 en tiempo 195.441 s
+Perdiendo WiMAX 9997.41 en tiempo 195.451 s
+Perdiendo WiMAX 9997.7 en tiempo 195.461 s
+Perdiendo WiMAX 9995.36 en tiempo 195.472 s
+Perdiendo WiMAX 9995.72 en tiempo 195.482 s
+Perdiendo WiMAX 9997.44 en tiempo 195.492 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 431057 Time: 195.5
+Perdiendo WiMAX 9995.27 en tiempo 195.502 s
+Perdiendo WiMAX 9998.91 en tiempo 195.512 s
+Perdiendo WiMAX 9998.29 en tiempo 195.522 s
+Perdiendo WiMAX 9995.17 en tiempo 195.532 s
+Perdiendo WiMAX 9996.43 en tiempo 195.542 s
+Perdiendo WiMAX 9999.17 en tiempo 195.552 s
+Perdiendo WiMAX 9995.58 en tiempo 195.563 s
+Perdiendo WiMAX 9996.01 en tiempo 195.573 s
+Perdiendo WiMAX 9995.89 en tiempo 195.583 s
+Perdiendo WiMAX 9996.69 en tiempo 195.593 s
+Perdiendo WiMAX 9999.02 en tiempo 195.603 s
+Perdiendo WiMAX 9995.63 en tiempo 195.613 s
+Perdiendo WiMAX 9995.22 en tiempo 195.623 s
+Perdiendo WiMAX 9995.99 en tiempo 195.633 s
+Perdiendo WiMAX 9997.6 en tiempo 195.643 s
+Perdiendo WiMAX 9998.6 en tiempo 195.664 s
+Perdiendo WiMAX 9996.8 en tiempo 195.674 s
+Perdiendo WiMAX 9998.9 en tiempo 195.684 s
+Perdiendo WiMAX 9998.67 en tiempo 195.694 s
+Perdiendo WiMAX 9997.26 en tiempo 195.704 s
+Perdiendo WiMAX 9996.07 en tiempo 195.714 s
+Perdiendo WiMAX 9995.68 en tiempo 195.724 s
+Perdiendo WiMAX 9995.22 en tiempo 195.735 s
+Perdiendo WiMAX 9997.03 en tiempo 195.744 s
+Perdiendo WiMAX 9994.31 en tiempo 195.755 s
+Perdiendo WiMAX 9998.22 en tiempo 195.765 s
+Perdiendo WiMAX 9994.7 en tiempo 195.775 s
+Perdiendo WiMAX 9996.41 en tiempo 195.785 s
+Perdiendo WiMAX 9995.1 en tiempo 195.795 s
+Perdiendo WiMAX 9996.19 en tiempo 195.805 s
+Perdiendo WiMAX 9994.4 en tiempo 195.815 s
+Perdiendo WiMAX 9995.4 en tiempo 195.825 s
+Perdiendo WiMAX 9994.67 en tiempo 195.836 s
+Perdiendo WiMAX 9993.48 en tiempo 195.846 s
+Perdiendo WiMAX 9997.05 en tiempo 195.856 s
+Perdiendo WiMAX 9994.48 en tiempo 195.866 s
+Perdiendo WiMAX 9996.88 en tiempo 195.876 s
+Perdiendo WiMAX 9997.68 en tiempo 195.886 s
+Perdiendo WiMAX 9993.14 en tiempo 195.896 s
+Perdiendo WiMAX 9994.03 en tiempo 195.906 s
+Perdiendo WiMAX 9998.29 en tiempo 195.916 s
+Perdiendo WiMAX 9996.56 en tiempo 195.927 s
+Perdiendo WiMAX 9994.06 en tiempo 195.937 s
+Perdiendo WiMAX 9992.87 en tiempo 195.947 s
+Perdiendo WiMAX 9996.22 en tiempo 195.957 s
+Perdiendo WiMAX 9996.31 en tiempo 195.967 s
+Perdiendo WiMAX 9993.33 en tiempo 195.977 s
+Perdiendo WiMAX 9995.23 en tiempo 195.987 s
+Perdiendo WiMAX 9993.79 en tiempo 195.997 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 432131 Time: 196
+Perdiendo WiMAX 9995.7 en tiempo 196.018 s
+Perdiendo WiMAX 9995.33 en tiempo 196.028 s
+Perdiendo WiMAX 9992.5 en tiempo 196.038 s
+Perdiendo WiMAX 9995.6 en tiempo 196.048 s
+Perdiendo WiMAX 9997.52 en tiempo 196.058 s
+Perdiendo WiMAX 9991.74 en tiempo 196.068 s
+Perdiendo WiMAX 9997.14 en tiempo 196.078 s
+Perdiendo WiMAX 9992.95 en tiempo 196.088 s
+Perdiendo WiMAX 9996.69 en tiempo 196.098 s
+Perdiendo WiMAX 9994.66 en tiempo 196.108 s
+Perdiendo WiMAX 9993.4 en tiempo 196.119 s
+Perdiendo WiMAX 9991.36 en tiempo 196.129 s
+Perdiendo WiMAX 9996.39 en tiempo 196.139 s
+Perdiendo WiMAX 9997.07 en tiempo 196.149 s
+Perdiendo WiMAX 9991.81 en tiempo 196.159 s
+Perdiendo WiMAX 9996.69 en tiempo 196.169 s
+Perdiendo WiMAX 9991.99 en tiempo 196.179 s
+Perdiendo WiMAX 9993.79 en tiempo 196.189 s
+Perdiendo WiMAX 9995.22 en tiempo 196.2 s
+Perdiendo WiMAX 9994.48 en tiempo 196.21 s
+Perdiendo WiMAX 9991.3 en tiempo 196.22 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 378 Uid: 428925 TXtime: +195000000000.0ns RXtime: +196220687275.0ns Delay: +1220687275.0ns
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 379 Uid: 429958 TXtime: +195500000000.0ns RXtime: +196223687275.0ns Delay: +723687275.0ns
+Perdiendo WiMAX 9993.47 en tiempo 196.23 s
+Perdiendo WiMAX 9991.56 en tiempo 196.24 s
+Perdiendo WiMAX 9991.1 en tiempo 196.25 s
+Perdiendo WiMAX 9989.44 en tiempo 196.26 s
+Perdiendo WiMAX 9996.24 en tiempo 196.27 s
+Perdiendo WiMAX 9992.23 en tiempo 196.28 s
+Perdiendo WiMAX 9996.5 en tiempo 196.291 s
+Perdiendo WiMAX 9993.07 en tiempo 196.301 s
+Perdiendo WiMAX 9991.25 en tiempo 196.311 s
+Perdiendo WiMAX 9996.14 en tiempo 196.321 s
+Perdiendo WiMAX 9988.65 en tiempo 196.331 s
+Perdiendo WiMAX 9988.7 en tiempo 196.341 s
+Perdiendo WiMAX 9989.13 en tiempo 196.351 s
+Perdiendo WiMAX 9990.3 en tiempo 196.361 s
+Perdiendo WiMAX 9993.68 en tiempo 196.371 s
+Perdiendo WiMAX 9989.92 en tiempo 196.381 s
+Perdiendo WiMAX 9996.85 en tiempo 196.391 s
+Perdiendo WiMAX 9990.86 en tiempo 196.402 s
+Perdiendo WiMAX 9989.14 en tiempo 196.412 s
+Perdiendo WiMAX 9994.29 en tiempo 196.422 s
+Perdiendo WiMAX 9988.01 en tiempo 196.432 s
+Perdiendo WiMAX 9993.49 en tiempo 196.442 s
+Perdiendo WiMAX 9996.18 en tiempo 196.452 s
+Perdiendo WiMAX 9989.29 en tiempo 196.462 s
+Perdiendo WiMAX 9993.08 en tiempo 196.472 s
+Perdiendo WiMAX 9988.17 en tiempo 196.483 s
+Perdiendo WiMAX 9989.45 en tiempo 196.493 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 433228 Time: 196.5
+Perdiendo WiMAX 9992.74 en tiempo 196.503 s
+Perdiendo WiMAX 9991.36 en tiempo 196.523 s
+Perdiendo WiMAX 9994.25 en tiempo 196.533 s
+Perdiendo WiMAX 9993.55 en tiempo 196.543 s
+Perdiendo WiMAX 9986.65 en tiempo 196.554 s
+Perdiendo WiMAX 9989.28 en tiempo 196.563 s
+Perdiendo WiMAX 9994.03 en tiempo 196.574 s
+Perdiendo WiMAX 9995.73 en tiempo 196.584 s
+Perdiendo WiMAX 9992.17 en tiempo 196.594 s
+Perdiendo WiMAX 9993.11 en tiempo 196.604 s
+Perdiendo WiMAX 9991.78 en tiempo 196.614 s
+Perdiendo WiMAX 9990.89 en tiempo 196.624 s
+Perdiendo WiMAX 9986.86 en tiempo 196.634 s
+Perdiendo WiMAX 9996.13 en tiempo 196.644 s
+Perdiendo WiMAX 9988.19 en tiempo 196.654 s
+Perdiendo WiMAX 9993.3 en tiempo 196.665 s
+Perdiendo WiMAX 9992.88 en tiempo 196.675 s
+Perdiendo WiMAX 9994.41 en tiempo 196.685 s
+Perdiendo WiMAX 9985.81 en tiempo 196.695 s
+Perdiendo WiMAX 9986.66 en tiempo 196.705 s
+Perdiendo WiMAX 9989.59 en tiempo 196.715 s
+Perdiendo WiMAX 9986.27 en tiempo 196.725 s
+Perdiendo WiMAX 9995.66 en tiempo 196.735 s
+Perdiendo WiMAX 9988.21 en tiempo 196.745 s
+Perdiendo WiMAX 9992.78 en tiempo 196.755 s
+Perdiendo WiMAX 9990.88 en tiempo 196.766 s
+Perdiendo WiMAX 9992.44 en tiempo 196.776 s
+Perdiendo WiMAX 9986.04 en tiempo 196.796 s
+Perdiendo WiMAX 9993.87 en tiempo 196.806 s
+Perdiendo WiMAX 9988.98 en tiempo 196.816 s
+Perdiendo WiMAX 9993.33 en tiempo 196.826 s
+Perdiendo WiMAX 9985.59 en tiempo 196.837 s
+Perdiendo WiMAX 9987.18 en tiempo 196.847 s
+Perdiendo WiMAX 9985.3 en tiempo 196.857 s
+Perdiendo WiMAX 9993.01 en tiempo 196.867 s
+Perdiendo WiMAX 9983.57 en tiempo 196.877 s
+Perdiendo WiMAX 9992.71 en tiempo 196.887 s
+Perdiendo WiMAX 9983.25 en tiempo 196.897 s
+Perdiendo WiMAX 9985.4 en tiempo 196.907 s
+Perdiendo WiMAX 9987.01 en tiempo 196.917 s
+Perdiendo WiMAX 9991.42 en tiempo 196.927 s
+Perdiendo WiMAX 9992.87 en tiempo 196.948 s
+Perdiendo WiMAX 9988.69 en tiempo 196.958 s
+Perdiendo WiMAX 9989.7 en tiempo 196.968 s
+Perdiendo WiMAX 9994.73 en tiempo 196.978 s
+Perdiendo WiMAX 9988.03 en tiempo 196.988 s
+Perdiendo WiMAX 9986.88 en tiempo 196.998 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 434321 Time: 197
+Perdiendo WiMAX 9992.59 en tiempo 197.008 s
+Perdiendo WiMAX 9985.55 en tiempo 197.028 s
+Perdiendo WiMAX 9992.58 en tiempo 197.039 s
+Perdiendo WiMAX 9985.04 en tiempo 197.049 s
+Perdiendo WiMAX 9992.1 en tiempo 197.059 s
+Perdiendo WiMAX 9992.78 en tiempo 197.069 s
+Perdiendo WiMAX 9982.43 en tiempo 197.079 s
+Perdiendo WiMAX 9987.04 en tiempo 197.089 s
+Perdiendo WiMAX 9994.62 en tiempo 197.099 s
+Perdiendo WiMAX 9989.88 en tiempo 197.109 s
+Perdiendo WiMAX 9984.47 en tiempo 197.119 s
+Perdiendo WiMAX 9985.35 en tiempo 197.13 s
+Perdiendo WiMAX 9992.85 en tiempo 197.14 s
+Perdiendo WiMAX 9983.52 en tiempo 197.15 s
+Perdiendo WiMAX 9988.01 en tiempo 197.16 s
+Perdiendo WiMAX 9988.05 en tiempo 197.17 s
+Perdiendo WiMAX 9992 en tiempo 197.18 s
+Perdiendo WiMAX 9984.68 en tiempo 197.19 s
+Perdiendo WiMAX 9983.82 en tiempo 197.2 s
+Perdiendo WiMAX 9983.22 en tiempo 197.211 s
+Perdiendo WiMAX 9981.35 en tiempo 197.221 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 380 Uid: 431057 TXtime: +196000000000.0ns RXtime: +197230687275.0ns Delay: +1230687275.0ns
+Perdiendo WiMAX 9987.65 en tiempo 197.231 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 381 Uid: 432131 TXtime: +196500000000.0ns RXtime: +197233687275.0ns Delay: +733687275.0ns
+Perdiendo WiMAX 9981.96 en tiempo 197.241 s
+Perdiendo WiMAX 9993.96 en tiempo 197.251 s
+Perdiendo WiMAX 9989.91 en tiempo 197.271 s
+Perdiendo WiMAX 9981.11 en tiempo 197.281 s
+Perdiendo WiMAX 9994.05 en tiempo 197.291 s
+Perdiendo WiMAX 9983.44 en tiempo 197.301 s
+Perdiendo WiMAX 9994.48 en tiempo 197.312 s
+Perdiendo WiMAX 9993.7 en tiempo 197.322 s
+Perdiendo WiMAX 9981.47 en tiempo 197.332 s
+Perdiendo WiMAX 9982.78 en tiempo 197.342 s
+Perdiendo WiMAX 9984.46 en tiempo 197.352 s
+Perdiendo WiMAX 9982.02 en tiempo 197.362 s
+Perdiendo WiMAX 9990.21 en tiempo 197.372 s
+Perdiendo WiMAX 9988.76 en tiempo 197.382 s
+Perdiendo WiMAX 9987.59 en tiempo 197.392 s
+Perdiendo WiMAX 9993.84 en tiempo 197.403 s
+Perdiendo WiMAX 9982.35 en tiempo 197.413 s
+Perdiendo WiMAX 9986.56 en tiempo 197.423 s
+Perdiendo WiMAX 9992.83 en tiempo 197.433 s
+Perdiendo WiMAX 9983.28 en tiempo 197.443 s
+Perdiendo WiMAX 9992.01 en tiempo 197.453 s
+Perdiendo WiMAX 9981.69 en tiempo 197.463 s
+Perdiendo WiMAX 9982.86 en tiempo 197.473 s
+Perdiendo WiMAX 9991.45 en tiempo 197.483 s
+Perdiendo WiMAX 9993.73 en tiempo 197.494 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 435334 Time: 197.5
+Perdiendo WiMAX 9993.37 en tiempo 197.504 s
+Perdiendo WiMAX 9993.3 en tiempo 197.514 s
+Perdiendo WiMAX 9988.37 en tiempo 197.524 s
+Perdiendo WiMAX 9982.72 en tiempo 197.534 s
+Perdiendo WiMAX 9985.7 en tiempo 197.544 s
+Perdiendo WiMAX 9989.62 en tiempo 197.554 s
+Perdiendo WiMAX 9980.35 en tiempo 197.564 s
+Perdiendo WiMAX 9993.73 en tiempo 197.575 s
+Perdiendo WiMAX 9989.6 en tiempo 197.585 s
+Perdiendo WiMAX 9986.41 en tiempo 197.595 s
+Perdiendo WiMAX 9990.53 en tiempo 197.605 s
+Perdiendo WiMAX 9992.56 en tiempo 197.625 s
+Perdiendo WiMAX 9982.39 en tiempo 197.635 s
+Perdiendo WiMAX 9985.22 en tiempo 197.645 s
+Perdiendo WiMAX 9992.84 en tiempo 197.655 s
+Perdiendo WiMAX 9986.52 en tiempo 197.666 s
+Perdiendo WiMAX 9993.21 en tiempo 197.676 s
+Perdiendo WiMAX 9993.44 en tiempo 197.686 s
+Perdiendo WiMAX 9989.27 en tiempo 197.696 s
+Perdiendo WiMAX 9992.33 en tiempo 197.706 s
+Perdiendo WiMAX 9984.47 en tiempo 197.716 s
+Perdiendo WiMAX 9980.49 en tiempo 197.726 s
+Perdiendo WiMAX 9991.32 en tiempo 197.736 s
+Perdiendo WiMAX 9982.9 en tiempo 197.747 s
+Perdiendo WiMAX 9991.99 en tiempo 197.756 s
+Perdiendo WiMAX 9989.41 en tiempo 197.767 s
+Perdiendo WiMAX 9986.23 en tiempo 197.777 s
+Perdiendo WiMAX 9981.97 en tiempo 197.787 s
+Perdiendo WiMAX 9980.13 en tiempo 197.797 s
+Perdiendo WiMAX 9981.03 en tiempo 197.807 s
+Perdiendo WiMAX 9979.09 en tiempo 197.817 s
+Perdiendo WiMAX 9981.62 en tiempo 197.827 s
+Perdiendo WiMAX 9987.48 en tiempo 197.838 s
+Perdiendo WiMAX 9989.58 en tiempo 197.848 s
+Perdiendo WiMAX 9984.05 en tiempo 197.858 s
+Perdiendo WiMAX 9985.67 en tiempo 197.868 s
+Perdiendo WiMAX 9978.76 en tiempo 197.878 s
+Perdiendo WiMAX 9989.44 en tiempo 197.888 s
+Perdiendo WiMAX 9991.34 en tiempo 197.898 s
+Perdiendo WiMAX 9990.07 en tiempo 197.908 s
+Perdiendo WiMAX 9983.44 en tiempo 197.918 s
+Perdiendo WiMAX 9984.08 en tiempo 197.928 s
+Perdiendo WiMAX 9988.79 en tiempo 197.938 s
+Perdiendo WiMAX 9984.19 en tiempo 197.949 s
+Perdiendo WiMAX 9992.1 en tiempo 197.959 s
+Perdiendo WiMAX 9980.12 en tiempo 197.969 s
+Perdiendo WiMAX 9987.43 en tiempo 197.979 s
+Perdiendo WiMAX 9985.24 en tiempo 197.989 s
+Perdiendo WiMAX 9992.05 en tiempo 197.999 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 436464 Time: 198
+Perdiendo WiMAX 9980.53 en tiempo 198.009 s
+Perdiendo WiMAX 9982.34 en tiempo 198.019 s
+Perdiendo WiMAX 9986.4 en tiempo 198.03 s
+Perdiendo WiMAX 9988.05 en tiempo 198.04 s
+Perdiendo WiMAX 9982.7 en tiempo 198.05 s
+Perdiendo WiMAX 9990.63 en tiempo 198.06 s
+Perdiendo WiMAX 9983.47 en tiempo 198.07 s
+Perdiendo WiMAX 9984.18 en tiempo 198.08 s
+Perdiendo WiMAX 9980.15 en tiempo 198.1 s
+Perdiendo WiMAX 9977.89 en tiempo 198.111 s
+Perdiendo WiMAX 9989.41 en tiempo 198.121 s
+Perdiendo WiMAX 9985.43 en tiempo 198.131 s
+Perdiendo WiMAX 9987.21 en tiempo 198.141 s
+Perdiendo WiMAX 9986.19 en tiempo 198.151 s
+Perdiendo WiMAX 9988.53 en tiempo 198.161 s
+Perdiendo WiMAX 9986.29 en tiempo 198.171 s
+Perdiendo WiMAX 9980.95 en tiempo 198.181 s
+Perdiendo WiMAX 9990.93 en tiempo 198.191 s
+Perdiendo WiMAX 9991.72 en tiempo 198.201 s
+Perdiendo WiMAX 9986.17 en tiempo 198.211 s
+Perdiendo WiMAX 9991.95 en tiempo 198.222 s
+Perdiendo WiMAX 9991.63 en tiempo 198.232 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 382 Uid: 433228 TXtime: +197000000000.0ns RXtime: +198240687275.0ns Delay: +1240687275.0ns
+Perdiendo WiMAX 9979.63 en tiempo 198.242 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 383 Uid: 434321 TXtime: +197500000000.0ns RXtime: +198243687275.0ns Delay: +743687275.0ns
+Perdiendo WiMAX 9987.2 en tiempo 198.252 s
+Perdiendo WiMAX 9976.45 en tiempo 198.262 s
+Perdiendo WiMAX 9990.94 en tiempo 198.272 s
+Perdiendo WiMAX 9991.6 en tiempo 198.282 s
+Perdiendo WiMAX 9987.73 en tiempo 198.292 s
+Perdiendo WiMAX 9979.21 en tiempo 198.303 s
+Perdiendo WiMAX 9981.85 en tiempo 198.313 s
+Perdiendo WiMAX 9991.36 en tiempo 198.323 s
+Perdiendo WiMAX 9979.68 en tiempo 198.333 s
+Perdiendo WiMAX 9988.35 en tiempo 198.343 s
+Perdiendo WiMAX 9982.57 en tiempo 198.353 s
+Perdiendo WiMAX 9985.54 en tiempo 198.363 s
+Perdiendo WiMAX 9977.42 en tiempo 198.373 s
+Perdiendo WiMAX 9983.45 en tiempo 198.384 s
+Perdiendo WiMAX 9981.42 en tiempo 198.394 s
+Perdiendo WiMAX 9979.79 en tiempo 198.404 s
+Perdiendo WiMAX 9979.45 en tiempo 198.414 s
+Perdiendo WiMAX 9979.57 en tiempo 198.424 s
+Perdiendo WiMAX 9982.66 en tiempo 198.434 s
+Perdiendo WiMAX 9974.34 en tiempo 198.444 s
+Perdiendo WiMAX 9975.07 en tiempo 198.454 s
+Perdiendo WiMAX 9987.56 en tiempo 198.464 s
+Perdiendo WiMAX 9973.99 en tiempo 198.474 s
+Perdiendo WiMAX 9987.53 en tiempo 198.485 s
+Perdiendo WiMAX 9984.85 en tiempo 198.495 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 437555 Time: 198.5
+Perdiendo WiMAX 9975.59 en tiempo 198.505 s
+Perdiendo WiMAX 9988.9 en tiempo 198.515 s
+Perdiendo WiMAX 9978.09 en tiempo 198.525 s
+Perdiendo WiMAX 9982.08 en tiempo 198.535 s
+Perdiendo WiMAX 9989.42 en tiempo 198.545 s
+Perdiendo WiMAX 9982.75 en tiempo 198.555 s
+Perdiendo WiMAX 9975.47 en tiempo 198.565 s
+Perdiendo WiMAX 9983.81 en tiempo 198.575 s
+Perdiendo WiMAX 9978.25 en tiempo 198.586 s
+Perdiendo WiMAX 9986.15 en tiempo 198.596 s
+Perdiendo WiMAX 9979.79 en tiempo 198.606 s
+Perdiendo WiMAX 9987.65 en tiempo 198.616 s
+Perdiendo WiMAX 9986.13 en tiempo 198.626 s
+Perdiendo WiMAX 9985.18 en tiempo 198.636 s
+Perdiendo WiMAX 9974.03 en tiempo 198.646 s
+Perdiendo WiMAX 9981.77 en tiempo 198.656 s
+Perdiendo WiMAX 9987.87 en tiempo 198.666 s
+Perdiendo WiMAX 9971.92 en tiempo 198.677 s
+Perdiendo WiMAX 9986.71 en tiempo 198.687 s
+Perdiendo WiMAX 9984.6 en tiempo 198.697 s
+Perdiendo WiMAX 9981.77 en tiempo 198.707 s
+Perdiendo WiMAX 9976.18 en tiempo 198.717 s
+Perdiendo WiMAX 9975.72 en tiempo 198.727 s
+Perdiendo WiMAX 9974.61 en tiempo 198.737 s
+Perdiendo WiMAX 9984.76 en tiempo 198.748 s
+Perdiendo WiMAX 9978.7 en tiempo 198.758 s
+Perdiendo WiMAX 9986.61 en tiempo 198.767 s
+Perdiendo WiMAX 9987.22 en tiempo 198.778 s
+Perdiendo WiMAX 9983.31 en tiempo 198.788 s
+Perdiendo WiMAX 9973.95 en tiempo 198.798 s
+Perdiendo WiMAX 9970.98 en tiempo 198.808 s
+Perdiendo WiMAX 9976 en tiempo 198.818 s
+Perdiendo WiMAX 9975.43 en tiempo 198.828 s
+Perdiendo WiMAX 9979.08 en tiempo 198.838 s
+Perdiendo WiMAX 9981.63 en tiempo 198.849 s
+Perdiendo WiMAX 9973.82 en tiempo 198.859 s
+Perdiendo WiMAX 9974.18 en tiempo 198.869 s
+Perdiendo WiMAX 9979.15 en tiempo 198.879 s
+Perdiendo WiMAX 9969.23 en tiempo 198.889 s
+Perdiendo WiMAX 9974.79 en tiempo 198.899 s
+Perdiendo WiMAX 9981.25 en tiempo 198.909 s
+Perdiendo WiMAX 9985.78 en tiempo 198.919 s
+Perdiendo WiMAX 9984.47 en tiempo 198.929 s
+Perdiendo WiMAX 9976.19 en tiempo 198.94 s
+Perdiendo WiMAX 9983.7 en tiempo 198.949 s
+Perdiendo WiMAX 9983.7 en tiempo 198.96 s
+Perdiendo WiMAX 9974.71 en tiempo 198.97 s
+Perdiendo WiMAX 9982.78 en tiempo 198.98 s
+Perdiendo WiMAX 9975.92 en tiempo 198.99 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 438642 Time: 199
+Perdiendo WiMAX 9969.47 en tiempo 199 s
+Perdiendo WiMAX 9972.26 en tiempo 199.01 s
+Perdiendo WiMAX 9974.84 en tiempo 199.02 s
+Perdiendo WiMAX 9975.29 en tiempo 199.031 s
+Perdiendo WiMAX 9981.54 en tiempo 199.041 s
+Perdiendo WiMAX 9971.16 en tiempo 199.051 s
+Perdiendo WiMAX 9970.24 en tiempo 199.061 s
+Perdiendo WiMAX 9978.54 en tiempo 199.071 s
+Perdiendo WiMAX 9983.35 en tiempo 199.081 s
+Perdiendo WiMAX 9972.4 en tiempo 199.091 s
+Perdiendo WiMAX 9977.75 en tiempo 199.101 s
+Perdiendo WiMAX 9965.08 en tiempo 199.111 s
+Perdiendo WiMAX 9971.69 en tiempo 199.122 s
+Perdiendo WiMAX 9967.29 en tiempo 199.131 s
+Perdiendo WiMAX 9966.94 en tiempo 199.142 s
+Perdiendo WiMAX 9981.13 en tiempo 199.152 s
+Perdiendo WiMAX 9971.85 en tiempo 199.162 s
+Perdiendo WiMAX 9969.23 en tiempo 199.172 s
+Perdiendo WiMAX 9970.25 en tiempo 199.182 s
+Perdiendo WiMAX 9979.62 en tiempo 199.192 s
+Perdiendo WiMAX 9979.94 en tiempo 199.202 s
+Perdiendo WiMAX 9975 en tiempo 199.213 s
+Perdiendo WiMAX 9968.29 en tiempo 199.223 s
+Perdiendo WiMAX 9979.86 en tiempo 199.233 s
+Perdiendo WiMAX 9979.84 en tiempo 199.243 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 384 Uid: 435334 TXtime: +198000000000.0ns RXtime: +199250687275.0ns Delay: +1250687275.0ns
+Perdiendo WiMAX 9972.39 en tiempo 199.253 s
+TraceDelay: RX 1012 bytes from 7.0.0.2 Sequence Number: 385 Uid: 436464 TXtime: +198500000000.0ns RXtime: +199253687275.0ns Delay: +753687275.0ns
+Perdiendo WiMAX 9976.67 en tiempo 199.263 s
+Perdiendo WiMAX 9971.02 en tiempo 199.273 s
+Perdiendo WiMAX 9977.62 en tiempo 199.283 s
+Perdiendo WiMAX 9966.34 en tiempo 199.293 s
+Perdiendo WiMAX 9969.13 en tiempo 199.304 s
+Perdiendo WiMAX 9962.11 en tiempo 199.314 s
+Perdiendo WiMAX 9966.34 en tiempo 199.324 s
+Perdiendo WiMAX 9970.21 en tiempo 199.334 s
+Perdiendo WiMAX 9963.37 en tiempo 199.344 s
+Perdiendo WiMAX 9967.04 en tiempo 199.354 s
+Perdiendo WiMAX 9971.54 en tiempo 199.364 s
+Perdiendo WiMAX 9978.07 en tiempo 199.374 s
+Perdiendo WiMAX 9979.92 en tiempo 199.384 s
+Perdiendo WiMAX 9962.36 en tiempo 199.394 s
+Perdiendo WiMAX 9968.58 en tiempo 199.404 s
+Perdiendo WiMAX 9969.87 en tiempo 199.415 s
+Perdiendo WiMAX 9973.78 en tiempo 199.425 s
+Perdiendo WiMAX 9972.88 en tiempo 199.435 s
+Perdiendo WiMAX 9971.19 en tiempo 199.445 s
+Perdiendo WiMAX 9961.8 en tiempo 199.455 s
+Perdiendo WiMAX 9979.99 en tiempo 199.465 s
+Perdiendo WiMAX 9967.8 en tiempo 199.475 s
+Perdiendo WiMAX 9972.9 en tiempo 199.485 s
+Perdiendo WiMAX 9977.57 en tiempo 199.495 s
+Send!!
+TraceDelay TX 1024 bytes to 11.1.2.1 Uid: 439757 Time: 199.5
+Perdiendo WiMAX 9964.54 en tiempo 199.506 s
+Perdiendo WiMAX 9961.74 en tiempo 199.516 s
+Perdiendo WiMAX 9972.3 en tiempo 199.526 s
+Perdiendo WiMAX 9960.22 en tiempo 199.536 s
+Perdiendo WiMAX 9972.83 en tiempo 199.546 s
+Perdiendo WiMAX 9969.76 en tiempo 199.556 s
+Perdiendo WiMAX 9962.01 en tiempo 199.566 s
+Perdiendo WiMAX 9979.05 en tiempo 199.576 s
+Perdiendo WiMAX 9964.51 en tiempo 199.587 s
+Perdiendo WiMAX 9975.84 en tiempo 199.597 s
+Perdiendo WiMAX 9974.2 en tiempo 199.607 s
+Perdiendo WiMAX 9964.36 en tiempo 199.617 s
+Perdiendo WiMAX 9977.51 en tiempo 199.627 s
+Perdiendo WiMAX 9970.15 en tiempo 199.637 s
+Perdiendo WiMAX 9962.5 en tiempo 199.647 s
+Perdiendo WiMAX 9959.68 en tiempo 199.657 s
+Perdiendo WiMAX 9969.51 en tiempo 199.668 s
+Perdiendo WiMAX 9973.79 en tiempo 199.678 s
+Perdiendo WiMAX 9968.63 en tiempo 199.688 s
+Perdiendo WiMAX 9972.74 en tiempo 199.698 s
+Perdiendo WiMAX 9976.37 en tiempo 199.708 s
+Perdiendo WiMAX 9970.33 en tiempo 199.718 s
+Perdiendo WiMAX 9967.71 en tiempo 199.728 s
+Perdiendo WiMAX 9970.22 en tiempo 199.738 s
+Perdiendo WiMAX 9961.24 en tiempo 199.749 s
+Perdiendo WiMAX 9963.67 en tiempo 199.758 s
+Perdiendo WiMAX 9963.01 en tiempo 199.769 s
+Perdiendo WiMAX 9963.57 en tiempo 199.779 s
+Perdiendo WiMAX 9972.66 en tiempo 199.789 s
+Perdiendo WiMAX 9970.19 en tiempo 199.799 s
+Perdiendo WiMAX 9957.43 en tiempo 199.809 s
+Perdiendo WiMAX 9960.08 en tiempo 199.819 s
+Perdiendo WiMAX 9971.66 en tiempo 199.829 s
+Perdiendo WiMAX 9964.07 en tiempo 199.839 s
+Perdiendo WiMAX 9970.58 en tiempo 199.85 s
+Perdiendo WiMAX 9974.6 en tiempo 199.86 s
+Perdiendo WiMAX 9975.76 en tiempo 199.87 s
+Perdiendo WiMAX 9953.67 en tiempo 199.88 s
+Perdiendo WiMAX 9975.08 en tiempo 199.89 s
+Perdiendo WiMAX 9963.79 en tiempo 199.9 s
+Perdiendo WiMAX 9968.35 en tiempo 199.91 s
+Perdiendo WiMAX 9958.51 en tiempo 199.92 s
+Perdiendo WiMAX 9972.72 en tiempo 199.93 s
+Perdiendo WiMAX 9972.57 en tiempo 199.94 s
+Perdiendo WiMAX 9966.44 en tiempo 199.95 s
+Perdiendo WiMAX 9956.88 en tiempo 199.961 s
+Perdiendo WiMAX 9955.83 en tiempo 199.971 s
+Perdiendo WiMAX 9969.37 en tiempo 199.981 s
+Perdiendo WiMAX 9955.32 en tiempo 199.991 s
+Perdiendo WiMAX 9974.76 en tiempo 200.001 s
+Perdiendo WiMAX 9973.59 en tiempo 200.011 s
+Perdiendo WiMAX 9959.34 en tiempo 200.021 s
+Perdiendo WiMAX 9960.05 en tiempo 200.031 s
+Perdiendo WiMAX 9954.51 en tiempo 200.042 s
+Perdiendo WiMAX 9960.13 en tiempo 200.052 s
+Perdiendo WiMAX 9961.59 en tiempo 200.062 s
+Perdiendo WiMAX 9969.19 en tiempo 200.072 s
+Perdiendo WiMAX 9971.69 en tiempo 200.082 s
+Perdiendo WiMAX 9972.36 en tiempo 200.092 s
