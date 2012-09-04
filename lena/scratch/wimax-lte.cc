@@ -88,7 +88,7 @@ Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
   Ipv4InterfaceContainer internetIpIfaces;	//Ipv4 interfaces
 
 
-  int duration = 500, schedType = 0;
+  int duration = 100, schedType = 0;
   WimaxHelper::SchedulerType scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
 
   CommandLine cmd;
@@ -163,7 +163,7 @@ Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
   mobility.Install(ssNodes.Get(0));
   
   Ptr<ConstantVelocityMobilityModel> cvm = ssNodes.Get(0)->GetObject<ConstantVelocityMobilityModel>();
-  cvm->SetVelocity(Vector (100, 0, 0)); //move to left to right 10.0m/s
+  cvm->SetVelocity(Vector (10, 0, 0)); //move to left to right 10.0m/s
 
   positionAlloc = CreateObject<ListPositionAllocator> ();
   

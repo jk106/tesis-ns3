@@ -85,6 +85,7 @@ public:
    */
   void ActivateEpsBearer (Ptr<NetDevice> ueLteDevice, Ptr<NetDevice> enbLteDevice, Ptr<EpcTft> tft, uint16_t rnti, uint8_t lcid);
 
+  void ActivateEpsBearer (Ptr<NetDevice> ueLteDevice, Ptr<NetDevice> enbLteDevice, Ptr<EpcTft> tft, uint16_t rnti, uint8_t lcid, Ipv4Address ueAddr);
 
   /** 
    * 
@@ -105,7 +106,7 @@ public:
    */
   Ipv4InterfaceContainer AssignUeIpv4Address (NetDeviceContainer ueDevices);
 
-
+  Ipv4AddressHelper GetAddressHelper();
   /** 
    * 
    * \return the address of the Default Gateway to be used by UEs to reach the internet

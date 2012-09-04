@@ -184,6 +184,8 @@ LtePdcp::DoReceivePdu (Ptr<Packet> p)
   MihTag tag;
   if(p->PeekPacketTag(tag))
   {
+//std::cout<<"MIH: "<<(int)tag.GetCommand()<<" "<<tag.GetParameter()<<std::endl;
+    
     LtePdcpSapUser::ReceiveRrcPduParameters params;
     params.rrcPdu = p;
     params.rnti = m_rnti;

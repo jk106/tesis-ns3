@@ -755,6 +755,7 @@ LteSpectrumPhy::EndRxData ()
   m_sinrPerceived *= m_txModeGain.at (m_transmissionMode);
   double a=0;
   int b=0;
+  int c=0;
   while (itTb!=m_expectedTbs.end ())
     {
       if (m_dataErrorModelEnabled)
@@ -764,6 +765,7 @@ LteSpectrumPhy::EndRxData ()
           NS_LOG_DEBUG (this << "RNTI " << (*itTb).first.m_rnti << " size " << (*itTb).second.size << " mcs " << (uint32_t)(*itTb).second.mcs << " bitmap " << (*itTb).second.rbBitmap.size () << " layer " << (uint16_t)(*itTb).first.m_layer << " ErrorRate " << errorRate << " corrupted " << (*itTb).second.corrupt);
           b++;
           a=a+errorRate;
+          c=(int)(*itTb).second.mcs;
        }
       
 //       for (uint16_t i = 0; i < (*itTb).second.rbBitmap.size (); i++)
@@ -772,7 +774,8 @@ LteSpectrumPhy::EndRxData ()
 //         }
       itTb++;
     }
-    double errorRate=a/b;                     
+    double errorRate=a/b;
+    errorRate+=c*10000;                     
     for (std::list<Ptr<PacketBurst> >::const_iterator i = m_rxPacketBurstList.begin (); 
     i != m_rxPacketBurstList.end (); ++i)
       {

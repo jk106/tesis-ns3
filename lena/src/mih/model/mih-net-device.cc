@@ -70,7 +70,7 @@ MihNetDevice::NonPromiscReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Pack
   }
   else
   {
-  std::cout<<"Receive!!"<<std::endl;  
+  //std::cout<<"Receive!!"<<std::endl;  
   }
 
   return true;
@@ -101,6 +101,20 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      if(parameter<9870)
      {
        std::cout<<"WiMAX Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     }
+  }
+  else if(command==3)
+  {
+     std::cout<<"Recibido de LTE "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     int mcsd=parameter/10000;
+     int mcsu=(parameter-mcsd*10000)/100;
+     if(mcsu==0&&mcsd==14)
+     {
+       std::cout<<"Perdiendo LTE "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+     }
+     if(mcsu==28&&mcsd==14)//We lost it because this is an inplausible situation.
+     {
+       std::cout<<"LTE Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
      }
   }
   else

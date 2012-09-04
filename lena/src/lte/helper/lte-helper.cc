@@ -564,6 +564,27 @@ LteHelper::ActivateEpsBearer (Ptr<NetDevice> ueDevice, EpsBearer bearer, Ptr<Epc
     }
 }
 
+void
+LteHelper::ActivateEpsBearer (Ptr<NetDevice> ueDevice, EpsBearer bearer, Ptr<EpcTft> tft, Ipv4Address ueAddr)
+{
+  NS_LOG_FUNCTION (this);
+  NS_LOG_INFO (" setting up Radio Bearer");
+  Ptr<LteEnbNetDevice> enbDevice = ueDevice->GetObject<LteUeNetDevice> ()->GetTargetEnb ();
+  Ptr<LteEnbRrc> enbRrc = enbDevice->GetObject<LteEnbNetDevice> ()->GetRrc ();
+  Ptr<LteUeRrc> ueRrc = ueDevice->GetObject<LteUeNetDevice> ()->GetRrc ();
+  uint16_t rnti = ueRrc->GetRnti ();
+  TypeId rlcTypeId = GetRlcType (bearer);
+  uint8_t lcid = enbRrc->SetupRadioBearer (rnti, bearer, rlcTypeId);
+  ueRrc->SetupRadioBearer (rnti, bearer, rlcTypeId, lcid, tft);
+
+  if (m_epcHelper != 0)
+    {
+      NS_LOG_INFO (" setting up S1 Bearer");
+      m_epcHelper->ActivateEpsBearer (ueDevice, enbDevice, tft, rnti, lcid,ueAddr);
+
+    }
+}
+
 TypeId
 LteHelper::GetRlcType (EpsBearer bearer)
 {
