@@ -219,6 +219,8 @@ public:
    */
   void ActivateEpsBearer (Ptr<NetDevice> ueDevice, EpsBearer bearer, Ptr<EpcTft> tft);
 
+  void ActivateEpsBearer (Ptr<NetDevice> ueDevice, EpsBearer bearer, Ptr<EpcTft> tft, Ipv4Address ueAddr);
+
   /** 
    * 
    * \param bearer the specification of an EPS bearer

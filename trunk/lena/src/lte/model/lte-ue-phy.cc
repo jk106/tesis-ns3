@@ -323,7 +323,8 @@ LteUePhy::PhyPduReceived (Ptr<Packet> p)
     error=tag.GetParameter();
     MihTag t;
     t.SetCommand(3);
-    t.SetParameter((1-error)*rates[McsToItbss[rate]]);
+    //t.SetParameter((1-error)*rates[McsToItbss[rate]]);
+    t.SetParameter(error+rate*100);
     p->AddPacketTag(t);
   }
   m_uePhySapUser->ReceivePhyPdu (p);

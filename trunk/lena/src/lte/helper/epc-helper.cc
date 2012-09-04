@@ -236,6 +236,40 @@ EpcHelper::ActivateEpsBearer (Ptr<NetDevice> ueLteDevice, Ptr<NetDevice> enbLteD
   
 }
 
+void
+EpcHelper::ActivateEpsBearer (Ptr<NetDevice> ueLteDevice, Ptr<NetDevice> enbLteDevice, Ptr<EpcTft> tft, uint16_t rnti, uint8_t lcid, Ipv4Address ueAddr)
+{
+  NS_LOG_LOGIC (" UE IP address: " << ueAddr);
+
+  // NOTE: unlike ueLteDevice, enbLteDevice is NOT an Ipv4 enabled
+  // device. In fact we are interested in the S1 device of the eNB.
+  // We find it by relying on the assumption that the S1 device is the
+  // only Ipv4 enabled device of the eNB besides the localhost interface.
+  Ptr<Node> enbNode = enbLteDevice->GetNode (); 
+  NS_ASSERT (enbNode != 0);
+  Ptr<Ipv4> enbIpv4 = enbNode->GetObject<Ipv4> ();
+  NS_LOG_LOGIC ("number of Ipv4 ifaces of the eNB: " << enbIpv4->GetNInterfaces ());
+  // two ifaces total: loopback + the S1-U interface
+  NS_ASSERT (enbIpv4->GetNInterfaces () == 2); 
+  // iface index 0 is loopback, index 1 is the S1-U interface
+  Ipv4Address enbAddr = enbIpv4->GetAddress (1, 0).GetLocal (); 
+  NS_LOG_LOGIC (" ENB IP address: " << enbAddr);
+
+  // setup S1 bearer at EpcSgwPgwApplication
+  uint32_t teid = m_sgwPgwApp->ActivateS1Bearer (ueAddr, enbAddr, tft);
+
+  // setup S1 bearer at EpcEnbApplication
+  NS_LOG_LOGIC ("enb: " << enbNode << ", enb->GetApplication (0): " << enbNode->GetApplication (0));
+  NS_ASSERT (enbNode->GetNApplications () == 1);
+  Ptr<Application> app =  enbNode->GetApplication (0);
+  NS_ASSERT (app != 0);
+  Ptr<EpcEnbApplication> epcEnbApp = app->GetObject<EpcEnbApplication> ();
+  NS_ASSERT (epcEnbApp != 0);
+  epcEnbApp->ErabSetupRequest (teid, rnti, lcid);
+  
+  
+}
+
 
 Ptr<Node>
 EpcHelper::GetPgwNode ()
@@ -250,7 +284,11 @@ EpcHelper::AssignUeIpv4Address (NetDeviceContainer ueDevices)
   return m_ueAddressHelper.Assign (ueDevices);
 }
 
-
+Ipv4AddressHelper 
+EpcHelper::GetAddressHelper()
+{
+  return m_ueAddressHelper;
+}
 
 Ipv4Address
 EpcHelper::GetUeDefaultGatewayAddress ()
