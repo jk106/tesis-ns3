@@ -58,6 +58,7 @@ public:
   void SetNetDevices(std::vector<Ptr<NetDevice> > &c);
   void Activate(uint8_t index);
   void SetAddress(Ipv4Address addr);
+  void eval();
   virtual void UpdateParameter(uint8_t command, double parameter);
   
   // inherited from NetDevice base class.
@@ -99,6 +100,9 @@ private:
   uint32_t m_ifIndex;
   Mac48Address m_address;
   uint8_t m_active;
+  double p_wifi;
+  double p_wimax;
+  double p_lte;
   Ipv4Address mih_address;
   std::vector<Ptr<NetDevice> > m_devices;
 };

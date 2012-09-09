@@ -348,7 +348,13 @@ SimpleOfdmWimaxPhy::StartReceive (uint32_t burstSize,
   uint8_t drop = 0;
   double Nwb = -114 + m_noiseFigure + 10 * log (GetBandwidth () / 1000000000.0) / 2.303;
   double SNR = rxPower - Nwb;
+/**
+  SNRToBlockErrorRateRecord * record1 = m_snrToBlockErrorRateManager->GetSNRToBlockErrorRateRecord (SNR, 3);
+  double I3 = record1->GetI1 ();
+  double I4 = record1->GetI2 ();
 
+  double blErrorRate = URNG.GetValue (I3, I4);
+*/
   SNRToBlockErrorRateRecord * record = m_snrToBlockErrorRateManager->GetSNRToBlockErrorRateRecord (SNR, modulationType);
   double I1 = record->GetI1 ();
   double I2 = record->GetI2 ();
@@ -375,9 +381,11 @@ SimpleOfdmWimaxPhy::StartReceive (uint32_t burstSize,
       drop = 0;
     }
   delete record;
+  //delete record1;
 
   NS_LOG_INFO ("PHY: Receive rxPower=" << rxPower << ", Nwb=" << Nwb << ", SNR=" << SNR << ", Modulation="
                                        << modulationType << ", BlocErrorRate=" << blockErrorRate << ", drop=" << (int) drop);
+  //rate=(1-blErrorRate)*10000;//We set up an analogy to 10Mbps
   rate=(1-blockErrorRate)*10000;//We set up an analogy to 10Mbps
 
   switch (GetState ())

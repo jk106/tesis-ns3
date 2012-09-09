@@ -33,6 +33,14 @@ namespace ns3 {
 
 NS_OBJECT_ENSURE_REGISTERED (MihNetDevice);
 
+int McsToItbss[29] = {
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 14, 15, 15, 16, 17, 18,
+  19, 20, 21, 22, 23, 24, 25, 26
+};
+
+int rates[27]={ 3112, 4008, 4968, 6456, 7992, 9528, 11448, 13536, 15264, 17568, 19080, 22152, 25456, 28336, 31704, 34008, 35160, 39232, 43816, 46888, 51024, 55056, 59256, 63776, 66592, 71112, 75376};
+
+
 TypeId 
 MihNetDevice::GetTypeId (void)
 {
@@ -48,7 +56,10 @@ MihNetDevice::MihNetDevice ()
     m_node (0),
     m_mtu (0xffff),
     m_ifIndex (0),
-    m_active(0)
+    m_active(0),
+    p_wifi(20000),
+    p_wimax(10000),
+    p_lte(15000)
 {
 }
 
@@ -89,7 +100,10 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      if(parameter<800)
      {
        std::cout<<"Wifi Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+       p_wifi=1;
      }
+     else
+       p_wifi=parameter;
   }
   else if(command==2)
   {
@@ -101,25 +115,71 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      if(parameter<9870)
      {
        std::cout<<"WiMAX Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+       p_wimax=0;
      }
+     else if(p_wimax==0)
+       p_wimax=0;
+     else
+       p_wimax=parameter;
   }
   else if(command==3)
   {
      //std::cout<<"Recibido de LTE "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
      int mcsd=parameter/10000;
      int mcsu=(parameter-mcsd*10000)/100;
-     if(mcsu==0&&mcsd==14)
+     double error=(parameter-mcsd*10000-mcsu*100);
+     if(mcsu==0&&mcsd==16)
      {
        std::cout<<"Perdiendo LTE "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
      }
-     if((mcsu==0&&mcsd<14)||(mcsu==28&&mcsd==14))//We lost it because this is an inplausible situation.
+     if((mcsu==0&&mcsd<16)||(mcsu==28&&mcsd==14))//We lost it because this is an inplausible situation.
      {
        std::cout<<"LTE Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+       p_lte=0;
+     }
+     else
+     {
+       if(mcsu<mcsd)
+         p_lte=(1-error)*rates[McsToItbss[mcsu]]/5;
+       else
+         p_lte=(1-error)*rates[McsToItbss[mcsd]]/5;
      }
   }
   else
   {
      std::cout<<"Recibido de WTF "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<std::endl;
+  }
+  eval();
+}
+
+void
+MihNetDevice::eval()
+{
+  double clte=p_lte/4;
+  double cwimax=p_wimax/2;
+  if(p_wifi>cwimax && p_wifi>clte && clte>cwimax)
+  {
+    std::cout<<"Wifi "<<p_wifi<<", Lte "<<clte<<", Wimax "<<cwimax<<std::endl;
+  }
+  else if(p_wifi>cwimax && p_wifi>clte && clte<cwimax)
+  {
+    std::cout<<"Wifi "<<p_wifi<<", Wimax "<<cwimax<<", Lte "<<clte<<std::endl;
+  }
+  else if(p_wifi<cwimax && p_wifi>clte)
+  {
+    std::cout<<"Wimax "<<cwimax<<", Wifi "<<p_wifi<<", Lte "<<clte<<std::endl;
+  }
+  else if(p_wifi>cwimax && p_wifi<clte)
+  {
+    std::cout<<"Lte "<<clte<<", Wifi "<<p_wifi<<", Wimax "<<cwimax<<std::endl;
+  }
+  else if(p_wifi<cwimax && cwimax>clte && p_wifi<clte)
+  {
+    std::cout<<"Wimax "<<cwimax<<", Lte "<<clte<<", Wifi "<<p_wifi<<std::endl;
+  }
+  else if(p_wifi<cwimax && p_wifi<clte && cwimax<clte)
+  {
+    std::cout<<"Lte "<<clte<<" Wimax "<<cwimax<<", Wifi "<<p_wifi<<std::endl;
   }
 }
 
@@ -273,7 +333,7 @@ bool
 MihNetDevice::Send (Ptr<Packet> packet, const Address& dest, uint16_t protocolNumber)
 {
   NS_LOG_FUNCTION (packet << dest << protocolNumber);
-  std::cout<<"Send!!"<<std::endl;
+  //std::cout<<"Send!!"<<std::endl;
   m_devices[m_active]->Send(packet,dest,protocolNumber);
   return true;
 }
