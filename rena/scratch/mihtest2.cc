@@ -70,7 +70,7 @@ int main (int argc, char *argv[])
   Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
   bool verbose = false;
 
-  int duration = 200.2, schedType = 0;
+  int duration = 3000.2, schedType = 0;
   WimaxHelper::SchedulerType scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
 
   CommandLine cmd;
@@ -78,8 +78,9 @@ int main (int argc, char *argv[])
   cmd.AddValue ("duration", "duration of the simulation in seconds", duration);
   cmd.AddValue ("verbose", "turn on all WimaxNetDevice log components", verbose);
   cmd.Parse (argc, argv);
-  LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
-  LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
+  //LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
+  //LogComponentEnable ("YansWifiPhy", LOG_LEVEL_INFO);
+  //LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
   //LogComponentEnable ("UdpEchoClientApplication", LOG_LEVEL_INFO);
   //LogComponentEnable ("UdpEchoServerApplication", LOG_LEVEL_INFO);
 
@@ -186,26 +187,7 @@ uint32_t nCsma = 3;
 
   address1.SetBase ("11.1.2.0", "255.255.255.0");
   Ipv4InterfaceContainer csmaInterfaces;
-  csmaInterfaces = address1.Assign (csmaDevices);
-
-/**
-  UdpEchoServerHelper echoServer (9);
-
-  ApplicationContainer serverApps1 = echoServer.Install (csmaNodes.Get (nCsma));
-  serverApps1.Start (Seconds (1.0));
-  serverApps1.Stop (Seconds (duration));
-
-  UdpEchoClientHelper echoClient (csmaInterfaces.GetAddress (nCsma), 9);
-  echoClient.SetAttribute ("MaxPackets", UintegerValue (1000));
-  echoClient.SetAttribute ("Interval", TimeValue (Seconds (1.)));
-  echoClient.SetAttribute ("PacketSize", UintegerValue (1024));
-
-  ApplicationContainer clientApps1 = 
-    echoClient.Install (ssNodes.Get (0));
-  clientApps1.Start (Seconds (2.0));
-  clientApps1.Stop (Seconds (duration));
-*/
-  
+  csmaInterfaces = address1.Assign (csmaDevices);  
   
 
 
@@ -248,7 +230,7 @@ uint32_t nCsma = 3;
   
   
   Ptr<ConstantVelocityMobilityModel> cvm = ssNodes.Get(0)->GetObject<ConstantVelocityMobilityModel>();
-  cvm->SetVelocity(Vector (10, 0, 0)); //move to left to right 10.0m/s
+  cvm->SetVelocity(Vector (1, 0, 0)); //move to left to right 10.0m/s
 
   positionAlloc = CreateObject<ListPositionAllocator> ();
   
@@ -263,6 +245,16 @@ uint32_t nCsma = 3;
 
   InternetStackHelper stack;
   stack.Install (bsNodes);
+  
+  PointToPointHelper p2p;
+  p2p.SetDeviceAttribute ("DataRate", DataRateValue (DataRate ("100Gb/s")));
+  p2p.SetDeviceAttribute ("Mtu", UintegerValue (1500));
+  p2p.SetChannelAttribute ("Delay", TimeValue (Seconds (0.010))); 
+  NetDeviceContainer p2pDevices3;
+  p2pDevices3=p2p.Install(NodeContainer(bsNodes.Get(0),p2pNodes.Get(1)));
+  Ipv4AddressHelper ipv4;
+  ipv4.SetBase ("11.1.4.0", "255.255.255.0");
+  ipv4.Assign (p2pDevices3);
   
   Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
   lteHelper = CreateObject<LteHelper> ();
@@ -280,7 +272,7 @@ uint32_t nCsma = 3;
   p2ph.SetDeviceAttribute ("Mtu", UintegerValue (1500));
   p2ph.SetChannelAttribute ("Delay", TimeValue (Seconds (0.010))); 
   NetDeviceContainer p2pDevices2;
-  p2pDevices2=pointToPoint.Install(NodeContainer(pgw,p2pNodes.Get(1)));
+  p2pDevices2=p2ph.Install(NodeContainer(pgw,p2pNodes.Get(1)));
 
   Ipv4AddressHelper ipv4h;
   ipv4h.SetBase ("11.1.3.0", "255.255.255.0");
@@ -329,7 +321,7 @@ address1=epcHelper->GetAddressHelper();
       wimax.EnableLogComponents ();  // Turn on all wimax logging
     }
   /*------------------------------*/
-/**
+
   UdpServerHelper udpServer;
   ApplicationContainer serverApps;
   UdpClientHelper udpClient;
@@ -342,14 +334,14 @@ address1=epcHelper->GetAddressHelper();
   serverApps.Stop (Seconds (duration));
 
   udpClient = UdpClientHelper (SSinterfaces.GetAddress (0), 100);
-  udpClient.SetAttribute ("MaxPackets", UintegerValue (1200));
+  udpClient.SetAttribute ("MaxPackets", UintegerValue (6000));
   udpClient.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
   udpClient.SetAttribute ("PacketSize", UintegerValue (1024));
 
   clientApps = udpClient.Install (csmaNodes.Get(0));
   clientApps.Start (Seconds (6));
   clientApps.Stop (Seconds (duration));
-*/
+
   UdpServerHelper udpServer3;
   ApplicationContainer serverApps3;
   UdpClientHelper udpClient3;
@@ -362,35 +354,35 @@ address1=epcHelper->GetAddressHelper();
   serverApps3.Stop (Seconds (duration));
 
   udpClient3 = UdpClientHelper (csmaInterfaces.GetAddress(0), 100);
-  udpClient3.SetAttribute ("MaxPackets", UintegerValue (1200));
-  udpClient3.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient3.SetAttribute ("MaxPackets", UintegerValue (60000));
+  udpClient3.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
   udpClient3.SetAttribute ("PacketSize", UintegerValue (1024));
 
   clientApps3 = udpClient3.Install (ssNodes.Get(0));
   clientApps3.Start (Seconds (6));
   clientApps3.Stop (Seconds (duration));
 
-/**
-UdpServerHelper udpServer2;
+
+  UdpServerHelper udpServer2;
   ApplicationContainer serverApps2;
   UdpClientHelper udpClient2;
   ApplicationContainer clientApps2;
 
   udpServer2 = UdpServerHelper (100);
 
-  serverApps2= udpServer2.Install (ssNodes.Get (1));
-  serverApps2.Start (Seconds (2));
+  serverApps2= udpServer2.Install (ssNodes.Get (0));
+  serverApps2.Start (Seconds (1));
   serverApps2.Stop (Seconds (duration));
 
-  udpClient2 = UdpClientHelper (SSinterfaces.GetAddress (1), 100);
-  udpClient2.SetAttribute ("MaxPackets", UintegerValue (1200));
+  udpClient2 = UdpClientHelper (SSinterfaces.GetAddress (0), 100);
+  udpClient2.SetAttribute ("MaxPackets", UintegerValue (6000));
   udpClient2.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
-  udpClient2.SetAttribute ("PacketSize", UintegerValue (1024));
+  udpClient2.SetAttribute ("PacketSize", UintegerValue (12));
 
-  clientApps2 = udpClient2.Install (ssNodes.Get (0));
-  clientApps2.Start (Seconds (2));
+  clientApps2 = udpClient2.Install (pgw);
+  clientApps2.Start (Seconds (1));
   clientApps2.Stop (Seconds (duration));
-*/
+
   Simulator::Stop (Seconds (duration + 0.1));
 
   wimax.EnablePcap ("wimax-simple-ss0", ssNodes.Get (0)->GetId (), ss[0]->GetIfIndex ());
@@ -430,8 +422,8 @@ UdpServerHelper udpServer2;
   
 
   NS_LOG_INFO ("Starting simulation.....");
-  Simulator::Schedule (Seconds (10), &setNewDevice, ssNodes.Get(0), 2);
-  Simulator::Schedule (Seconds (100), &setNewDevice, ssNodes.Get(0), 3);
+  Simulator::Schedule (Seconds (100), &setNewDevice, ssNodes.Get(0), 2);
+  Simulator::Schedule (Seconds (1000), &setNewDevice, ssNodes.Get(0), 3);
   
   Simulator::Run ();
 
