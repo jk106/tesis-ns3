@@ -63,7 +63,7 @@
 NS_LOG_COMPONENT_DEFINE ("WimaxSimpleExample");
 
 using namespace ns3;
-static void setNewDevice (Ptr<Node> node,uint8_t index);
+//static void setNewDevice (Ptr<Node> node,uint8_t index);
 
 int main (int argc, char *argv[])
 {
@@ -78,9 +78,9 @@ int main (int argc, char *argv[])
   cmd.AddValue ("duration", "duration of the simulation in seconds", duration);
   cmd.AddValue ("verbose", "turn on all WimaxNetDevice log components", verbose);
   cmd.Parse (argc, argv);
-  //LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
-  //LogComponentEnable ("YansWifiPhy", LOG_LEVEL_INFO);
-  //LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
+  LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
+  LogComponentEnable ("MihNetDevice", LOG_LEVEL_INFO);
+  LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
   //LogComponentEnable ("UdpEchoClientApplication", LOG_LEVEL_INFO);
   //LogComponentEnable ("UdpEchoServerApplication", LOG_LEVEL_INFO);
 
@@ -202,8 +202,8 @@ uint32_t nCsma = 3;
                           scheduler);
   bsDevs = wimax.Install (bsNodes, WimaxHelper::DEVICE_TYPE_BASE_STATION, WimaxHelper::SIMPLE_PHY_TYPE_OFDM, scheduler);
 
-  wimax.EnableAscii ("bs-devices", bsDevs);
-  wimax.EnableAscii ("ss-devices", ssDevs);
+  //wimax.EnableAscii ("bs-devices", bsDevs);
+  //wimax.EnableAscii ("ss-devices", ssDevs);
 
   Ptr<SubscriberStationNetDevice> ss[2];
 
@@ -385,9 +385,9 @@ address1=epcHelper->GetAddressHelper();
 
   Simulator::Stop (Seconds (duration + 0.1));
 
-  wimax.EnablePcap ("wimax-simple-ss0", ssNodes.Get (0)->GetId (), ss[0]->GetIfIndex ());
-  wimax.EnablePcap ("wimax-simple-ss1", ssNodes.Get (1)->GetId (), ss[1]->GetIfIndex ());
-  wimax.EnablePcap ("wimax-simple-bs0", bsNodes.Get (0)->GetId (), bs->GetIfIndex ());
+  //wimax.EnablePcap ("wimax-simple-ss0", ssNodes.Get (0)->GetId (), ss[0]->GetIfIndex ());
+  //wimax.EnablePcap ("wimax-simple-ss1", ssNodes.Get (1)->GetId (), ss[1]->GetIfIndex ());
+  //wimax.EnablePcap ("wimax-simple-bs0", bsNodes.Get (0)->GetId (), bs->GetIfIndex ());
 
   IpcsClassifierRecord DlClassifierUgs (Ipv4Address ("0.0.0.0"),
                                         Ipv4Mask ("0.0.0.0"),
@@ -422,8 +422,8 @@ address1=epcHelper->GetAddressHelper();
   
 
   NS_LOG_INFO ("Starting simulation.....");
-  Simulator::Schedule (Seconds (100), &setNewDevice, ssNodes.Get(0), 2);
-  Simulator::Schedule (Seconds (1000), &setNewDevice, ssNodes.Get(0), 3);
+  //Simulator::Schedule (Seconds (100), &setNewDevice, ssNodes.Get(0), 2);
+  //Simulator::Schedule (Seconds (1000), &setNewDevice, ssNodes.Get(0), 3);
   
   Simulator::Run ();
 
@@ -436,7 +436,7 @@ address1=epcHelper->GetAddressHelper();
 
   return 0;
 }
-
+/**
 static void setNewDevice (Ptr<Node> node, uint8_t index)
 {
   Ptr<NetDevice> aplic=node ->GetDevice(node->GetNDevices()-1);
@@ -445,4 +445,4 @@ static void setNewDevice (Ptr<Node> node, uint8_t index)
   udpc = (MihNetDevice*) apl;
   udpc -> Activate(index);
   std::cout << Simulator::Now().GetSeconds () << ": Device Swapped "<<std::endl;
-}
+}*/
