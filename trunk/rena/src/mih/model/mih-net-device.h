@@ -103,6 +103,10 @@ private:
   double p_wifi;
   double p_wimax;
   double p_lte;
+  bool hop_wifi;
+  bool hop_wimax;
+  bool hop_lte;
+  int timeout_wimax;
   Ipv4Address mih_address;
   std::vector<Ptr<NetDevice> > m_devices;
 };
