@@ -24,8 +24,11 @@
 #include "ns3/log.h"
 #include "ns3/pointer.h"
 #include "ns3/error-model.h"
+#include "ns3/mobility-module.h"
 #include "ns3/trace-source-accessor.h"
 #include "ns3/mih-tag.h"
+#include "ns3/vector.h"
+
 
 NS_LOG_COMPONENT_DEFINE ("MihNetDevice");
 
@@ -59,7 +62,11 @@ MihNetDevice::MihNetDevice ()
     m_active(0),
     p_wifi(20000),
     p_wimax(10000),
-    p_lte(15000)
+    p_lte(15000),
+    hop_wifi(false),
+    hop_wimax(false),
+    hop_lte(false),
+    timeout_wimax(-3)
 {
 }
 
@@ -96,14 +103,18 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      if(parameter<1200&&parameter >800)
      {
        NS_LOG_DEBUG(this<<"Perdiendo WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       hop_wifi=true;
      }
-     if(parameter<800)
+     else if(parameter<800)
      {
        NS_LOG_DEBUG(this<<"Wifi Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        p_wifi=1;
      }
      else
+     {
        p_wifi=parameter;
+       hop_wifi=false;
+     }
   }
   else if(command==2)
   {
@@ -111,8 +122,10 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      if(parameter<10000&&parameter >9870)
      {
        NS_LOG_DEBUG(this <<"Perdiendo WiMAX "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       hop_wimax=true;
+       timeout_wimax=Simulator::Now().GetSeconds();
      }
-     if(parameter<9870)
+     else if(parameter<9870)
      {
        NS_LOG_DEBUG(this<<"WiMAX Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        p_wimax=0;
@@ -120,7 +133,11 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      else if(p_wimax==0)
        p_wimax=0;
      else
+     {
        p_wimax=parameter;
+       if((Simulator::Now().GetSeconds()-timeout_wimax)>2)
+         hop_wimax=false;
+     }
   }
   else if(command==3)
   {
@@ -131,8 +148,9 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      if(mcsu==0&&mcsd==16)
      {
        NS_LOG_DEBUG(this<<"Perdiendo LTE "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       hop_lte=true;
      }
-     if((mcsu==0&&mcsd<16)||(mcsu==28&&mcsd==14))//We lost it because this is an inplausible situation.
+     else if((mcsu==0&&mcsd<16)||(mcsu==28&&mcsd==14))//We lost it because this is an inplausible situation.
      {
        NS_LOG_DEBUG(this<<"LTE Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        p_lte=0;
@@ -143,6 +161,7 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
          p_lte=(1-error)*rates[McsToItbss[mcsu]]/5;
        else
          p_lte=(1-error)*rates[McsToItbss[mcsd]]/5;
+       hop_lte=false;
      }
   }
   else
@@ -158,10 +177,17 @@ MihNetDevice::eval()
 {
   double clte=p_lte/4;
   double cwimax=p_wimax/2;
+  Vector speed=this->GetNode()->GetObject<ConstantVelocityMobilityModel>()->GetVelocity();
+  double velocity=sqrt(speed.x*speed.x+speed.y*speed.y+speed.z*speed.z);
   if(p_wifi>cwimax && p_wifi>clte && clte>cwimax)
   {
     //NS_LOG_DEBUG(this<<"Wifi "<<p_wifi<<", Lte "<<clte<<", Wimax "<<cwimax);
-    if(m_active!=1)
+    if(hop_wifi && m_active!=3)
+    {
+      Activate(3);
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to LTE for HOP"<<std::endl;
+    }
+    else if(m_active!=1 && velocity<5 && !hop_wifi)
     {
       Activate(1);
       std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi"<<std::endl;
@@ -170,7 +196,12 @@ MihNetDevice::eval()
   else if(p_wifi>cwimax && p_wifi>clte && clte<=cwimax)
   {
     //NS_LOG_DEBUG(this<<"Wifi "<<p_wifi<<", Wimax "<<cwimax<<", Lte "<<clte);
-    if(m_active!=1)
+    if(hop_wifi &&m_active!=2)
+    {
+      Activate(2);
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX for HOP"<<std::endl;
+    }
+    else if(m_active!=1 && velocity<5 && !hop_wifi)
     {
       Activate(1);
       std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi"<<std::endl;
@@ -179,38 +210,62 @@ MihNetDevice::eval()
   else if(p_wifi<cwimax && p_wifi>clte)
   {
     //NS_LOG_DEBUG(this<<"Wimax "<<cwimax<<", Wifi "<<p_wifi<<", Lte "<<clte);
-    if(m_active!=2)
+    if(hop_wimax && m_active!=1)
+    {
+      Activate(1);
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi for HOP"<<std::endl;
+    }
+    else if(m_active!=2 && !hop_wimax)
     {
       Activate(2);
       std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX"<<std::endl;
     }
+
   }
   else if(p_wifi>cwimax && p_wifi<clte)
   {
     //NS_LOG_DEBUG(this<<"Lte "<<clte<<", Wifi "<<p_wifi<<", Wimax "<<cwimax);
-    if(m_active!=3)
+    if(hop_lte && m_active!=1)
+    {
+      Activate(1);
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi for HOP"<<std::endl;
+    }
+    if(m_active!=3 && !hop_lte)
     {
       Activate(3);
       std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to LTE"<<std::endl;
     }
+    
   }
   else if(p_wifi<cwimax && cwimax>clte && p_wifi<clte)
   {
     //NS_LOG_DEBUG(this<<"Wimax "<<cwimax<<", Lte "<<clte<<", Wifi "<<p_wifi);
-    if(m_active!=2)
+    if(hop_wimax && m_active!=3)
+    {
+      Activate(3);
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to LTE for HOP"<<std::endl;
+    }
+    if(m_active!=2 && !hop_wimax)
     {
       Activate(2);
       std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX"<<std::endl;
     }
+
   }
   else if(p_wifi<cwimax && p_wifi<clte && cwimax<clte)
   {
     //NS_LOG_DEBUG(this<<"Lte "<<clte<<" Wimax "<<cwimax<<", Wifi "<<p_wifi);
-    if(m_active!=3)
+    if(hop_lte &&m_active!=2)
+    {
+      Activate(2);
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX for HOP"<<std::endl;
+    }
+    if(m_active!=3 && !hop_lte)
     {
       Activate(3);
       std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to LTE"<<std::endl;
     }
+
   }
 }
 
