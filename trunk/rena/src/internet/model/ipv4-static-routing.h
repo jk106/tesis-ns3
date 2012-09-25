@@ -370,6 +370,7 @@ public:
  * \see Ipv4StaticRouting::AddRoute
  */
   void RemoveMulticastRoute (uint32_t index);
+  void RemoveStaticRoute(Ipv4Address dest);
 
 protected:
   virtual void DoDispose (void);

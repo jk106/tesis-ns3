@@ -22,6 +22,7 @@
 #define MIH_TAG_H
 
 #include "ns3/tag.h"
+#include "ns3/ipv4-address.h"
 
 namespace ns3 {
 
@@ -50,7 +51,7 @@ public:
   uint8_t GetCommand () const;
   void SetParameter(double value);
   double GetParameter () const;
-
+  
 private:
   uint8_t m_command;
   double m_parameter;

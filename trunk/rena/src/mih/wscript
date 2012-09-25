@@ -4,12 +4,14 @@ def build(bld):
     obj = bld.create_ns3_module('mih', ['network', 'applications'])
     obj.source = [
         'model/mih-net-device.cc',
+        'model/netchart.cc',
         'helper/mih-helper.cc',
         ]
     headers = bld.new_task_gen(features=['ns3header'])
     headers.module = 'mih'
     headers.source = [
         'model/mih-net-device.h',
+        'model/netchart.h',
         'helper/mih-helper.h',
         ]
 
