@@ -772,4 +772,64 @@ Ipv4StaticRouting::SourceAddressSelection (uint32_t interfaceIdx, Ipv4Address de
   return candidate;
 }
 
+/**
+* Edited by JCCM
+*/
+
+void
+Ipv4StaticRouting::RemoveStaticRoute (Ipv4Address dest)
+{
+  Ptr<Ipv4Route> rtentry = 0;
+  uint16_t longest_mask = 0;
+  uint32_t shortest_metric = 0xffffffff;
+  int temp=0;
+int selected=0;
+  for (NetworkRoutesI i = m_networkRoutes.begin (); 
+       i != m_networkRoutes.end (); 
+       i++) 
+    {
+      Ipv4RoutingTableEntry *j=i->first;
+      uint32_t metric =i->second;
+      Ipv4Mask mask = (j)->GetDestNetworkMask ();
+      uint16_t masklen = mask.GetPrefixLength ();
+      Ipv4Address entry = (j)->GetDestNetwork ();
+      NS_LOG_LOGIC ("Searching for route to " << dest << ", checking against route to " << entry << "/" << masklen);
+      if (mask.IsMatch (dest, entry)) 
+        {
+          NS_LOG_LOGIC ("Found global network route " << j << ", mask length " << masklen << ", metric " << metric);
+          if (masklen < longest_mask) // Not interested if got shorter mask
+            {
+              NS_LOG_LOGIC ("Previous match longer, skipping");
+              continue;
+            }
+          if (masklen > longest_mask) // Reset metric if longer masklen
+            {
+              shortest_metric = 0xffffffff;
+            }
+          longest_mask = masklen;
+          if (metric > shortest_metric)
+            {
+              NS_LOG_LOGIC ("Equal mask length, but previous metric shorter, skipping");
+              continue;
+            }
+          shortest_metric = metric;
+          Ipv4RoutingTableEntry* route = (j);
+          uint32_t interfaceIdx = route->GetInterface ();
+          rtentry = Create<Ipv4Route> ();
+          rtentry->SetDestination (route->GetDest ());
+          rtentry->SetSource (SourceAddressSelection (interfaceIdx, route->GetDest ()));
+          rtentry->SetGateway (route->GetGateway ());
+          rtentry->SetOutputDevice (m_ipv4->GetNetDevice (interfaceIdx));
+selected=temp;
+        }
+temp++;
+    }
+  if (rtentry != 0)
+    {
+      NS_LOG_LOGIC ("Matching route via " << rtentry->GetGateway () << " at the end");
+      std::cout<<selected<<std::endl;
+      RemoveRoute(selected);
+    }
+}
+
 } // namespace ns3

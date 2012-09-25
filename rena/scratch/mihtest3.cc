@@ -70,7 +70,7 @@ int main (int argc, char *argv[])
   Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
   bool verbose = false;
 
-  int duration = 30.2, schedType = 0;
+  int duration = 300.2, schedType = 0;
   WimaxHelper::SchedulerType scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
 
   CommandLine cmd;
@@ -231,7 +231,7 @@ uint32_t nCsma = 3;
   
   Ptr<ConstantVelocityMobilityModel> cvm = ssNodes.Get(0)->GetObject<ConstantVelocityMobilityModel>();
   cvm->SetVelocity(Vector (1, 0, 0)); //move to left to right 10.0m/s
-  cvm->SetPosition(Vector (100, 0, 0));
+  //cvm->SetPosition(Vector (00, 0, 0));
 
   positionAlloc = CreateObject<ListPositionAllocator> ();
   
@@ -314,7 +314,12 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (pgw->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);  
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);
+  remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
+  remoteHostStaticRouting->RemoveStaticRoute (Ipv4Address ("7.0.0.2"));
+  remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
+   
   
   Ipv4GlobalRoutingHelper g;
   Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic.routes",std::ios::out);
