@@ -10,4 +10,5 @@
 #include "mih-helper.h"
 #include "mih-net-device.h"
 #include "netchart.h"
+#include "network-manager.h"
 #endif

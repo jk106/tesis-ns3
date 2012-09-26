@@ -5,6 +5,7 @@ def build(bld):
     obj.source = [
         'model/mih-net-device.cc',
         'model/netchart.cc',
+        'model/network-manager.cc',
         'helper/mih-helper.cc',
         ]
     headers = bld.new_task_gen(features=['ns3header'])
@@ -12,6 +13,7 @@ def build(bld):
     headers.source = [
         'model/mih-net-device.h',
         'model/netchart.h',
+        'model/network-manager.h',
         'helper/mih-helper.h',
         ]
 

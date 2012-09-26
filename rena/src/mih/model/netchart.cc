@@ -28,6 +28,9 @@
 #include "ns3/trace-source-accessor.h"
 #include "ns3/mih-tag.h"
 #include "ns3/vector.h"
+#include "ns3/internet-module.h"
+#include "ns3/global-route-manager.h"
+
 
 
 NS_LOG_COMPONENT_DEFINE ("NetChart");
@@ -51,9 +54,19 @@ NetChart::NetChart ()
 }
 
 void
-NetChart::SetNodes(std::vector<Ptr<NetDevice> > &c, std::vector<int> &d, std::vector<int> &e)
+NetChart::SetNodes(std::vector<Ptr<Node> > &c, std::vector<int> &d)
 {
-  
+  for(unsigned int i=0; i<c.size();i++)
+  {
+     Ptr<Node> dev= c[i];
+     m_nodes.push_back(dev);
+  }
+  for(unsigned int i=0; i<d.size();i++)
+  {
+     int dev= d[i];
+     m_indexesdown.push_back(dev);
+  }
+  NS_ASSERT_MSG(m_indexesdown.size()==m_nodes.size(),"The number of nodes and interfaces is not equal!");
 }
 
 void
@@ -95,13 +108,25 @@ NetChart::GetApLocation()
 void
 NetChart::AddRouting(Ipv4Address ipv4a)
 {
-  
+  for(uint8_t i=0;i<m_nodes.size();i++)
+  {
+    Ptr<Node> dev=m_nodes[i];
+    Ipv4StaticRoutingHelper ipv4RoutingHelper;
+    Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (dev->GetObject<Ipv4> ());
+    remoteHostStaticRouting->AddNetworkRouteTo (ipv4a, Ipv4Mask ("255.255.255.0"), m_indexesdown[i]);
+  }
 }
 
 void
 NetChart::RemoveRouting(Ipv4Address ipv4a)
 {
-  
+  for(uint8_t i=0;i<m_nodes.size();i++)
+  {
+    Ptr<Node> dev=m_nodes[i];
+    Ipv4StaticRoutingHelper ipv4RoutingHelper;
+    Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (dev->GetObject<Ipv4> ());
+    remoteHostStaticRouting->RemoveStaticRoute (ipv4a);
+  }
 }
  
 void

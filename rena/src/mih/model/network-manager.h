@@ -17,8 +17,8 @@
  *
  * Author: Mathieu Lacage <mathieu.lacage@sophia.inria.fr>
  */
-#ifndef NETCHART_H
-#define NETCHART_H
+#ifndef NETWORK_MANAGER_H
+#define NETWORK_MANAGER_H
 
 #include "ns3/object.h"
 #include "ns3/net-device.h"
@@ -30,6 +30,7 @@
 #include "ns3/ipv4.h"
 #include "ns3/ipv4-address.h"
 #include "ns3/mobility-module.h"
+#include "netchart.h"
 
 
 
@@ -49,30 +50,24 @@ class Node;
  * 
  * \brief simple net device for simple things and testing
  */
-class NetChart : public Object
+class NetworkManager : public Object
 {
 public:
   static TypeId GetTypeId (void);
-  NetChart ();
+  NetworkManager();
 
-  void AddRouting(Ipv4Address ipv4a);
-  void RemoveRouting(Ipv4Address ipv4a);
-  void SetId(uint8_t id);
-  void SetNodes(std::vector<Ptr<Node> > &c, std::vector<int> &d);
-  uint8_t GetId();
-  void SetTechnology(uint8_t tech);
-  void SetApLocation(Vector a);
-  uint8_t GetTechnology();
-  Vector GetApLocation();
+  void AddNetChart(NetChart chart, uint8_t path);
+  void RequestPSol(uint8_t netchartid, uint8_t nodeid,uint8_t tech_old,uint8_t tech_new);
+  void NotifyPack(uint8_t netchartid_old, uint8_t netchartid_new);
+  void NotifyPNack(uint8_t netchartid);
+  void SetLma(Ptr<Node> node, Ipv4Address addr);  
 
 protected:
   virtual void DoDispose (void);
 private:
-  uint8_t m_id;  
-  std::vector<Ptr<Node> > m_nodes;//The nodes of this network
-  std::vector<int> m_indexesdown;//The interfaces of each node downstream
-  uint8_t m_tech;
-  Vector m_aplocation;
+  Ptr<Node> lma;//LMA
+  std::vector<NetChart> m_netcharts;//The interfaces of each node downstream
+  std::vector<int> m_paths;//The interfaces for each NetChart from the LMA
 };
 
 } // namespace ns3
