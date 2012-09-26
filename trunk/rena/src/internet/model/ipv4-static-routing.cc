@@ -827,7 +827,7 @@ temp++;
   if (rtentry != 0)
     {
       NS_LOG_LOGIC ("Matching route via " << rtentry->GetGateway () << " at the end");
-      std::cout<<selected<<std::endl;
+      //std::cout<<selected<<std::endl;
       RemoveRoute(selected);
     }
 }
