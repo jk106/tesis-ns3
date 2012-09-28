@@ -173,6 +173,19 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
 }
 
 void
+MihNetDevice::SetNetId(uint8_t netid)
+{
+  m_netid=netid;
+  net->RequestPSol(m_netid,this,m_active,m_active);
+}
+
+uint8_t
+MihNetDevice::GetNetId()
+{
+  return m_netid;
+}
+
+void
 MihNetDevice::eval()
 {
   double clte=p_lte/4;
@@ -198,7 +211,8 @@ MihNetDevice::eval()
     //NS_LOG_DEBUG(this<<"Wifi "<<p_wifi<<", Wimax "<<cwimax<<", Lte "<<clte);
     if(hop_wifi &&m_active!=2)
     {
-      Activate(2);
+      //Activate(2);
+      net->RequestPSol(m_netid,this,m_active,2);
       std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX for HOP"<<std::endl;
     }
     else if(m_active!=1 && velocity<5 && !hop_wifi)
@@ -218,7 +232,7 @@ MihNetDevice::eval()
     else if(m_active!=2 && !hop_wimax)
     {
       Activate(2);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX1"<<std::endl;
     }
 
   }
@@ -248,7 +262,7 @@ MihNetDevice::eval()
     if(m_active!=2 && !hop_wimax)
     {
       Activate(2);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX2"<<std::endl;
     }
 
   }
@@ -469,6 +483,18 @@ bool
 MihNetDevice::SupportsSendFrom (void) const
 {
   return true;
+}
+
+void
+MihNetDevice::SetNetworkManager(Ptr<NetworkManager> netman)
+{
+  net=netman;
+}
+
+Ipv4Address
+MihNetDevice::GetMihAddress()
+{
+  return mih_address;
 }
 
 } // namespace ns3

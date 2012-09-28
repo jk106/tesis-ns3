@@ -795,6 +795,7 @@ YansWifiPhy::EndReceive (Ptr<Packet> packet, Ptr<InterferenceHelper::Event> even
       m_state->SwitchFromRxEndOk (p, snrPer.snr, event->GetPayloadMode (), event->GetPreambleType ());
       NotifyRxEnd (packet);
       uint32_t dataRate500KbpsUnits = event->GetPayloadMode ().GetDataRate () / 500000;
+std::cout<<"DR "<<dataRate500KbpsUnits<<std::endl;
       bool isShortPreamble = (WIFI_PREAMBLE_SHORT == event->GetPreambleType ());
       double signalDbm = RatioToDb (event->GetRxPowerW ()) + 30;
       double noiseDbm = RatioToDb (event->GetRxPowerW () / snrPer.snr) - GetRxNoiseFigure () + 30;

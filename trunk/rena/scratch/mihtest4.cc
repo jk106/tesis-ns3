@@ -59,6 +59,7 @@
 #include "ns3/mih-net-device.h"
 #include "ns3/lte-module.h"
 #include "ns3/netchart.h"
+#include "ns3/network-manager.h"
 #include <iostream>
 
 NS_LOG_COMPONENT_DEFINE ("WimaxSimpleExample");
@@ -134,7 +135,7 @@ uint32_t nCsma = 3;
   csmaNodes.Add (p2pNodes.Get (1));
   csmaNodes.Create (nCsma);
   nodesWifi.push_back(p2pNodes.Get(0));
-  indexWifi_down.push_back(1);
+  indexWifi_down.push_back(2);
 
   CsmaHelper csma;
   csma.SetChannelAttribute ("DataRate", StringValue ("100Mbps"));
@@ -299,7 +300,7 @@ uint32_t nCsma = 3;
   Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (csmaNodes.Get(nCsma)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.0.0.0"), 1);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (csmaNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.0.0.0"), 3);
+  //remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.0.0.0"), 3);
 
   NetDeviceContainer bsDevs1,ssDevs1;
   bsDevs1 = lteHelper->InstallEnbDevice (bsNodes1);
@@ -328,17 +329,13 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(0)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"), 1);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.255.255.0"), 2);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (pgw->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);
-  remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->RemoveStaticRoute (Ipv4Address ("7.0.0.2"));
-  remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
    
   
   Ipv4GlobalRoutingHelper g;
-  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic.routes",std::ios::out);
+  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic4.routes",std::ios::out);
   g.PrintRoutingTableAllAt(Seconds(12),routingStream);	  
 
   if (verbose)
@@ -356,9 +353,16 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   netLte->SetId(1);
   netLte->SetTechnology(3);
   netLte->SetNodes(nodesLte,indexLte_down);
+  NetworkManager *netman=new NetworkManager();
+  netman->AddNetChart(netWifi,1);
+  netman->AddNetChart(netWimax,3);
+  netman->AddNetChart(netLte,4);
+  netman->SetLma(p2pNodes.Get(1));
+  help.SetNetworkManager(ssNodes.Get(0),netman);
+  help.SetNetId(ssNodes.Get(0),1);
 
   /*------------------------------*/
-
+/**
   UdpServerHelper udpServer;
   ApplicationContainer serverApps;
   UdpClientHelper udpClient;
@@ -371,14 +375,14 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   serverApps.Stop (Seconds (duration));
 
   udpClient = UdpClientHelper (SSinterfaces.GetAddress (0), 100);
-  udpClient.SetAttribute ("MaxPackets", UintegerValue (6000));
-  udpClient.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient.SetAttribute ("MaxPackets", UintegerValue (60000));
+  udpClient.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
   udpClient.SetAttribute ("PacketSize", UintegerValue (1024));
 
   clientApps = udpClient.Install (csmaNodes.Get(0));
   clientApps.Start (Seconds (6));
   clientApps.Stop (Seconds (duration));
-
+*/
   UdpServerHelper udpServer3;
   ApplicationContainer serverApps3;
   UdpClientHelper udpClient3;
@@ -391,7 +395,7 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   serverApps3.Stop (Seconds (duration));
 
   udpClient3 = UdpClientHelper (csmaInterfaces.GetAddress(0), 100);
-  udpClient3.SetAttribute ("MaxPackets", UintegerValue (60000));
+  udpClient3.SetAttribute ("MaxPackets", UintegerValue (600000));
   udpClient3.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
   udpClient3.SetAttribute ("PacketSize", UintegerValue (1024));
 
@@ -405,13 +409,13 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   UdpClientHelper udpClient2;
   ApplicationContainer clientApps2;
 
-  udpServer2 = UdpServerHelper (100);
+  udpServer2 = UdpServerHelper (103);
 
   serverApps2= udpServer2.Install (ssNodes.Get (0));
   serverApps2.Start (Seconds (1));
   serverApps2.Stop (Seconds (duration));
 
-  udpClient2 = UdpClientHelper (SSinterfaces.GetAddress (0), 100);
+  udpClient2 = UdpClientHelper (SSinterfaces.GetAddress (0), 103);
   udpClient2.SetAttribute ("MaxPackets", UintegerValue (6000));
   udpClient2.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
   udpClient2.SetAttribute ("PacketSize", UintegerValue (12));
@@ -419,6 +423,48 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   clientApps2 = udpClient2.Install (pgw);
   clientApps2.Start (Seconds (1));
   clientApps2.Stop (Seconds (duration));
+
+  Simulator::Stop (Seconds (duration + 0.1));
+
+  UdpServerHelper udpServer4;
+  ApplicationContainer serverApps4;
+  UdpClientHelper udpClient4;
+  ApplicationContainer clientApps4;
+
+  udpServer4 = UdpServerHelper (100);
+
+  serverApps4= udpServer4.Install (ssNodes.Get (0));
+  serverApps4.Start (Seconds (1));
+  serverApps4.Stop (Seconds (duration));
+
+  udpClient4 = UdpClientHelper (SSinterfaces.GetAddress (0), 100);
+  udpClient4.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient4.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient4.SetAttribute ("PacketSize", UintegerValue (12));
+
+  clientApps4 = udpClient4.Install (bsNodes.Get(0));
+  clientApps4.Start (Seconds (1));
+  clientApps4.Stop (Seconds (duration));
+
+  UdpServerHelper udpServer5;
+  ApplicationContainer serverApps5;
+  UdpClientHelper udpClient5;
+  ApplicationContainer clientApps5;
+
+  udpServer5 = UdpServerHelper (101);
+
+  serverApps5= udpServer5.Install (ssNodes.Get (0));
+  serverApps5.Start (Seconds (1));
+  serverApps5.Stop (Seconds (duration));
+
+  udpClient5 = UdpClientHelper (SSinterfaces.GetAddress (0), 102);
+  udpClient5.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient5.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient5.SetAttribute ("PacketSize", UintegerValue (12));
+
+  clientApps5 = udpClient5.Install (p2pNodes.Get(0));
+  clientApps5.Start (Seconds (1));
+  clientApps5.Stop (Seconds (duration));
 
   Simulator::Stop (Seconds (duration + 0.1));
 

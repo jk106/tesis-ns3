@@ -21,6 +21,7 @@
 #define MIH_NET_DEVICE_H
 
 #include "ns3/net-device.h"
+#include "ns3/network-manager.h"
 #include "ns3/mac48-address.h"
 #include <stdint.h>
 #include <string>
@@ -35,6 +36,7 @@ namespace ns3 {
 
 class SimpleChannel;
 class Node;
+class NetworkManager;
 
 /**
  * \ingroup netdevice
@@ -57,8 +59,12 @@ public:
   void Receive (Ptr<Packet> packet, uint16_t protocol, Mac48Address to, Mac48Address from);
   void SetNetDevices(std::vector<Ptr<NetDevice> > &c);
   void Activate(uint8_t index);
+  void SetNetId(uint8_t netid);
+  uint8_t GetNetId();
   void SetAddress(Ipv4Address addr);
   void eval();
+  Ipv4Address GetMihAddress();
+  void SetNetworkManager(Ptr<NetworkManager> netman);
   virtual void UpdateParameter(uint8_t command, double parameter);
   
   // inherited from NetDevice base class.
@@ -109,6 +115,8 @@ private:
   int timeout_wimax;
   Ipv4Address mih_address;
   std::vector<Ptr<NetDevice> > m_devices;
+  Ptr<NetworkManager> net;
+  uint8_t m_netid;
 };
 
 } // namespace ns3

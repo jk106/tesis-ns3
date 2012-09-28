@@ -107,6 +107,16 @@ MihHelper::Activate(Ptr<Node> n, uint8_t index)
 }
 
 void
+MihHelper::SetNetId(Ptr<Node> n, uint8_t netid)
+{
+  Ptr<NetDevice> dev=n ->GetDevice(n->GetNDevices()-1);
+  NetDevice* apl=PeekPointer(dev);
+  MihNetDevice* mih;
+  mih = (MihNetDevice*) apl;
+  mih->SetNetId(netid);
+}
+
+void
 MihHelper::SetAddress(Ptr<Node> n, Ipv4Address addr)
 {
   Ptr<NetDevice> dev=n ->GetDevice(n->GetNDevices()-1);
@@ -114,6 +124,16 @@ MihHelper::SetAddress(Ptr<Node> n, Ipv4Address addr)
   MihNetDevice* mih;
   mih = (MihNetDevice*) apl;
   mih->SetAddress(addr);
+}
+
+void
+MihHelper::SetNetworkManager(Ptr<Node> n,Ptr<NetworkManager> netman)
+{
+  Ptr<NetDevice> dev=n ->GetDevice(n->GetNDevices()-1);
+  NetDevice* apl=PeekPointer(dev);
+  MihNetDevice* mih;
+  mih = (MihNetDevice*) apl;
+  mih->SetNetworkManager(netman);
 }
 
 } // namespace ns3

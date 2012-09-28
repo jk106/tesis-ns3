@@ -70,7 +70,7 @@ int main (int argc, char *argv[])
   Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
   bool verbose = false;
 
-  int duration = 300.2, schedType = 0;
+  int duration = 3000.2, schedType = 0;
   WimaxHelper::SchedulerType scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
 
   CommandLine cmd;
@@ -312,17 +312,17 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(0)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"), 1);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.255.255.0"), 2);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (pgw->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);
+  /**remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
+  remoteHostStaticRouting->RemoveStaticRoute (Ipv4Address ("7.0.0.0"));
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->RemoveStaticRoute (Ipv4Address ("7.0.0.2"));
-  remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.255.255.0"), 2);*/
    
   
   Ipv4GlobalRoutingHelper g;
-  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic.routes",std::ios::out);
+  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic3.routes",std::ios::out);
   g.PrintRoutingTableAllAt(Seconds(12),routingStream);	  
 
   if (verbose)

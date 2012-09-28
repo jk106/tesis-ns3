@@ -30,6 +30,7 @@
 #include "ns3/trace-helper.h"
 #include "ns3/ipv4.h"
 #include "ns3/ipv4-address.h"
+#include "ns3/network-manager.h"
 
 
 namespace ns3 {
@@ -81,7 +82,9 @@ public:
   
   NetDeviceContainer Install (const NodeContainer &c) const;
   void Activate (Ptr<Node> n,uint8_t index);
+  void SetNetId (Ptr<Node> n,uint8_t netid);
   void SetAddress (Ptr<Node> n,Ipv4Address addr);
+  void SetNetworkManager(Ptr<Node> n,Ptr<NetworkManager> netman);
 
 
 private:
