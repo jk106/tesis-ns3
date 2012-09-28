@@ -88,6 +88,7 @@ NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *dev,uint8_t tech_o
   dev->Activate(tech_new);
   Ipv4StaticRoutingHelper ipv4RoutingHelper;
   Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
+  remoteHostStaticRouting->RemoveStaticRoute (dev->GetMihAddress());
   remoteHostStaticRouting->AddNetworkRouteTo (dev->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
 }
 
