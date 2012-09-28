@@ -313,7 +313,7 @@ address1=epcHelper->GetAddressHelper();
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);  
   
   Ipv4GlobalRoutingHelper g;
-  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic.routes",std::ios::out);
+  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic2.routes",std::ios::out);
   g.PrintRoutingTableAllAt(Seconds(12),routingStream);	  
 
   if (verbose)

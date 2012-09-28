@@ -28,6 +28,9 @@
 #include "ns3/trace-source-accessor.h"
 #include "ns3/mih-tag.h"
 #include "ns3/vector.h"
+#include "ns3/internet-module.h"
+#include "ns3/global-route-manager.h"
+
 
 
 NS_LOG_COMPONENT_DEFINE ("NetworkManager");
@@ -50,16 +53,42 @@ NetworkManager::NetworkManager ()
 }
 
 void
-NetworkManager::AddNetChart(NetChart chart, uint8_t path)
+NetworkManager::AddNetChart(NetChart *chart, uint8_t path)
 {
   m_netcharts.push_back(chart);
   m_paths.push_back(path);
 }
 
 void
-NetworkManager::RequestPSol(uint8_t netchartid, uint8_t nodeid,uint8_t tech_old,uint8_t tech_new)
+NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *dev,uint8_t tech_old,uint8_t tech_new)
 {
-  
+  Ptr<NetChart> one;
+  Ptr<NetChart> two;
+  for(uint8_t i=0;i<m_netcharts.size();i++)
+  {
+    Ptr<NetChart> dev=m_netcharts[i];
+    if(dev->GetId()==netchartid && dev->GetTechnology()==tech_old)
+    {
+      one=dev;
+      break;
+    }
+  }
+  one->RemoveRouting(dev->GetMihAddress());
+  uint8_t j=0;
+  for(j=0;j<m_netcharts.size();j++)
+  {
+    Ptr<NetChart> dev=m_netcharts[j];
+    if(dev->GetId()==netchartid && dev->GetTechnology()==tech_new)
+    {
+      two=dev;
+      break;
+    }
+  }
+  two->AddRouting(dev->GetMihAddress());
+  dev->Activate(tech_new);
+  Ipv4StaticRoutingHelper ipv4RoutingHelper;
+  Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
+  remoteHostStaticRouting->AddNetworkRouteTo (dev->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
 }
 
 void
@@ -75,7 +104,7 @@ NetworkManager::NotifyPNack(uint8_t netchartid)
 }
 
 void
-NetworkManager::SetLma(Ptr<Node> node, Ipv4Address addr)
+NetworkManager::SetLma(Ptr<Node> node)
 {
   lma=node;
 }

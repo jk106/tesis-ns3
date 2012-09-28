@@ -31,6 +31,7 @@
 #include "ns3/ipv4-address.h"
 #include "ns3/mobility-module.h"
 #include "netchart.h"
+#include "mih-net-device.h"
 
 
 
@@ -39,6 +40,7 @@ namespace ns3 {
 
 class SimpleChannel;
 class Node;
+class MihNetDevice;
 
 /**
  * \ingroup netdevice
@@ -56,17 +58,17 @@ public:
   static TypeId GetTypeId (void);
   NetworkManager();
 
-  void AddNetChart(NetChart chart, uint8_t path);
-  void RequestPSol(uint8_t netchartid, uint8_t nodeid,uint8_t tech_old,uint8_t tech_new);
+  void AddNetChart(NetChart *chart, uint8_t path);
+  void RequestPSol(uint8_t netchartid, MihNetDevice *dev,uint8_t tech_old,uint8_t tech_new);
   void NotifyPack(uint8_t netchartid_old, uint8_t netchartid_new);
   void NotifyPNack(uint8_t netchartid);
-  void SetLma(Ptr<Node> node, Ipv4Address addr);  
+  void SetLma(Ptr<Node> node);  
 
 protected:
   virtual void DoDispose (void);
 private:
   Ptr<Node> lma;//LMA
-  std::vector<NetChart> m_netcharts;//The interfaces of each node downstream
+  std::vector<NetChart*> m_netcharts;//The interfaces of each node downstream
   std::vector<int> m_paths;//The interfaces for each NetChart from the LMA
 };
 
