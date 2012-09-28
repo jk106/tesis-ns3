@@ -72,7 +72,7 @@ int main (int argc, char *argv[])
   Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
   bool verbose = false;
 
-  int duration = 300.2, schedType = 0;
+  int duration = 3000.2, schedType = 0;
   WimaxHelper::SchedulerType scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
 
   CommandLine cmd;
@@ -270,7 +270,7 @@ uint32_t nCsma = 3;
   Ipv4AddressHelper ipv4;
   ipv4.SetBase ("11.1.4.0", "255.255.255.0");
   ipv4.Assign (p2pDevices3);
-  indexWimax_down.push_back(0);
+  indexWimax_down.push_back(2);
   
   Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
   lteHelper = CreateObject<LteHelper> ();
@@ -329,14 +329,14 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(0)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"), 1);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.255.255.0"), 2);
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (pgw->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);
    
   
   Ipv4GlobalRoutingHelper g;
   Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic4.routes",std::ios::out);
-  g.PrintRoutingTableAllAt(Seconds(12),routingStream);	  
+  g.PrintRoutingTableAllAt(Seconds(72),routingStream);	  
 
   if (verbose)
     {
@@ -362,7 +362,7 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   help.SetNetId(ssNodes.Get(0),1);
 
   /*------------------------------*/
-/**
+
   UdpServerHelper udpServer;
   ApplicationContainer serverApps;
   UdpClientHelper udpClient;
@@ -382,7 +382,7 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   clientApps = udpClient.Install (csmaNodes.Get(0));
   clientApps.Start (Seconds (6));
   clientApps.Stop (Seconds (duration));
-*/
+
   UdpServerHelper udpServer3;
   ApplicationContainer serverApps3;
   UdpClientHelper udpClient3;
@@ -450,14 +450,14 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   ApplicationContainer serverApps5;
   UdpClientHelper udpClient5;
   ApplicationContainer clientApps5;
-
+/**
   udpServer5 = UdpServerHelper (101);
 
   serverApps5= udpServer5.Install (ssNodes.Get (0));
   serverApps5.Start (Seconds (1));
   serverApps5.Stop (Seconds (duration));
 
-  udpClient5 = UdpClientHelper (SSinterfaces.GetAddress (0), 102);
+  udpClient5 = UdpClientHelper (SSinterfaces.GetAddress (0), 101);
   udpClient5.SetAttribute ("MaxPackets", UintegerValue (6000));
   udpClient5.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
   udpClient5.SetAttribute ("PacketSize", UintegerValue (12));
@@ -465,7 +465,7 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   clientApps5 = udpClient5.Install (p2pNodes.Get(0));
   clientApps5.Start (Seconds (1));
   clientApps5.Stop (Seconds (duration));
-
+*/
   Simulator::Stop (Seconds (duration + 0.1));
 
   //wimax.EnablePcap ("wimax-simple-ss0", ssNodes.Get (0)->GetId (), ss[0]->GetIfIndex ());

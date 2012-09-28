@@ -787,6 +787,21 @@ YansWifiPhy::EndReceive (Ptr<Packet> packet, Ptr<InterferenceHelper::Event> even
   if (m_random.GetValue () > snrPer.per)
     {
       rate=(1-snrPer.per)*rate;
+if(snrPer.snr>160)
+  rate=20000;
+else if(snrPer.snr>128)
+  rate=17777;
+else if(snrPer.snr>41.2)
+  rate=13333;
+else if(snrPer.snr>20.2)
+  rate=8888;
+else if(snrPer.snr>9.65)
+  rate=6666;
+else if(snrPer.snr>5.5)
+  rate=4444;
+else
+  rate=2222;
+      rate=(1-snrPer.per)*rate;
       MihTag tag;
       tag.SetCommand(1);//WiFi is No. 1
       tag.SetParameter(rate);
@@ -795,7 +810,7 @@ YansWifiPhy::EndReceive (Ptr<Packet> packet, Ptr<InterferenceHelper::Event> even
       m_state->SwitchFromRxEndOk (p, snrPer.snr, event->GetPayloadMode (), event->GetPreambleType ());
       NotifyRxEnd (packet);
       uint32_t dataRate500KbpsUnits = event->GetPayloadMode ().GetDataRate () / 500000;
-std::cout<<"DR "<<dataRate500KbpsUnits<<std::endl;
+//std::cout<<"DR "<<snrPer.snr<<std::endl;
       bool isShortPreamble = (WIFI_PREAMBLE_SHORT == event->GetPreambleType ());
       double signalDbm = RatioToDb (event->GetRxPowerW ()) + 30;
       double noiseDbm = RatioToDb (event->GetRxPowerW () / snrPer.snr) - GetRxNoiseFigure () + 30;
