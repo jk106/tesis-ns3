@@ -97,13 +97,14 @@ MihHelper::InstallPriv (Ptr<Node> node) const
 }
 
 void
-MihHelper::Activate(Ptr<Node> n, uint8_t index)
+MihHelper::Activate(Ptr<Node> n, uint8_t index, bool dep)
 {
   Ptr<NetDevice> dev=n ->GetDevice(n->GetNDevices()-1);
   NetDevice* apl=PeekPointer(dev);
   MihNetDevice* mih;
   mih = (MihNetDevice*) apl;
   mih->Activate(index);
+  mih->SetDependent(dep);
 }
 
 void

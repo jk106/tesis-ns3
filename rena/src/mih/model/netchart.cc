@@ -49,7 +49,8 @@ NetChart::GetTypeId (void)
 }
 
 NetChart::NetChart ()
-  : m_id (0)
+  : m_id (0),
+  m_connections(0)
 {
 }
 
@@ -115,6 +116,7 @@ NetChart::AddRouting(Ipv4Address ipv4a)
     Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (dev->GetObject<Ipv4> ());
     remoteHostStaticRouting->AddNetworkRouteTo (ipv4a, Ipv4Mask ("255.255.255.0"), m_indexesdown[i]);
   }
+  m_connections++;
 }
 
 void
@@ -127,6 +129,7 @@ NetChart::RemoveRouting(Ipv4Address ipv4a)
     Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (dev->GetObject<Ipv4> ());
     remoteHostStaticRouting->RemoveStaticRoute (ipv4a);
   }
+  m_connections++;
 }
  
 void

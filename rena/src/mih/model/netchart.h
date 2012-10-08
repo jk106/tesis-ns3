@@ -63,6 +63,7 @@ public:
   void SetTechnology(uint8_t tech);
   void SetApLocation(Vector a);
   uint8_t GetTechnology();
+  uint8_t GetConnections();
   Vector GetApLocation();
 
 protected:
@@ -72,6 +73,7 @@ private:
   std::vector<Ptr<Node> > m_nodes;//The nodes of this network
   std::vector<int> m_indexesdown;//The interfaces of each node downstream
   uint8_t m_tech;
+  uint8_t m_connections;
   Vector m_aplocation;
 };
 
