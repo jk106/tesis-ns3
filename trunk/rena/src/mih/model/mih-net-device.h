@@ -60,6 +60,7 @@ public:
   void SetNetDevices(std::vector<Ptr<NetDevice> > &c);
   void Activate(uint8_t index);
   void SetNetId(uint8_t netid);
+  void SetDependent(bool dep);
   uint8_t GetNetId();
   void SetAddress(Ipv4Address addr);
   void eval();
@@ -117,6 +118,7 @@ private:
   std::vector<Ptr<NetDevice> > m_devices;
   Ptr<NetworkManager> net;
   uint8_t m_netid;
+  bool m_dependent;
 };
 
 } // namespace ns3

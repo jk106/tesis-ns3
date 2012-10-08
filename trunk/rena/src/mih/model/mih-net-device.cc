@@ -66,7 +66,8 @@ MihNetDevice::MihNetDevice ()
     hop_wifi(false),
     hop_wimax(false),
     hop_lte(false),
-    timeout_wimax(-3)
+    timeout_wimax(-3),
+    m_dependent(false)
 {
 }
 
@@ -188,9 +189,11 @@ MihNetDevice::GetNetId()
 void
 MihNetDevice::eval()
 {
+  if(!m_dependent)
+{
   double clte=p_lte/4;
   double cwimax=p_wimax/2;
-  Vector speed=this->GetNode()->GetObject<ConstantVelocityMobilityModel>()->GetVelocity();
+  Vector speed=this->GetNode()->GetObject<MobilityModel>()->GetVelocity();
   double velocity=sqrt(speed.x*speed.x+speed.y*speed.y+speed.z*speed.z);
   if(p_wifi>cwimax && p_wifi>clte && clte>cwimax)
   {
@@ -292,6 +295,22 @@ MihNetDevice::eval()
     }
 
   }
+}
+  else if(hop_wifi && m_active==1)
+{
+  net->RequestPSol(m_netid,this,m_active,0);
+  std::cout << Simulator::Now().GetSeconds () << ": Device Swapped from Wi-Fi"<<std::endl;
+}
+  else if(hop_wimax && m_active==2)
+{
+  net->RequestPSol(m_netid,this,m_active,0);
+  std::cout << Simulator::Now().GetSeconds () << ": Device Swapped from WiMAX"<<std::endl;
+}
+  else if(hop_lte && m_active==3)
+{
+  net->RequestPSol(m_netid,this,m_active,0);
+  std::cout << Simulator::Now().GetSeconds () << ": Device Swapped from LTE"<<std::endl;
+}
 }
 
 void
@@ -506,6 +525,18 @@ Ipv4Address
 MihNetDevice::GetMihAddress()
 {
   return mih_address;
+}
+
+void 
+MihNetDevice::SetDependent(bool dep)
+{
+  m_dependent=dep;
+  if(dep==true)
+  {
+    p_wifi=0;
+    p_wimax=0;
+    p_lte=0;
+  }
 }
 
 } // namespace ns3

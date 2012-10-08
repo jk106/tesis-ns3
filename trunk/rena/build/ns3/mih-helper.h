@@ -81,7 +81,7 @@ public:
 
   
   NetDeviceContainer Install (const NodeContainer &c) const;
-  void Activate (Ptr<Node> n,uint8_t index);
+  void Activate (Ptr<Node> n,uint8_t index, bool dep);
   void SetNetId (Ptr<Node> n,uint8_t netid);
   void SetAddress (Ptr<Node> n,Ipv4Address addr);
   void SetNetworkManager(Ptr<Node> n,Ptr<NetworkManager> netman);

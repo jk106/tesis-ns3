@@ -58,6 +58,8 @@
 #include "ns3/mih-helper.h"
 #include "ns3/mih-net-device.h"
 #include "ns3/lte-module.h"
+#include "ns3/netchart.h"
+#include "ns3/network-manager.h"
 #include <iostream>
 
 NS_LOG_COMPONENT_DEFINE ("WimaxSimpleExample");
@@ -70,7 +72,7 @@ int main (int argc, char *argv[])
   Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
   bool verbose = false;
 
-  int duration = 3000.2, schedType = 0;
+  int duration = 300.2, schedType = 0;
   WimaxHelper::SchedulerType scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
 
   CommandLine cmd;
@@ -99,6 +101,11 @@ int main (int argc, char *argv[])
       scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
     }
 
+  std::vector<Ptr<Node> > nodesWifi,nodesWimax,nodesLte;
+  std::vector<int > indexWifi_down,indexWimax_down,indexLte_down;
+  NetChart *netWifi= new NetChart();
+  NetChart *netWimax= new NetChart();
+  NetChart *netLte= new NetChart();
   NodeContainer ssNodes;
   NodeContainer bsNodes;//WiFi and WiMAX
   NodeContainer bsNodes1;//LTE
@@ -127,6 +134,8 @@ uint32_t nCsma = 3;
   NodeContainer csmaNodes;
   csmaNodes.Add (p2pNodes.Get (1));
   csmaNodes.Create (nCsma);
+  nodesWifi.push_back(p2pNodes.Get(0));
+  indexWifi_down.push_back(2);
 
   CsmaHelper csma;
   csma.SetChannelAttribute ("DataRate", StringValue ("100Mbps"));
@@ -153,7 +162,7 @@ uint32_t nCsma = 3;
 
   NetDeviceContainer staDevices;
   staDevices = wifi.Install (phy, mac, ssNodes.Get(0));
-
+  
   mac.SetType ("ns3::ApWifiMac",
                "Ssid", SsidValue (ssid));
 
@@ -176,6 +185,7 @@ uint32_t nCsma = 3;
   mobility1.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
   mobility1.Install (wifiApNode);
 (wifiApNode.Get(0) -> GetObject<ConstantPositionMobilityModel>()) -> SetPosition(Vector(00.0, 0.0, 0.0));
+  netWifi->SetApLocation(Vector(00.0, 0.0, 0.0));
   stack1.Install (csmaNodes);
   stack1.Install (wifiApNode);
   
@@ -201,6 +211,8 @@ uint32_t nCsma = 3;
                           WimaxHelper::SIMPLE_PHY_TYPE_OFDM,
                           scheduler);
   bsDevs = wimax.Install (bsNodes, WimaxHelper::DEVICE_TYPE_BASE_STATION, WimaxHelper::SIMPLE_PHY_TYPE_OFDM, scheduler);
+
+  nodesWimax.push_back(bsNodes.Get(0)); 
 
   //wimax.EnableAscii ("bs-devices", bsDevs);
   //wimax.EnableAscii ("ss-devices", ssDevs);
@@ -231,12 +243,15 @@ uint32_t nCsma = 3;
   
   Ptr<ConstantVelocityMobilityModel> cvm = ssNodes.Get(0)->GetObject<ConstantVelocityMobilityModel>();
   cvm->SetVelocity(Vector (1, 0, 0)); //move to left to right 10.0m/s
+  //cvm->SetPosition(Vector (00, 0, 0));
 
   positionAlloc = CreateObject<ListPositionAllocator> ();
   
   positionAlloc->Add (Vector (-0.0, 40.0, 0.0)); //MAG1AP
+  netWimax->SetApLocation(Vector(00.0, 40.0, 0.0));
   positionAlloc->Add (Vector (0.0, 40.0, 0.0));  //MAG2AP
   positionAlloc->Add (Vector (0.0, 0.0, 0.0));  //MAG2AP
+  netLte->SetApLocation(Vector(00.0, 0.0, 0.0));
   
   mobility.SetPositionAllocator (positionAlloc);
   mobility.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
@@ -255,6 +270,7 @@ uint32_t nCsma = 3;
   Ipv4AddressHelper ipv4;
   ipv4.SetBase ("11.1.4.0", "255.255.255.0");
   ipv4.Assign (p2pDevices3);
+  indexWimax_down.push_back(2);
   
   Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
   lteHelper = CreateObject<LteHelper> ();
@@ -266,6 +282,8 @@ uint32_t nCsma = 3;
                                StringValue ("ns3::FriisPropagationLossModel"));
  
   Ptr<Node> pgw = epcHelper->GetPgwNode ();
+  nodesLte.push_back(pgw);
+  indexLte_down.push_back(1);
 
   PointToPointHelper p2ph;
   p2ph.SetDeviceAttribute ("DataRate", DataRateValue (DataRate ("100Gb/s")));
@@ -282,13 +300,13 @@ uint32_t nCsma = 3;
   Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (csmaNodes.Get(nCsma)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.0.0.0"), 1);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (csmaNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.0.0.0"), 3);
+  //remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.0.0.0"), 3);
 
   NetDeviceContainer bsDevs1,ssDevs1;
   bsDevs1 = lteHelper->InstallEnbDevice (bsNodes1);
   
   ssDevs1=lteHelper->InstallUeDevice (ssNodes); 
-  lteHelper->Attach (ssDevs1.Get(0), bsDevs1.Get(0));     
+  lteHelper->Attach (ssDevs1.Get(0), bsDevs1.Get(0));   
 	    
   Ipv4InterfaceContainer iueIpIface;
   //iueIpIface = epcHelper->AssignUeIpv4Address (NetDeviceContainer (ssDevs1));
@@ -296,30 +314,53 @@ uint32_t nCsma = 3;
 address1=epcHelper->GetAddressHelper();
   MihHelper help;
   NetDeviceContainer mihdev=help.Install(ssNodes.Get(0));
-
+ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
 
   Ipv4InterfaceContainer SSinterfaces = address1.Assign (NetDeviceContainer(mihdev,ssDevs.Get(1)));
   Ipv4Address ueAddr = SSinterfaces.GetAddress(0);
   std::cout<<"MIH adress: "<<ueAddr<<std::endl;
   lteHelper->ActivateEpsBearer (ssDevs1.Get(0), EpsBearer (EpsBearer::NGBR_VIDEO_TCP_DEFAULT), EpcTft::Default (),ueAddr);
-  Ipv4InterfaceContainer APinterfaces = address1.Assign (apDevices);
-  Ipv4InterfaceContainer BSinterface = address1.Assign (bsDevs);
+  Ipv4InterfaceContainer APinterfaces = ipv4h.Assign (apDevices);
+  ipv4h.SetBase ("11.1.6.0", "255.255.255.0");
+  Ipv4InterfaceContainer BSinterface = ipv4h.Assign (bsDevs);
   help.SetAddress(ssNodes.Get(0),SSinterfaces.GetAddress(0));
-  help.Activate(ssNodes.Get(0),1,false);
+  help.Activate(ssNodes.Get(0),1,true);
 
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(0)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"), 1);
+  remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (pgw->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);  
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);
+   
   
   Ipv4GlobalRoutingHelper g;
-  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic2.routes",std::ios::out);
-  g.PrintRoutingTableAllAt(Seconds(12),routingStream);	  
+  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic4.routes",std::ios::out);
+  g.PrintRoutingTableAllAt(Seconds(72),routingStream);	  
 
   if (verbose)
     {
       wimax.EnableLogComponents ();  // Turn on all wimax logging
     }
+/*------------------------------*/
+
+  netWifi->SetId(1);
+  netWifi->SetTechnology(1);
+  netWifi->SetNodes(nodesWifi,indexWifi_down);
+  netWimax->SetId(1);
+  netWimax->SetTechnology(2);
+  netWimax->SetNodes(nodesWimax,indexWimax_down);
+  netLte->SetId(1);
+  netLte->SetTechnology(3);
+  netLte->SetNodes(nodesLte,indexLte_down);
+  NetworkManager *netman=new NetworkManager();
+  netman->AddNetChart(netWifi,1);
+  netman->AddNetChart(netWimax,3);
+  netman->AddNetChart(netLte,4);
+  netman->SetLma(p2pNodes.Get(1));
+  help.SetNetworkManager(ssNodes.Get(0),netman);
+  help.SetNetId(ssNodes.Get(0),1);
+
   /*------------------------------*/
 
   UdpServerHelper udpServer;
@@ -334,8 +375,8 @@ address1=epcHelper->GetAddressHelper();
   serverApps.Stop (Seconds (duration));
 
   udpClient = UdpClientHelper (SSinterfaces.GetAddress (0), 100);
-  udpClient.SetAttribute ("MaxPackets", UintegerValue (6000));
-  udpClient.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient.SetAttribute ("MaxPackets", UintegerValue (60000));
+  udpClient.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
   udpClient.SetAttribute ("PacketSize", UintegerValue (1024));
 
   clientApps = udpClient.Install (csmaNodes.Get(0));
@@ -354,34 +395,13 @@ address1=epcHelper->GetAddressHelper();
   serverApps3.Stop (Seconds (duration));
 
   udpClient3 = UdpClientHelper (csmaInterfaces.GetAddress(0), 100);
-  udpClient3.SetAttribute ("MaxPackets", UintegerValue (60000));
+  udpClient3.SetAttribute ("MaxPackets", UintegerValue (600000));
   udpClient3.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
   udpClient3.SetAttribute ("PacketSize", UintegerValue (1024));
 
   clientApps3 = udpClient3.Install (ssNodes.Get(0));
   clientApps3.Start (Seconds (6));
   clientApps3.Stop (Seconds (duration));
-
-
-  UdpServerHelper udpServer2;
-  ApplicationContainer serverApps2;
-  UdpClientHelper udpClient2;
-  ApplicationContainer clientApps2;
-
-  udpServer2 = UdpServerHelper (100);
-
-  serverApps2= udpServer2.Install (ssNodes.Get (0));
-  serverApps2.Start (Seconds (1));
-  serverApps2.Stop (Seconds (duration));
-
-  udpClient2 = UdpClientHelper (SSinterfaces.GetAddress (0), 100);
-  udpClient2.SetAttribute ("MaxPackets", UintegerValue (6000));
-  udpClient2.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
-  udpClient2.SetAttribute ("PacketSize", UintegerValue (12));
-
-  clientApps2 = udpClient2.Install (pgw);
-  clientApps2.Start (Seconds (1));
-  clientApps2.Stop (Seconds (duration));
 
   Simulator::Stop (Seconds (duration + 0.1));
 
@@ -436,13 +456,3 @@ address1=epcHelper->GetAddressHelper();
 
   return 0;
 }
-/**
-static void setNewDevice (Ptr<Node> node, uint8_t index)
-{
-  Ptr<NetDevice> aplic=node ->GetDevice(node->GetNDevices()-1);
-  NetDevice* apl=PeekPointer(aplic);
-  MihNetDevice* udpc;
-  udpc = (MihNetDevice*) apl;
-  udpc -> Activate(index);
-  std::cout << Simulator::Now().GetSeconds () << ": Device Swapped "<<std::endl;
-}*/

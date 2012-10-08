@@ -307,7 +307,7 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   ipv4h.SetBase ("11.1.6.0", "255.255.255.0");
   Ipv4InterfaceContainer BSinterface = ipv4h.Assign (bsDevs);
   help.SetAddress(ssNodes.Get(0),SSinterfaces.GetAddress(0));
-  help.Activate(ssNodes.Get(0),1);
+  help.Activate(ssNodes.Get(0),1,false);
 
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(0)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"), 1);

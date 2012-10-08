@@ -60,7 +60,7 @@ NetworkManager::AddNetChart(NetChart *chart, uint8_t path)
 }
 
 void
-NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *dev,uint8_t tech_old,uint8_t tech_new)
+NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *device,uint8_t tech_old,uint8_t tech_new)
 {
   Ptr<NetChart> one;
   Ptr<NetChart> two;
@@ -73,7 +73,9 @@ NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *dev,uint8_t tech_o
       break;
     }
   }
-  one->RemoveRouting(dev->GetMihAddress());
+  one->RemoveRouting(device->GetMihAddress());
+if(tech_new!=0)
+{
   uint8_t j=0;
   for(j=0;j<m_netcharts.size();j++)
   {
@@ -84,12 +86,43 @@ NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *dev,uint8_t tech_o
       break;
     }
   }
-  two->AddRouting(dev->GetMihAddress());
-  dev->Activate(tech_new);
+  two->AddRouting(device->GetMihAddress());
+  device->Activate(tech_new);
   Ipv4StaticRoutingHelper ipv4RoutingHelper;
   Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
-  remoteHostStaticRouting->RemoveStaticRoute (dev->GetMihAddress());
-  remoteHostStaticRouting->AddNetworkRouteTo (dev->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
+  remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
+  remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
+}
+else
+{
+//Check for the closest and less congested network
+//First Distance
+  uint8_t j=0;
+  uint8_t sel=0;
+  double min_distance=1000000;//Arbitrary large distance
+  for(j=0;j<m_netcharts.size();j++)
+  {
+    Ptr<NetChart> dev=m_netcharts[j];
+    Vector pos=device->GetNode()->GetObject<MobilityModel>()->GetPosition();
+    Vector ap=dev->GetApLocation();
+    double xx=pos.x-ap.x;
+    double yy=pos.y-ap.y;
+    double zz=pos.z-ap.z;
+    double distance=sqrt(xx*xx+yy*yy+zz*zz);
+    if((distance<min_distance)&&!((tech_old==dev->GetTechnology())&&(device->GetNetId()==dev->GetId())))
+    {
+      min_distance=distance;
+      sel=j;
+    }
+  }
+  two=m_netcharts[sel];
+  two->AddRouting(device->GetMihAddress());
+  device->Activate(two->GetTechnology());
+  Ipv4StaticRoutingHelper ipv4RoutingHelper;
+  Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
+  remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
+  remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[sel]);
+}
 }
 
 void

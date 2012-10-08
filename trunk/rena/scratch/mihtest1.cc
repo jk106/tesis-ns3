@@ -268,7 +268,7 @@ uint32_t nCsma = 3;
   Ipv4InterfaceContainer SSinterfaces = address1.Assign (NetDeviceContainer(mihdev,ssDevs.Get(1)));
   Ipv4InterfaceContainer BSinterface = address1.Assign (bsDevs);
   help.SetAddress(ssNodes.Get(0),SSinterfaces.GetAddress(0));
-  help.Activate(ssNodes.Get(0),1);
+  help.Activate(ssNodes.Get(0),1,false);
 Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
 
 
