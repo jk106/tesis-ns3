@@ -250,8 +250,7 @@ MacRxMiddle::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
   MihTag tag;
   if(packet->PeekPacketTag(tag))
   {
-    m_callback (packet, hdr);
-    return;
+    //std::cout<<"MacRXMiddle"<<std::endl;
   }
   NS_ASSERT (hdr->IsData () || hdr->IsMgt ());
   OriginatorRxStatus *originator = Lookup (hdr);

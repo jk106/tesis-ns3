@@ -129,7 +129,7 @@ NetChart::RemoveRouting(Ipv4Address ipv4a)
     Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (dev->GetObject<Ipv4> ());
     remoteHostStaticRouting->RemoveStaticRoute (ipv4a);
   }
-  m_connections++;
+  m_connections--;
 }
  
 void

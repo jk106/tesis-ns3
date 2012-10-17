@@ -378,8 +378,7 @@ StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
   MihTag tag;
   if(packet->PeekPacketTag(tag))
   {
-    ForwardUp(packet, Mac48Address("aa:bb:cc:dd:ee:ff"),Mac48Address("aa:bb:cc:dd:ee:ff"));
-    return;
+        //std::cout<<"StaWifiMac"<<std::endl;
   }
   NS_ASSERT (!hdr->IsCtl ());
   if (hdr->GetAddr3 () == GetAddress ())

@@ -33,6 +33,8 @@
 #include <ns3/radio-bearer-stats-calculator.h>
 #include <ns3/epc-tft.h>
 #include <ns3/trace-fading-loss-model.h>
+#include "ns3/internet-module.h"
+
 
 namespace ns3 {
 
@@ -209,6 +211,8 @@ public:
    * \param tft the Traffic Flow Template that identifies the traffic to go on this bearer
    */
   void ActivateEpsBearer (NetDeviceContainer ueDevices, EpsBearer bearer, Ptr<EpcTft> tft);
+
+  void ActivateEpsBearer (NetDeviceContainer ueDevices, EpsBearer bearer, Ptr<EpcTft> tft, Ipv4InterfaceContainer cont);
 
   /**
    * Activate an EPS bearer on a given UE device

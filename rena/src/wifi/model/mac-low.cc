@@ -674,9 +674,7 @@ MacLow::ReceiveOk (Ptr<Packet> packet, double rxSnr, WifiMode txMode, WifiPreamb
   MihTag tag;
   if(packet->PeekPacketTag(tag))
   {
-    WifiMacHeader ack;
-    m_rxCallback (packet, &ack);
-    return;
+        //std::cout<<"MacLow"<<std::endl;
   }  
   WifiMacHeader hdr;
   packet->RemoveHeader (hdr);

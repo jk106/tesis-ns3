@@ -291,8 +291,7 @@ WifiNetDevice::ForwardUp (Ptr<Packet> packet, Mac48Address from, Mac48Address to
   MihTag tag;
   if(packet->PeekPacketTag(tag))
   {
-    m_forwardUp (this, packet, 55, from);
-    return;
+     //std::cout<<"WifiNetDevice"<<std::endl;
   }
   LlcSnapHeader llc;
   packet->RemoveHeader (llc);

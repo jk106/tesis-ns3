@@ -67,7 +67,8 @@ MihNetDevice::MihNetDevice ()
     hop_wimax(false),
     hop_lte(false),
     timeout_wimax(-3),
-    m_dependent(false)
+    m_dependent(false),
+    m_qos(1)
 {
 }
 
@@ -79,8 +80,16 @@ MihNetDevice::NonPromiscReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Pack
   MihTag tag;
   if(packet->PeekPacketTag(tag))
   {
+    if(m_active==1)
+{
+    UpdateParameter(tag.GetCommand(),tag.GetParameter());
+    //return true;
+}
+else
+{
     UpdateParameter(tag.GetCommand(),tag.GetParameter());
     return true;
+}
   }
 
   if(device == m_devices[m_active])
@@ -110,6 +119,7 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      {
        NS_LOG_DEBUG(this<<"Wifi Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        p_wifi=1;
+hop_wifi=false;
      }
      else
      {
@@ -130,6 +140,7 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      {
        NS_LOG_DEBUG(this<<"WiMAX Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        p_wimax=0;
+hop_wimax=false;
      }
      else if(p_wimax==0)
        p_wimax=0;
@@ -155,6 +166,7 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
      {
        NS_LOG_DEBUG(this<<"LTE Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        p_lte=0;
+hop_lte=false;
      }
      else
      {
@@ -177,13 +189,25 @@ void
 MihNetDevice::SetNetId(uint8_t netid)
 {
   m_netid=netid;
-  net->RequestPSol(m_netid,this,m_active,m_active);
+  net->RequestPSol(m_netid,this,m_active,4);
 }
 
 uint8_t
 MihNetDevice::GetNetId()
 {
   return m_netid;
+}
+
+void
+MihNetDevice::SetQos(uint8_t qos)
+{
+  m_qos=qos;
+}
+
+uint8_t
+MihNetDevice::GetQos()
+{
+  return m_qos;
 }
 
 void
@@ -197,7 +221,7 @@ MihNetDevice::eval()
   double velocity=sqrt(speed.x*speed.x+speed.y*speed.y+speed.z*speed.z);
   if(p_wifi>cwimax && p_wifi>clte && clte>cwimax)
   {
-    //NS_LOG_DEBUG(this<<"Wifi "<<p_wifi<<", Lte "<<clte<<", Wimax "<<cwimax);
+    //NS_LOG_DEBUG(this<<"Wifi "<<p_wifi<<", Lte "<<clte<<", Wimax "<<cwimax<<GetNode()->GetId());
     if(hop_wifi && m_active!=3)
     {
       //Activate(3);
@@ -213,7 +237,7 @@ MihNetDevice::eval()
   }
   else if(p_wifi>cwimax && p_wifi>clte && clte<=cwimax)
   {
-    //NS_LOG_DEBUG(this<<"Wifi "<<p_wifi<<", Wimax "<<cwimax<<", Lte "<<clte);
+    //NS_LOG_DEBUG(this<<"Wifi "<<p_wifi<<", Wimax "<<cwimax<<", Lte "<<clte<<GetNode()->GetId());
     if(hop_wifi &&m_active!=2)
     {
       //Activate(2);
@@ -224,23 +248,23 @@ MihNetDevice::eval()
     {
       //Activate(1);
       net->RequestPSol(m_netid,this,m_active,1);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi2"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi2 "<<GetNode()->GetId()<<std::endl;
     }
   }
   else if(p_wifi<cwimax && p_wifi>clte)
   {
-    //NS_LOG_DEBUG(this<<"Wimax "<<cwimax<<", Wifi "<<p_wifi<<", Lte "<<clte);
+    //NS_LOG_DEBUG(this<<"Wimax "<<cwimax<<", Wifi "<<p_wifi<<", Lte "<<clte<<GetNode()->GetId());
     if(hop_wimax && m_active!=1)
     {
       //Activate(1);
       net->RequestPSol(m_netid,this,m_active,1);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi for HOP"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi for HOP1"<<std::endl;
     }
     else if(m_active!=2 && !hop_wimax)
     {
       //Activate(2);
       net->RequestPSol(m_netid,this,m_active,2);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX1"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX1 "<<GetNode()->GetId()<<std::endl;
     }
 
   }
@@ -251,7 +275,7 @@ MihNetDevice::eval()
     {
       //Activate(1);
       net->RequestPSol(m_netid,this,m_active,1);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi for HOP"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi for HOP2"<<std::endl;
     }
     if(m_active!=3 && !hop_lte)
     {
@@ -274,7 +298,7 @@ MihNetDevice::eval()
     {
       //Activate(2);
       net->RequestPSol(m_netid,this,m_active,2);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX2"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiMAX2 "<<GetNode()->GetId()<<std::endl;
     }
 
   }
@@ -299,7 +323,7 @@ MihNetDevice::eval()
   else if(hop_wifi && m_active==1)
 {
   net->RequestPSol(m_netid,this,m_active,0);
-  std::cout << Simulator::Now().GetSeconds () << ": Device Swapped from Wi-Fi"<<std::endl;
+  std::cout << Simulator::Now().GetSeconds () << ": Device Swapped from Wi-Fi "<<GetNode()->GetId()<<std::endl;
 }
   else if(hop_wimax && m_active==2)
 {
@@ -464,7 +488,10 @@ MihNetDevice::Send (Ptr<Packet> packet, const Address& dest, uint16_t protocolNu
 {
   NS_LOG_FUNCTION (packet << dest << protocolNumber);
   //NS_LOG_DEBUG(this<<"Send!!");
+  if(m_active!=1)
   m_devices[m_active]->Send(packet,dest,protocolNumber);
+  else
+  m_devices[m_active]->Send(packet,Mac48Address("AA:BB:CC:DD:EE:FF"),protocolNumber);
   return true;
 }
 bool 

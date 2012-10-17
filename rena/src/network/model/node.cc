@@ -293,7 +293,7 @@ Node::ReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Packet> packet, uint16
   if(packet->PeekPacketTag(tag))
   {
     GetDevice(GetNDevices()-1)->UpdateParameter(tag.GetCommand(),tag.GetParameter());
-    return true;
+    //std::cout<<"Node"<<std::endl;
   }
 
   for (ProtocolHandlerList::iterator i = m_handlers.begin ();
