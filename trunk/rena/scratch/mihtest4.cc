@@ -168,6 +168,7 @@ uint32_t nCsma = 3;
 
   NetDeviceContainer apDevices;
   apDevices = wifi.Install (phy, mac, wifiApNode);
+  apDevices.Get(0)->SetAddress(Mac48Address("AA:BB:CC:DD:EE:FF"));
 
   MobilityHelper mobility1;
 
@@ -332,11 +333,13 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (pgw->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);
+remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (p2pNodes.Get(0)->GetObject<Ipv4> ());
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),1);
    
   
   Ipv4GlobalRoutingHelper g;
   Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic4.routes",std::ios::out);
-  g.PrintRoutingTableAllAt(Seconds(72),routingStream);	  
+  g.PrintRoutingTableAllAt(Seconds(30),routingStream);	  
 
   if (verbose)
     {
@@ -425,6 +428,27 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   clientApps2.Stop (Seconds (duration));
 
   Simulator::Stop (Seconds (duration + 0.1));
+
+UdpServerHelper udpServer9;
+  ApplicationContainer serverApps9;
+  UdpClientHelper udpClient9;
+  ApplicationContainer clientApps9;
+
+  udpServer9 = UdpServerHelper (103);
+
+  serverApps9= udpServer9.Install (ssNodes.Get (0));
+  serverApps9.Start (Seconds (1));
+  serverApps9.Stop (Seconds (duration));
+
+  udpClient9 = UdpClientHelper (SSinterfaces.GetAddress (0), 103);
+  udpClient9.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient9.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient9.SetAttribute ("PacketSize", UintegerValue (1024));
+
+  clientApps9 = udpClient9.Install (wifiApNode);
+  clientApps9.Start (Seconds (1));
+  clientApps9.Stop (Seconds (duration));
+
 
   UdpServerHelper udpServer4;
   ApplicationContainer serverApps4;

@@ -62,6 +62,8 @@ public:
   void SetNetId(uint8_t netid);
   void SetDependent(bool dep);
   uint8_t GetNetId();
+  void SetQos(uint8_t qos);
+  uint8_t GetQos();
   void SetAddress(Ipv4Address addr);
   void eval();
   Ipv4Address GetMihAddress();
@@ -119,6 +121,7 @@ private:
   Ptr<NetworkManager> net;
   uint8_t m_netid;
   bool m_dependent;
+  uint8_t m_qos;
 };
 
 } // namespace ns3

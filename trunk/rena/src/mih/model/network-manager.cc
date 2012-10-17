@@ -64,6 +64,8 @@ NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *device,uint8_t tec
 {
   Ptr<NetChart> one;
   Ptr<NetChart> two;
+  if(tech_new!=4)
+{
   for(uint8_t i=0;i<m_netcharts.size();i++)
   {
     Ptr<NetChart> dev=m_netcharts[i];
@@ -73,8 +75,26 @@ NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *device,uint8_t tec
       break;
     }
   }
-  one->RemoveRouting(device->GetMihAddress());
-if(tech_new!=0)
+  //one->RemoveRouting(device->GetMihAddress());
+}
+if(tech_new==4)
+{
+  uint8_t j=0;
+  for(j=0;j<m_netcharts.size();j++)
+  {
+    Ptr<NetChart> dev=m_netcharts[j];
+    if(dev->GetId()==netchartid && dev->GetTechnology()==tech_old)
+    {
+      two=dev;
+      break;
+    }
+  }
+  two->AddRouting(device->GetMihAddress());
+  Ipv4StaticRoutingHelper ipv4RoutingHelper;
+  Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
+  remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
+}
+else if(tech_new!=0)
 {
   uint8_t j=0;
   for(j=0;j<m_netcharts.size();j++)
@@ -86,6 +106,7 @@ if(tech_new!=0)
       break;
     }
   }
+  two->RemoveRouting(device->GetMihAddress());
   two->AddRouting(device->GetMihAddress());
   device->Activate(tech_new);
   Ipv4StaticRoutingHelper ipv4RoutingHelper;
@@ -98,7 +119,7 @@ else
 //Check for the closest and less congested network
 //First Distance
   uint8_t j=0;
-  uint8_t sel=0;
+  int8_t sel=-1;
   double min_distance=1000000;//Arbitrary large distance
   for(j=0;j<m_netcharts.size();j++)
   {
@@ -109,19 +130,26 @@ else
     double yy=pos.y-ap.y;
     double zz=pos.z-ap.z;
     double distance=sqrt(xx*xx+yy*yy+zz*zz);
+    uint8_t tech= dev-> GetTechnology();
     if((distance<min_distance)&&!((tech_old==dev->GetTechnology())&&(device->GetNetId()==dev->GetId())))
     {
-      min_distance=distance;
-      sel=j;
+      if((tech==2 && distance<700)||(tech==1 && distance<110)||(tech==3 && distance<2000))//Check that closest AP is not out of tech range
+      {
+        min_distance=distance;
+        sel=j;
+      }
     }
   }
-  two=m_netcharts[sel];
-  two->AddRouting(device->GetMihAddress());
-  device->Activate(two->GetTechnology());
-  Ipv4StaticRoutingHelper ipv4RoutingHelper;
-  Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
-  remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
-  remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[sel]);
+  if(sel!=-1)
+  {
+    two=m_netcharts[sel];
+    two->AddRouting(device->GetMihAddress());
+    device->Activate(two->GetTechnology());
+    Ipv4StaticRoutingHelper ipv4RoutingHelper;
+    Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
+    remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
+    remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[sel]);
+  }
 }
 }
 

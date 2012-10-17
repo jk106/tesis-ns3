@@ -73,6 +73,7 @@ int main (int argc, char *argv[])
   bool verbose = false;
 
   int duration = 3000.2, schedType = 0;
+  int numberOfNodes=5;
   WimaxHelper::SchedulerType scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
 
   CommandLine cmd;
@@ -83,6 +84,10 @@ int main (int argc, char *argv[])
   LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
   LogComponentEnable ("MihNetDevice", LOG_LEVEL_INFO);
   LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
+  //LogComponentEnable ("Node", LOG_LEVEL_ALL);
+  //LogComponentEnable ("Ipv4StaticRouting", LOG_LEVEL_ALL);
+  //LogComponentEnable ("Ipv4L3Protocol", LOG_LEVEL_ALL);
+  //LogComponentEnable ("ArpL3Protocol", LOG_LEVEL_ALL);
   //LogComponentEnable ("UdpEchoClientApplication", LOG_LEVEL_INFO);
   //LogComponentEnable ("UdpEchoServerApplication", LOG_LEVEL_INFO);
 
@@ -111,7 +116,7 @@ int main (int argc, char *argv[])
   NodeContainer bsNodes1;//LTE
   Ptr<LteHelper> lteHelper;	//Define LTE	
   Ptr<EpcHelper>  epcHelper;	//Define EPC
-  ssNodes.Create (2);
+  ssNodes.Create (numberOfNodes+1);
   bsNodes.Create (1);
   bsNodes1.Create(1);
   InternetStackHelper stack1;
@@ -161,7 +166,12 @@ uint32_t nCsma = 3;
                "ActiveProbing", BooleanValue (false));
 
   NetDeviceContainer staDevices;
-  staDevices = wifi.Install (phy, mac, ssNodes.Get(0));
+  NodeContainer n;
+  for(int i=0;i<numberOfNodes;i++)
+  {
+    n.Add(ssNodes.Get(i));
+  }
+  staDevices = wifi.Install (phy, mac, n);
   
   mac.SetType ("ns3::ApWifiMac",
                "Ssid", SsidValue (ssid));
@@ -218,9 +228,9 @@ uint32_t nCsma = 3;
   //wimax.EnableAscii ("bs-devices", bsDevs);
   //wimax.EnableAscii ("ss-devices", ssDevs);
 
-  Ptr<SubscriberStationNetDevice> ss[2];
+  Ptr<SubscriberStationNetDevice> ss[numberOfNodes+1];
 
-  for (int i = 0; i < 2; i++)
+  for (int i = 0; i < numberOfNodes+1; i++)
     {
       ss[i] = ssDevs.Get (i)->GetObject<SubscriberStationNetDevice> ();
       ss[i]->SetModulationType (WimaxPhy::MODULATION_TYPE_QAM16_12);
@@ -239,11 +249,15 @@ uint32_t nCsma = 3;
   
   mobility.SetPositionAllocator (positionAlloc);
   mobility.SetMobilityModel ("ns3::ConstantVelocityMobilityModel");  
-  mobility.Install(ssNodes.Get(0));
+  mobility.Install(n);
   
   
   Ptr<ConstantVelocityMobilityModel> cvm = ssNodes.Get(0)->GetObject<ConstantVelocityMobilityModel>();
   cvm->SetVelocity(Vector (1, 0, 0)); //move to left to right 10.0m/s
+  cvm = ssNodes.Get(2)->GetObject<ConstantVelocityMobilityModel>();
+  cvm->SetVelocity(Vector (2, 0, 0)); //move to left to right 10.0m/s
+  cvm = ssNodes.Get(4)->GetObject<ConstantVelocityMobilityModel>();
+  cvm->SetVelocity(Vector (4, 0, 0));
   //cvm->SetPosition(Vector (00, 0, 0));
 
   positionAlloc = CreateObject<ListPositionAllocator> ();
@@ -257,7 +271,7 @@ uint32_t nCsma = 3;
   mobility.SetPositionAllocator (positionAlloc);
   mobility.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
   
-  mobility.Install (NodeContainer(bsNodes.Get(0),ssNodes.Get(1),bsNodes1.Get(0)));
+  mobility.Install (NodeContainer(bsNodes.Get(0),ssNodes.Get(numberOfNodes),bsNodes1.Get(0)));
 
   InternetStackHelper stack;
   stack.Install (bsNodes);
@@ -306,41 +320,69 @@ uint32_t nCsma = 3;
   NetDeviceContainer bsDevs1,ssDevs1;
   bsDevs1 = lteHelper->InstallEnbDevice (bsNodes1);
   
-  ssDevs1=lteHelper->InstallUeDevice (ssNodes); 
-  lteHelper->Attach (ssDevs1.Get(0), bsDevs1.Get(0));   
+  ssDevs1=lteHelper->InstallUeDevice (ssNodes);
+  for(int i=0;i<numberOfNodes+1;i++)
+  { 
+    lteHelper->Attach (ssDevs1.Get(i), bsDevs1.Get(0));   
+  }
 	    
   Ipv4InterfaceContainer iueIpIface;
   //iueIpIface = epcHelper->AssignUeIpv4Address (NetDeviceContainer (ssDevs1));
   
 address1=epcHelper->GetAddressHelper();
   MihHelper help;
-  NetDeviceContainer mihdev=help.Install(ssNodes.Get(0));
-ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
-
-  Ipv4InterfaceContainer SSinterfaces = address1.Assign (NetDeviceContainer(mihdev,ssDevs.Get(1)));
-  Ipv4Address ueAddr = SSinterfaces.GetAddress(0);
-  std::cout<<"MIH adress: "<<ueAddr<<std::endl;
-  lteHelper->ActivateEpsBearer (ssDevs1.Get(0), EpsBearer (EpsBearer::NGBR_VIDEO_TCP_DEFAULT), EpcTft::Default (),ueAddr);
-  Ipv4InterfaceContainer APinterfaces = ipv4h.Assign (apDevices);
-  ipv4h.SetBase ("11.1.6.0", "255.255.255.0");
+  ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
+  NetDeviceContainer mihdev=help.Install(n);
+    
+  Ipv4InterfaceContainer SSinterfaces = address1.Assign (NetDeviceContainer(mihdev,ssDevs.Get(numberOfNodes)));
+  Ipv4InterfaceContainer APinterfaces = address1.Assign (apDevices);
+ipv4h.SetBase ("11.1.6.0", "255.255.255.0");
   Ipv4InterfaceContainer BSinterface = ipv4h.Assign (bsDevs);
-  help.SetAddress(ssNodes.Get(0),SSinterfaces.GetAddress(0));
-  help.Activate(ssNodes.Get(0),1,true);
+  lteHelper->ActivateEpsBearer (ssDevs1, EpsBearer (EpsBearer::NGBR_VIDEO_TCP_DEFAULT), EpcTft::Default (),SSinterfaces);
+  for(int i=0;i<numberOfNodes;i++)
+  {
+    Ipv4Address ueAddr = SSinterfaces.GetAddress(i);
+    std::cout<<"MIH adress: "<<ueAddr<<std::endl;
+    help.SetAddress(ssNodes.Get(i),SSinterfaces.GetAddress(i));
+    
 
-  remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"), 1);
-  remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.2"), Ipv4Mask ("255.255.255.0"), 2);
+  
+  }
+remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(0)->GetObject<Ipv4> ());
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),1);
+remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (p2pNodes.Get(0)->GetObject<Ipv4> ());
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),1);
+
+  
+  
+
+  for(int i=0;i<numberOfNodes;i++)
+  {
+    help.Activate(ssNodes.Get(i),1,false);
+    i++;
+  }
+  for(int i=1;i<numberOfNodes;i++)
+  {
+    help.Activate(ssNodes.Get(i),1,true);
+    i++;
+  }
+  for(int i=0;i<numberOfNodes+1;i++)
+  {
+    remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (bsNodes.Get(0)->GetObject<Ipv4> ());
+    remoteHostStaticRouting->AddNetworkRouteTo (SSinterfaces.GetAddress(i), Ipv4Mask ("255.255.255.0"), 2);
+  }
   remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (pgw->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),Ipv4Address ("11.1.3.0"), 2);
-  remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (p2pNodes.Get(0)->GetObject<Ipv4> ());
-  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),1);
-  
+   
   
   Ipv4GlobalRoutingHelper g;
-  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic5.routes",std::ios::out);
-  g.PrintRoutingTableAllAt(Seconds(72),routingStream);	  
-
+  Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic6.routes",std::ios::out);
+  g.PrintRoutingTableAllAt(Seconds(0),routingStream);
+  routingStream= Create<OutputStreamWrapper>("dynamic619.routes",std::ios::out);
+  g.PrintRoutingTableAllAt(Seconds(19),routingStream);
+  routingStream= Create<OutputStreamWrapper>("dynamic637.routes",std::ios::out);
+  g.PrintRoutingTableAllAt(Seconds(37),routingStream);	  
+  
   if (verbose)
     {
       wimax.EnableLogComponents ();  // Turn on all wimax logging
@@ -361,8 +403,11 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   netman->AddNetChart(netWimax,3);
   netman->AddNetChart(netLte,4);
   netman->SetLma(p2pNodes.Get(1));
-  help.SetNetworkManager(ssNodes.Get(0),netman);
-  help.SetNetId(ssNodes.Get(0),1);
+  for(int i=0;i<numberOfNodes;i++)
+  {
+    help.SetNetworkManager(ssNodes.Get(i),netman);
+    help.SetNetId(ssNodes.Get(i),1);
+  }
 
   /*------------------------------*/
 
@@ -406,15 +451,182 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   clientApps3.Start (Seconds (6));
   clientApps3.Stop (Seconds (duration));
 
+
+  UdpServerHelper udpServer2;
+  ApplicationContainer serverApps2;
+  UdpClientHelper udpClient2;
+  ApplicationContainer clientApps2;
+
+  udpServer2 = UdpServerHelper (103);
+
+  serverApps2= udpServer2.Install (ssNodes.Get (0));
+  serverApps2.Start (Seconds (1));
+  serverApps2.Stop (Seconds (duration));
+
+  udpClient2 = UdpClientHelper (SSinterfaces.GetAddress (0), 103);
+  udpClient2.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient2.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient2.SetAttribute ("PacketSize", UintegerValue (12));
+
+  clientApps2 = udpClient2.Install (pgw);
+  clientApps2.Start (Seconds (1));
+  clientApps2.Stop (Seconds (duration));
+
+  UdpServerHelper udpServer4;
+  ApplicationContainer serverApps4;
+  UdpClientHelper udpClient4;
+  ApplicationContainer clientApps4;
+
+  udpServer4 = UdpServerHelper (100);
+
+  serverApps4= udpServer4.Install (ssNodes.Get (0));
+  serverApps4.Start (Seconds (1));
+  serverApps4.Stop (Seconds (duration));
+
+  udpClient4 = UdpClientHelper (SSinterfaces.GetAddress (0), 100);
+  udpClient4.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient4.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient4.SetAttribute ("PacketSize", UintegerValue (12));
+
+  clientApps4 = udpClient4.Install (bsNodes.Get(0));
+  clientApps4.Start (Seconds (1));
+  clientApps4.Stop (Seconds (duration));
+
+  
+
+  UdpServerHelper udpServer5;
+  ApplicationContainer serverApps5;
+  UdpClientHelper udpClient5;
+  ApplicationContainer clientApps5;
+
+  udpServer5 = UdpServerHelper (103);
+
+  serverApps5= udpServer5.Install (ssNodes.Get (2));
+  serverApps5.Start (Seconds (1));
+  serverApps5.Stop (Seconds (duration));
+
+  udpClient5 = UdpClientHelper (SSinterfaces.GetAddress (2), 103);
+  udpClient5.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient5.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient5.SetAttribute ("PacketSize", UintegerValue (12));
+
+  clientApps5 = udpClient5.Install (pgw);
+  clientApps5.Start (Seconds (1));
+  clientApps5.Stop (Seconds (duration));
+
+  UdpServerHelper udpServer6;
+  ApplicationContainer serverApps6;
+  UdpClientHelper udpClient6;
+  ApplicationContainer clientApps6;
+
+  udpServer6 = UdpServerHelper (100);
+
+  serverApps6= udpServer6.Install (ssNodes.Get (2));
+  serverApps6.Start (Seconds (1));
+  serverApps6.Stop (Seconds (duration));
+
+  udpClient6 = UdpClientHelper (SSinterfaces.GetAddress (2), 100);
+  udpClient6.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient6.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient6.SetAttribute ("PacketSize", UintegerValue (12));
+
+  clientApps6 = udpClient6.Install (bsNodes.Get(0));
+  clientApps6.Start (Seconds (1));
+  clientApps6.Stop (Seconds (duration));
+  
+  UdpServerHelper udpServer7;
+  ApplicationContainer serverApps7;
+  UdpClientHelper udpClient7;
+  ApplicationContainer clientApps7;
+
+  udpServer7 = UdpServerHelper (103);
+
+  serverApps7= udpServer7.Install (ssNodes.Get (4));
+  serverApps7.Start (Seconds (1));
+  serverApps7.Stop (Seconds (duration));
+
+  udpClient7 = UdpClientHelper (SSinterfaces.GetAddress (4), 103);
+  udpClient7.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient7.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient7.SetAttribute ("PacketSize", UintegerValue (12));
+
+  clientApps7 = udpClient7.Install (pgw);
+  clientApps7.Start (Seconds (1));
+  clientApps7.Stop (Seconds (duration));
+
+  UdpServerHelper udpServer8;
+  ApplicationContainer serverApps8;
+  UdpClientHelper udpClient8;
+  ApplicationContainer clientApps8;
+
+  udpServer8 = UdpServerHelper (100);
+
+  serverApps8= udpServer8.Install (ssNodes.Get (4));
+  serverApps8.Start (Seconds (1));
+  serverApps8.Stop (Seconds (duration));
+
+  udpClient8 = UdpClientHelper (SSinterfaces.GetAddress (4), 100);
+  udpClient8.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient8.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient8.SetAttribute ("PacketSize", UintegerValue (12));
+
+  clientApps8 = udpClient8.Install (bsNodes.Get(0));
+  clientApps8.Start (Seconds (1));
+  clientApps8.Stop (Seconds (duration));
+
+  UdpServerHelper udpServer9;
+  ApplicationContainer serverApps9;
+  UdpClientHelper udpClient9;
+  ApplicationContainer clientApps9;
+
+  udpServer9 = UdpServerHelper (103);
+
+  serverApps9= udpServer9.Install (ssNodes.Get (2));
+  serverApps9.Start (Seconds (1));
+  serverApps9.Stop (Seconds (duration));
+
+  udpClient9 = UdpClientHelper (SSinterfaces.GetAddress (2), 103);
+  udpClient9.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient9.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient9.SetAttribute ("PacketSize", UintegerValue (1024));
+
+  clientApps9 = udpClient9.Install (wifiApNode);
+  clientApps9.Start (Seconds (1));
+  clientApps9.Stop (Seconds (duration));
+
+  UdpServerHelper udpServer10;
+  ApplicationContainer serverApps10;
+  UdpClientHelper udpClient10;
+  ApplicationContainer clientApps10;
+
+  udpServer10 = UdpServerHelper (100);
+
+  serverApps10= udpServer10.Install (ssNodes.Get (4));
+  serverApps10.Start (Seconds (1));
+  serverApps10.Stop (Seconds (duration));
+
+  udpClient10 = UdpClientHelper (SSinterfaces.GetAddress (4), 100);
+  udpClient10.SetAttribute ("MaxPackets", UintegerValue (6000));
+  udpClient10.SetAttribute ("Interval", TimeValue (Seconds (0.5)));
+  udpClient10.SetAttribute ("PacketSize", UintegerValue (1024));
+
+  clientApps10 = udpClient10.Install (wifiApNode);
+  clientApps10.Start (Seconds (1));
+  clientApps10.Stop (Seconds (duration));
+
+
+
+
   Simulator::Stop (Seconds (duration + 0.1));
 
   //wimax.EnablePcap ("wimax-simple-ss0", ssNodes.Get (0)->GetId (), ss[0]->GetIfIndex ());
   //wimax.EnablePcap ("wimax-simple-ss1", ssNodes.Get (1)->GetId (), ss[1]->GetIfIndex ());
   //wimax.EnablePcap ("wimax-simple-bs0", bsNodes.Get (0)->GetId (), bs->GetIfIndex ());
-
+for(int i=0;i<numberOfNodes;i++)
+{
   IpcsClassifierRecord DlClassifierUgs (Ipv4Address ("0.0.0.0"),
                                         Ipv4Mask ("0.0.0.0"),
-                                        SSinterfaces.GetAddress (0),
+                                        SSinterfaces.GetAddress (i),
                                         Ipv4Mask ("255.255.255.255"),
                                         0,
                                         65000,
@@ -425,8 +637,9 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   ServiceFlow DlServiceFlowUgs = wimax.CreateServiceFlow (ServiceFlow::SF_DIRECTION_DOWN,
                                                           ServiceFlow::SF_TYPE_RTPS,
                                                           DlClassifierUgs);
-
-  IpcsClassifierRecord UlClassifierUgs (SSinterfaces.GetAddress (1),
+  ss[i]->AddServiceFlow (DlServiceFlowUgs);
+}
+  IpcsClassifierRecord UlClassifierUgs (SSinterfaces.GetAddress (numberOfNodes),
                                         Ipv4Mask ("255.255.255.255"),
                                         Ipv4Address ("0.0.0.0"),
                                         Ipv4Mask ("0.0.0.0"),
@@ -439,8 +652,8 @@ ipv4h.SetBase ("11.1.5.0", "255.255.255.0");
   ServiceFlow UlServiceFlowUgs = wimax.CreateServiceFlow (ServiceFlow::SF_DIRECTION_UP,
                                                           ServiceFlow::SF_TYPE_RTPS,
                                                           UlClassifierUgs);
-  ss[0]->AddServiceFlow (DlServiceFlowUgs);
-  ss[1]->AddServiceFlow (UlServiceFlowUgs);
+  
+  ss[numberOfNodes]->AddServiceFlow (UlServiceFlowUgs);
 
   
 

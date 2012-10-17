@@ -368,12 +368,6 @@ WifiPhyStateHelper::SwitchToChannelSwitching (Time switchingDuration)
 void
 WifiPhyStateHelper::SwitchFromRxEndOk (Ptr<Packet> packet, double snr, WifiMode mode, enum WifiPreamble preamble)
 {
-  MihTag tag;
-  if(packet->PeekPacketTag(tag))
-  {
-    m_rxOkCallback (packet, snr, mode, preamble);
-    return;
-  }
   m_rxOkTrace (packet, snr, mode, preamble);
   NotifyRxEndOk ();
   DoSwitchFromRx ();

@@ -805,9 +805,7 @@ else
       MihTag tag;
       tag.SetCommand(1);//WiFi is No. 1
       tag.SetParameter(rate);
-      Ptr<Packet> p=Create<Packet>();
-      p->AddPacketTag(tag);
-      m_state->SwitchFromRxEndOk (p, snrPer.snr, event->GetPayloadMode (), event->GetPreambleType ());
+      packet->AddPacketTag(tag);
       NotifyRxEnd (packet);
       uint32_t dataRate500KbpsUnits = event->GetPayloadMode ().GetDataRate () / 500000;
 //std::cout<<"DR "<<snrPer.snr<<std::endl;

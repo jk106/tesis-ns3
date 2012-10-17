@@ -548,6 +548,17 @@ LteHelper::ActivateEpsBearer (NetDeviceContainer ueDevices, EpsBearer bearer, Pt
     }
 }
 
+void
+LteHelper::ActivateEpsBearer (NetDeviceContainer ueDevices, EpsBearer bearer, Ptr<EpcTft> tft, Ipv4InterfaceContainer cont)
+{
+  NS_LOG_FUNCTION (this); int j=0;
+  for (NetDeviceContainer::Iterator i = ueDevices.Begin (); i != ueDevices.End (); ++i)
+    {
+      ActivateEpsBearer (*i, bearer, tft, cont.GetAddress(j));
+      j++;
+    }
+}
+
 
 void
 LteHelper::ActivateEpsBearer (Ptr<NetDevice> ueDevice, EpsBearer bearer, Ptr<EpcTft> tft)

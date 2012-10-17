@@ -404,7 +404,7 @@ ApWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
   MihTag tag;
   if(packet->PeekPacketTag(tag))
   {
-    return;
+    //std::cout<<"ApWifiMac"<<std::endl;
   }
   Mac48Address from = hdr->GetAddr2 ();
 
