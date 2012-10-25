@@ -100,11 +100,20 @@ else if(tech_new!=0)
   for(j=0;j<m_netcharts.size();j++)
   {
     Ptr<NetChart> dev=m_netcharts[j];
-    if(dev->GetId()==netchartid && dev->GetTechnology()==tech_new)
+    Vector pos=device->GetNode()->GetObject<MobilityModel>()->GetPosition();
+    Vector ap=dev->GetApLocation();
+    double xx=pos.x-ap.x;
+    double yy=pos.y-ap.y;
+    double zz=pos.z-ap.z;
+    double distance=sqrt(xx*xx+yy*yy+zz*zz);
+    uint8_t tech= dev-> GetTechnology();
+    std::cout<<"Distance: "<<(double)distance<<" TECH: "<<(uint8_t) tech<<std::endl;
+    if(((tech==2 && distance<700)||(tech==1 && distance<110)||(tech==3 && distance<2000) )&& tech==tech_new)//Check that closest AP is not out of tech range
     {
       two=dev;
       break;
     }
+    
   }
   two->RemoveRouting(device->GetMihAddress());
   two->AddRouting(device->GetMihAddress());

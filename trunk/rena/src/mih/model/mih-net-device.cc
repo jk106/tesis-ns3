@@ -226,13 +226,13 @@ MihNetDevice::eval()
     {
       //Activate(3);
       net->RequestPSol(m_netid,this,m_active,3);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to LTE for HOP"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to LTE for HOP "<<GetNode()->GetId()<<std::endl;
     }
     else if(m_active!=1 && velocity<5 && !hop_wifi)
     {
       //Activate(1);
       net->RequestPSol(m_netid,this,m_active,1);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi1"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to WiFi1" <<GetNode()->GetId()<<std::endl;
     }
   }
   else if(p_wifi>cwimax && p_wifi>clte && clte<=cwimax)
@@ -292,7 +292,7 @@ MihNetDevice::eval()
     {
       //Activate(3);
       net->RequestPSol(m_netid,this,m_active,3);
-      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to LTE for HOP"<<std::endl;
+      std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to LTE for HOP "<<GetNode()->GetId()<<std::endl;
     }
     if(m_active!=2 && !hop_wimax)
     {
