@@ -72,7 +72,7 @@ int main (int argc, char *argv[])
   Config::SetDefault ("ns3::LteAmc::AmcModel", EnumValue (LteAmc::PiroEW2010));
   bool verbose = false;
 
-  int duration = 1500.2, schedType = 0;
+  int duration = 3000.2, schedType = 0;
   int numberOfNodes=5;
   WimaxHelper::SchedulerType scheduler = WimaxHelper::SCHED_TYPE_SIMPLE;
 
@@ -84,6 +84,7 @@ int main (int argc, char *argv[])
   LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
   LogComponentEnable ("MihNetDevice", LOG_LEVEL_INFO);
   LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
+  //LogComponentEnable ("CsmaNetDevice", LOG_LEVEL_ALL);
   //LogComponentEnable ("Node", LOG_LEVEL_ALL);
   //LogComponentEnable ("Ipv4StaticRouting", LOG_LEVEL_ALL);
   //LogComponentEnable ("Ipv4L3Protocol", LOG_LEVEL_ALL);
@@ -264,9 +265,13 @@ uint32_t nCsma = 3;
   Ptr<ConstantVelocityMobilityModel> cvm = ssNodes.Get(0)->GetObject<ConstantVelocityMobilityModel>();
   cvm->SetVelocity(Vector (1, 0, 0)); //move to left to right 10.0m/s
   cvm = ssNodes.Get(2)->GetObject<ConstantVelocityMobilityModel>();
-  cvm->SetVelocity(Vector (2, 0, 0)); //move to left to right 10.0m/s
+  cvm->SetVelocity(Vector (1.2, 0, 0)); //move to left to right 10.0m/s
   cvm = ssNodes.Get(4)->GetObject<ConstantVelocityMobilityModel>();
   cvm->SetVelocity(Vector (4, 0, 0));
+  cvm = ssNodes.Get(1)->GetObject<ConstantVelocityMobilityModel>();
+  cvm->SetVelocity(Vector (-1, 0, 0));
+  cvm = ssNodes.Get(3)->GetObject<ConstantVelocityMobilityModel>();
+  cvm->SetVelocity(Vector (-1.2, 0, 0));
   //cvm->SetPosition(Vector (00, 0, 0));
 
   positionAlloc = CreateObject<ListPositionAllocator> ();
@@ -365,6 +370,10 @@ ipv4h.SetBase ("11.1.6.0", "255.255.255.0");
   }
 remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(0)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),1);
+remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(1)->GetObject<Ipv4> ());
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),1);
+remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (ssNodes.Get(3)->GetObject<Ipv4> ());
+  remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),1);
 remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (p2pNodes.Get(0)->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("11.1.2.0"), Ipv4Mask ("255.255.255.0"),1);
 
@@ -394,7 +403,7 @@ remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (p2pNodes.Get(0)->G
   Ptr<OutputStreamWrapper> routingStream= Create<OutputStreamWrapper>("dynamic7.routes",std::ios::out);
   g.PrintRoutingTableAllAt(Seconds(0),routingStream);
   routingStream= Create<OutputStreamWrapper>("dynamic942.routes",std::ios::out);
-  g.PrintRoutingTableAllAt(Seconds(942),routingStream);
+  g.PrintRoutingTableAllAt(Seconds(524),routingStream);
   routingStream= Create<OutputStreamWrapper>("dynamic941.routes",std::ios::out);
   g.PrintRoutingTableAllAt(Seconds(941),routingStream);	  
   
@@ -427,8 +436,94 @@ remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (p2pNodes.Get(0)->G
     help.SetNetworkManager(ssNodes.Get(i),netman);
     help.SetNetId(ssNodes.Get(i),1);
   }
+  help.SetQoS(ssNodes.Get(0),2);
 
   /*------------------------------*/
+
+
+UdpServerHelper udpServer99;
+  ApplicationContainer serverApps99;
+  UdpClientHelper udpClient99;
+  ApplicationContainer clientApps99;
+
+  udpServer99 = UdpServerHelper (100);
+
+  serverApps99 = udpServer99.Install (ssNodes.Get (1));
+  serverApps99.Start (Seconds (6));
+  serverApps99.Stop (Seconds (duration));
+
+  udpClient99 = UdpClientHelper (SSinterfaces.GetAddress (1), 100);
+  udpClient99.SetAttribute ("MaxPackets", UintegerValue (60000));
+  udpClient99.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
+  udpClient99.SetAttribute ("PacketSize", UintegerValue (1024));
+
+  clientApps99 = udpClient99.Install (csmaNodes.Get(0));
+  clientApps99.Start (Seconds (6));
+  clientApps99.Stop (Seconds (duration));
+
+  UdpServerHelper udpServer98;
+  ApplicationContainer serverApps98;
+  UdpClientHelper udpClient98;
+  ApplicationContainer clientApps98;
+
+  udpServer98 = UdpServerHelper (100);
+
+  serverApps98 = udpServer98.Install (csmaNodes.Get(nCsma));
+  serverApps98.Start (Seconds (6));
+  serverApps98.Stop (Seconds (duration));
+
+  udpClient98 = UdpClientHelper (csmaInterfaces.GetAddress(nCsma), 100);
+  udpClient98.SetAttribute ("MaxPackets", UintegerValue (600000));
+  udpClient98.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
+  udpClient98.SetAttribute ("PacketSize", UintegerValue (1024));
+
+  clientApps98 = udpClient98.Install (ssNodes.Get(1));
+  clientApps98.Start (Seconds (6));
+  clientApps98.Stop (Seconds (duration));
+
+UdpServerHelper udpServer97;
+  ApplicationContainer serverApps97;
+  UdpClientHelper udpClient97;
+  ApplicationContainer clientApps97;
+
+  udpServer97 = UdpServerHelper (100);
+
+  serverApps97 = udpServer97.Install (ssNodes.Get (3));
+  serverApps97.Start (Seconds (6));
+  serverApps97.Stop (Seconds (duration));
+
+  udpClient97 = UdpClientHelper (SSinterfaces.GetAddress (3), 100);
+  udpClient97.SetAttribute ("MaxPackets", UintegerValue (60000));
+  udpClient97.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
+  udpClient97.SetAttribute ("PacketSize", UintegerValue (1024));
+
+  clientApps97 = udpClient97.Install (csmaNodes.Get(0));
+  clientApps97.Start (Seconds (6));
+  clientApps97.Stop (Seconds (duration));
+
+  UdpServerHelper udpServer96;
+  ApplicationContainer serverApps96;
+  UdpClientHelper udpClient96;
+  ApplicationContainer clientApps96;
+
+  udpServer96 = UdpServerHelper (100);
+
+  serverApps96 = udpServer96.Install (csmaNodes.Get(nCsma));
+  serverApps96.Start (Seconds (6));
+  serverApps96.Stop (Seconds (duration));
+
+  udpClient96 = UdpClientHelper (csmaInterfaces.GetAddress(nCsma), 100);
+  udpClient96.SetAttribute ("MaxPackets", UintegerValue (600000));
+  udpClient96.SetAttribute ("Interval", TimeValue (Seconds (0.05)));
+  udpClient96.SetAttribute ("PacketSize", UintegerValue (1024));
+
+  clientApps96 = udpClient96.Install (ssNodes.Get(3));
+  clientApps96.Start (Seconds (6));
+  clientApps96.Stop (Seconds (duration));
+
+
+
+/*------------------------------------*/
 
   UdpServerHelper udpServer;
   ApplicationContainer serverApps;

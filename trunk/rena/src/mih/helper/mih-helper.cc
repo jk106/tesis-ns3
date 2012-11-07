@@ -118,6 +118,16 @@ MihHelper::SetNetId(Ptr<Node> n, uint8_t netid)
 }
 
 void
+MihHelper::SetQoS(Ptr<Node> n, uint8_t qos)
+{
+  Ptr<NetDevice> dev=n ->GetDevice(n->GetNDevices()-1);
+  NetDevice* apl=PeekPointer(dev);
+  MihNetDevice* mih;
+  mih = (MihNetDevice*) apl;
+  mih->SetQos(qos);
+}
+
+void
 MihHelper::SetAddress(Ptr<Node> n, Ipv4Address addr)
 {
   Ptr<NetDevice> dev=n ->GetDevice(n->GetNDevices()-1);

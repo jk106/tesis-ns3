@@ -30,6 +30,8 @@
 #include "ns3/vector.h"
 #include "ns3/internet-module.h"
 #include "ns3/global-route-manager.h"
+#include "ns3/node-list.h"
+
 
 
 
@@ -59,7 +61,7 @@ NetworkManager::AddNetChart(NetChart *chart, uint8_t path)
   m_paths.push_back(path);
 }
 
-void
+bool
 NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *device,uint8_t tech_old,uint8_t tech_new)
 {
   Ptr<NetChart> one;
@@ -75,7 +77,7 @@ NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *device,uint8_t tec
       break;
     }
   }
-  //one->RemoveRouting(device->GetMihAddress());
+  
 }
 if(tech_new==4)
 {
@@ -89,14 +91,16 @@ if(tech_new==4)
       break;
     }
   }
-  two->AddRouting(device->GetMihAddress());
+  two->AddRouting(device->GetMihAddress(), device->GetNode()->GetId());
   Ipv4StaticRoutingHelper ipv4RoutingHelper;
   Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
+  return true;
 }
 else if(tech_new!=0)
 {
   uint8_t j=0;
+  int sele=-1;    
   for(j=0;j<m_netcharts.size();j++)
   {
     Ptr<NetChart> dev=m_netcharts[j];
@@ -111,17 +115,70 @@ else if(tech_new!=0)
     if(((tech==2 && distance<700)||(tech==1 && distance<110)||(tech==3 && distance<2000) )&& tech==tech_new)//Check that closest AP is not out of tech range
     {
       two=dev;
+      sele=dev->GetId();
       break;
     }
     
   }
-  two->RemoveRouting(device->GetMihAddress());
-  two->AddRouting(device->GetMihAddress());
-  device->Activate(tech_new);
-  Ipv4StaticRoutingHelper ipv4RoutingHelper;
-  Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
-  remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
-  remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
+  if(sele!=-1)
+  {
+    std::vector<int> vec=two->GetSubs();
+    if((vec.size()<2&&tech_new==1)||(vec.size()<5&&tech_new==2)||tech_new==3)
+    {
+      two->RemoveRouting(device->GetMihAddress(),device->GetNode()->GetId());
+      two->AddRouting(device->GetMihAddress(),device->GetNode()->GetId());
+      Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,tech_new);
+      //device->Activate(tech_new);
+      device->UpdateNetId(sele);
+      Ipv4StaticRoutingHelper ipv4RoutingHelper;
+      Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
+      remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
+      remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
+      one->RemoveSub(device->GetNode()->GetId());
+      return true;
+    }
+    else
+    {
+      int min=100;
+      MihNetDevice* ho;
+      for(unsigned int k=0;k<vec.size();k++)
+      {
+        Ptr<Node> node = NodeList::GetNode (vec[k]);
+        Ptr<NetDevice> dev=node ->GetDevice(node->GetNDevices()-1);
+        NetDevice* apl=PeekPointer(dev);
+        MihNetDevice* mih;
+        mih = (MihNetDevice*) apl;
+        if(mih)
+        {
+          std::cout<<"MIHNetDevice found on node: "<<vec[k]<<" with qos: "<<(int) mih->GetQos()<<std::endl;
+          if(mih->GetQos()<min)
+          {
+            min=mih->GetQos();
+            ho=mih;
+          }
+        }
+      }
+      if(min<device->GetQos())
+      {
+        if(NIHandover(ho,tech_new,sele))
+        {
+          two->RemoveRouting(device->GetMihAddress(),device->GetNode()->GetId());
+          two->AddRouting(device->GetMihAddress(),device->GetNode()->GetId());
+          Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,tech_new);
+          //device->Activate(tech_new);
+          device->UpdateNetId(sele);
+          Ipv4StaticRoutingHelper ipv4RoutingHelper;
+          Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
+          remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
+          remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
+          one->RemoveSub(device->GetNode()->GetId());
+          return true;
+        }
+      }
+    }
+    
+  }
+  return false;
 }
 else
 {
@@ -152,14 +209,72 @@ else
   if(sel!=-1)
   {
     two=m_netcharts[sel];
-    two->AddRouting(device->GetMihAddress());
-    device->Activate(two->GetTechnology());
+    two->AddRouting(device->GetMihAddress(),device->GetNode()->GetId());
+    Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,two->GetTechnology());
+    //device->Activate(two->GetTechnology());
     Ipv4StaticRoutingHelper ipv4RoutingHelper;
     Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
     remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
     remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[sel]);
+    one->RemoveSub(device->GetNode()->GetId());
+    return true;
   }
+  return false;
 }
+}
+
+bool
+NetworkManager::NIHandover(MihNetDevice *device,uint8_t tech_old, uint8_t netchartid)
+{
+std::cout<<"NIHandover"<<std::endl;
+  uint8_t j=0;
+  int8_t sel=-1;
+  double min_distance=1000000;//Arbitrary large distance
+  Ptr<NetChart> one;
+  Ptr<NetChart> two;
+  for(j=0;j<m_netcharts.size();j++)
+  {
+    Ptr<NetChart> dev=m_netcharts[j];
+    Vector pos=device->GetNode()->GetObject<MobilityModel>()->GetPosition();
+    Vector ap=dev->GetApLocation();
+    double xx=pos.x-ap.x;
+    double yy=pos.y-ap.y;
+    double zz=pos.z-ap.z;
+    double distance=sqrt(xx*xx+yy*yy+zz*zz);
+    uint8_t tech= dev-> GetTechnology();
+    if((distance<min_distance)&&!((tech_old==dev->GetTechnology())&&(device->GetNetId()==dev->GetId())))
+    {
+      if((tech==2 && distance<700)||(tech==1 && distance<110)||(tech==3 && distance<2000))//Check that closest AP is not out of tech range
+      {
+        min_distance=distance;
+        sel=j;
+      }
+    }
+  }
+  if(sel!=-1)
+  {
+    two=m_netcharts[sel];
+    two->AddRouting(device->GetMihAddress(),device->GetNode()->GetId());
+    Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,two->GetTechnology());
+    //device->Activate(two->GetTechnology());
+    std::cout<<"NIHandover to "<<(int)two->GetTechnology()<<std::endl;
+    Ipv4StaticRoutingHelper ipv4RoutingHelper;
+    Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
+    remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
+    remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[sel]);
+    for(uint8_t i=0;i<m_netcharts.size();i++)
+    {
+      Ptr<NetChart> dev=m_netcharts[i];
+      if(dev->GetId()==netchartid && dev->GetTechnology()==tech_old)
+      {
+        one=dev;
+        break;
+      }
+    }
+    one->RemoveSub(device->GetNode()->GetId());
+    return true;
+  }
+  return false;
 }
 
 void

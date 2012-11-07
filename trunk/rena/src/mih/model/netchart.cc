@@ -30,6 +30,7 @@
 #include "ns3/vector.h"
 #include "ns3/internet-module.h"
 #include "ns3/global-route-manager.h"
+#include <vector>
 
 
 
@@ -107,7 +108,7 @@ NetChart::GetApLocation()
 }
 
 void
-NetChart::AddRouting(Ipv4Address ipv4a)
+NetChart::AddRouting(Ipv4Address ipv4a, int n)
 {
   for(uint8_t i=0;i<m_nodes.size();i++)
   {
@@ -116,11 +117,12 @@ NetChart::AddRouting(Ipv4Address ipv4a)
     Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (dev->GetObject<Ipv4> ());
     remoteHostStaticRouting->AddNetworkRouteTo (ipv4a, Ipv4Mask ("255.255.255.0"), m_indexesdown[i]);
   }
+  m_subs.push_back(n);
   m_connections++;
 }
 
 void
-NetChart::RemoveRouting(Ipv4Address ipv4a)
+NetChart::RemoveRouting(Ipv4Address ipv4a, int n)
 {
   for(uint8_t i=0;i<m_nodes.size();i++)
   {
@@ -129,7 +131,34 @@ NetChart::RemoveRouting(Ipv4Address ipv4a)
     Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (dev->GetObject<Ipv4> ());
     remoteHostStaticRouting->RemoveStaticRoute (ipv4a);
   }
+  for(uint8_t i=0;i<m_subs.size();i++)
+  {
+    if(m_subs.at(i)==n){ 
+      m_subs.erase(m_subs.begin()+i);
+      break;
+    }
+  }
   m_connections--;
+}
+
+void
+NetChart::RemoveSub(int n)
+{
+std::cout<<"NetChart::RemoveSub "<<n<<std::endl;
+  for(uint8_t i=0;i<m_subs.size();i++)
+  {
+    if(m_subs.at(i)==n){ 
+      m_subs.erase(m_subs.begin()+i);
+      break;
+    }
+  }
+  m_connections--;
+}
+
+std::vector<int>
+NetChart::GetSubs()
+{
+  return m_subs;
 }
  
 void

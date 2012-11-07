@@ -60,6 +60,7 @@ public:
   void SetNetDevices(std::vector<Ptr<NetDevice> > &c);
   void Activate(uint8_t index);
   void SetNetId(uint8_t netid);
+  void UpdateNetId(uint8_t netid);
   void SetDependent(bool dep);
   uint8_t GetNetId();
   void SetQos(uint8_t qos);
@@ -122,6 +123,7 @@ private:
   uint8_t m_netid;
   bool m_dependent;
   uint8_t m_qos;
+  int m_timeout;  
 };
 
 } // namespace ns3

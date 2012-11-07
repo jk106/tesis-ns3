@@ -278,6 +278,11 @@ Ipv4StaticRouting::LookupStatic (Ipv4Address dest, Ptr<NetDevice> oif)
           shortest_metric = metric;
           Ipv4RoutingTableEntry* route = (j);
           uint32_t interfaceIdx = route->GetInterface ();
+          if(rtentry!=0 && rtentry->GetDestination().IsEqual(dest))
+          {
+              NS_LOG_LOGIC ("We got one with the exact destination");
+              continue;
+          }
           rtentry = Create<Ipv4Route> ();
           rtentry->SetDestination (route->GetDest ());
           rtentry->SetSource (SourceAddressSelection (interfaceIdx, route->GetDest ()));
