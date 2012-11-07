@@ -84,6 +84,7 @@ public:
   void Activate (Ptr<Node> n,uint8_t index, bool dep);
   void SetNetId (Ptr<Node> n,uint8_t netid);
   void SetAddress (Ptr<Node> n,Ipv4Address addr);
+  void SetQoS(Ptr<Node> n, uint8_t qos);
   void SetNetworkManager(Ptr<Node> n,Ptr<NetworkManager> netman);
 
 

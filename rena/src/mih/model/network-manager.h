@@ -59,7 +59,8 @@ public:
   NetworkManager();
 
   void AddNetChart(NetChart *chart, uint8_t path);
-  void RequestPSol(uint8_t netchartid, MihNetDevice *dev,uint8_t tech_old,uint8_t tech_new);
+  bool RequestPSol(uint8_t netchartid, MihNetDevice *dev,uint8_t tech_old,uint8_t tech_new);
+  bool NIHandover(MihNetDevice *dev,uint8_t tech_old, uint8_t netchartid);
   void NotifyPack(uint8_t netchartid_old, uint8_t netchartid_new);
   void NotifyPNack(uint8_t netchartid);
   void SetLma(Ptr<Node> node);  

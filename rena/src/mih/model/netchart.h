@@ -55,8 +55,9 @@ public:
   static TypeId GetTypeId (void);
   NetChart ();
 
-  void AddRouting(Ipv4Address ipv4a);
-  void RemoveRouting(Ipv4Address ipv4a);
+  void AddRouting(Ipv4Address ipv4a, int n);
+  void RemoveRouting(Ipv4Address ipv4a, int n);
+  void RemoveSub(int n);
   void SetId(uint8_t id);
   void SetNodes(std::vector<Ptr<Node> > &c, std::vector<int> &d);
   uint8_t GetId();
@@ -64,6 +65,7 @@ public:
   void SetApLocation(Vector a);
   uint8_t GetTechnology();
   uint8_t GetConnections();
+  std::vector<int> GetSubs();
   Vector GetApLocation();
 
 protected:
@@ -71,6 +73,7 @@ protected:
 private:
   uint8_t m_id;  
   std::vector<Ptr<Node> > m_nodes;//The nodes of this network
+  std::vector<int > m_subs;//The Subscribers connected to this network
   std::vector<int> m_indexesdown;//The interfaces of each node downstream
   uint8_t m_tech;
   uint8_t m_connections;
