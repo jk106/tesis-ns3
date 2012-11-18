@@ -144,7 +144,7 @@ NetChart::RemoveRouting(Ipv4Address ipv4a, int n)
 void
 NetChart::RemoveSub(int n)
 {
-std::cout<<"NetChart::RemoveSub "<<n<<std::endl;
+//std::cout<<"NetChart::RemoveSub "<<n<<(int)m_id<<(int)m_tech<<std::endl;
   for(uint8_t i=0;i<m_subs.size();i++)
   {
     if(m_subs.at(i)==n){ 
