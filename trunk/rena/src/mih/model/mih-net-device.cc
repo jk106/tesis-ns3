@@ -111,18 +111,18 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
   if(command==1)
   {
      //NS_LOG_DEBUG(this<<"Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
-if(GetNode()->GetId()==2)
+if(GetNode()->GetId()==4)
 NS_LOG_DEBUG(this<<"2Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
 if(GetNode()->GetId()==0)
 NS_LOG_DEBUG(this<<"0Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
      if(parameter<1200&&parameter >800)
      {
-       NS_LOG_DEBUG(this<<"Perdiendo WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       //NS_LOG_DEBUG(this<<"Perdiendo WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        hop_wifi=true;
      }
      else if(parameter<800)
      {
-       NS_LOG_DEBUG(this<<"Wifi Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       //NS_LOG_DEBUG(this<<"Wifi Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        p_wifi=1;
 hop_wifi=false;
      }
@@ -137,13 +137,13 @@ hop_wifi=false;
      //NS_LOG_DEBUG(this<<"Recibido de WiMAX "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
      if(parameter<10000&&parameter >9870)
      {
-       NS_LOG_DEBUG(this <<"Perdiendo WiMAX "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       //NS_LOG_DEBUG(this <<"Perdiendo WiMAX "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        hop_wimax=true;
        timeout_wimax=Simulator::Now().GetSeconds();
      }
      else if(parameter<9870)
      {
-       NS_LOG_DEBUG(this<<"WiMAX Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       //NS_LOG_DEBUG(this<<"WiMAX Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        p_wimax=0;
 hop_wimax=false;
      }
@@ -164,12 +164,12 @@ hop_wimax=false;
      double error=(parameter-mcsd*10000-mcsu*100);
      if(mcsu==0&&mcsd==16)
      {
-       NS_LOG_DEBUG(this<<"Perdiendo LTE "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       //NS_LOG_DEBUG(this<<"Perdiendo LTE "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        hop_lte=true;
      }
      else if((mcsu==0&&mcsd<16)||(mcsu==28&&mcsd==14))//We lost it because this is an inplausible situation.
      {
-       NS_LOG_DEBUG(this<<"LTE Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       //NS_LOG_DEBUG(this<<"LTE Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        p_lte=0;
 hop_lte=false;
      }
@@ -242,7 +242,7 @@ MihNetDevice::eval()
       std::cout << Simulator::Now().GetSeconds () << ": Device Swapped to LTE for HOP "<<GetNode()->GetId()<<std::endl;
 m_timeout=Simulator::Now().GetSeconds();
     }
-    else if(m_active!=1 && velocity<5 && !hop_wifi)
+    else if(m_active!=1 && velocity<5 && !hop_wifi  && p_wifi>1)
     {
       //Activate(1);
       net->RequestPSol(m_netid,this,m_active,1);
@@ -262,7 +262,7 @@ m_timeout=Simulator::Now().GetSeconds();
 m_timeout=Simulator::Now().GetSeconds();
 
     }
-    else if(m_active!=1 && velocity<5 && !hop_wifi)
+    else if(m_active!=1 && velocity<5 && !hop_wifi && p_wifi>1)
     {
       //Activate(1);
       net->RequestPSol(m_netid,this,m_active,1);
@@ -391,6 +391,7 @@ MihNetDevice::Receive (Ptr<Packet> packet, uint16_t protocol,
 void
 MihNetDevice::Activate(uint8_t index)
 {
+  std::cout<<"Technology "<<(int)index<<" activated at "<<Simulator::Now().GetSeconds()<<"s on Node "<<GetNode()->GetId()<<std::endl;
   m_devices[m_active]->SetReceiveCallback (MakeCallback (&MihNetDevice::NonPromiscReceiveFromDevice, this));
   m_active=index;
   if(m_devices[m_active]->NeedsArp())

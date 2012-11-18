@@ -64,6 +64,7 @@ NetworkManager::AddNetChart(NetChart *chart, uint8_t path)
 bool
 NetworkManager::RequestPSol(uint8_t netchartid, MihNetDevice *device,uint8_t tech_old,uint8_t tech_new)
 {
+std::cout<<"PSOL"<<(int)netchartid<<(int)tech_old<<(int)tech_new<<device->GetNode()->GetId()<<std::endl;
   Ptr<NetChart> one;
   Ptr<NetChart> two;
   if(tech_new!=4)
@@ -111,7 +112,7 @@ else if(tech_new!=0)
     double zz=pos.z-ap.z;
     double distance=sqrt(xx*xx+yy*yy+zz*zz);
     uint8_t tech= dev-> GetTechnology();
-    std::cout<<"Distance: "<<(double)distance<<" TECH: "<<(uint8_t) tech<<std::endl;
+    //std::cout<<"Distance: "<<(double)distance<<" TECH: "<<(uint8_t) tech<<std::endl;
     if(((tech==2 && distance<700)||(tech==1 && distance<110)||(tech==3 && distance<2000) )&& tech==tech_new)//Check that closest AP is not out of tech range
     {
       two=dev;
@@ -129,7 +130,7 @@ else if(tech_new!=0)
       two->AddRouting(device->GetMihAddress(),device->GetNode()->GetId());
       Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,tech_new);
       //device->Activate(tech_new);
-      device->UpdateNetId(sele);
+      device->UpdateNetId(two->GetId());
       Ipv4StaticRoutingHelper ipv4RoutingHelper;
       Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
       remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
@@ -150,7 +151,7 @@ else if(tech_new!=0)
         mih = (MihNetDevice*) apl;
         if(mih)
         {
-          std::cout<<"MIHNetDevice found on node: "<<vec[k]<<" with qos: "<<(int) mih->GetQos()<<std::endl;
+          //std::cout<<"MIHNetDevice found on node: "<<vec[k]<<" with qos: "<<(int) mih->GetQos()<<std::endl;
           if(mih->GetQos()<min)
           {
             min=mih->GetQos();
@@ -160,13 +161,13 @@ else if(tech_new!=0)
       }
       if(min<device->GetQos())
       {
-        if(NIHandover(ho,tech_new,sele))
+        if(NIHandover(ho,tech_new,two->GetId()))
         {
           two->RemoveRouting(device->GetMihAddress(),device->GetNode()->GetId());
           two->AddRouting(device->GetMihAddress(),device->GetNode()->GetId());
           Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,tech_new);
           //device->Activate(tech_new);
-          device->UpdateNetId(sele);
+          device->UpdateNetId(two->GetId());
           Ipv4StaticRoutingHelper ipv4RoutingHelper;
           Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
           remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
@@ -212,6 +213,7 @@ else
     two->AddRouting(device->GetMihAddress(),device->GetNode()->GetId());
     Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,two->GetTechnology());
     //device->Activate(two->GetTechnology());
+    device->UpdateNetId(two->GetId());
     Ipv4StaticRoutingHelper ipv4RoutingHelper;
     Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
     remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
@@ -226,7 +228,7 @@ else
 bool
 NetworkManager::NIHandover(MihNetDevice *device,uint8_t tech_old, uint8_t netchartid)
 {
-std::cout<<"NIHandover"<<std::endl;
+std::cout<<"NIHandover"<<device->GetNode()->GetId()<<std::endl;
   uint8_t j=0;
   int8_t sel=-1;
   double min_distance=1000000;//Arbitrary large distance
@@ -258,6 +260,7 @@ std::cout<<"NIHandover"<<std::endl;
     Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,two->GetTechnology());
     //device->Activate(two->GetTechnology());
     std::cout<<"NIHandover to "<<(int)two->GetTechnology()<<std::endl;
+    device->UpdateNetId(two->GetId());
     Ipv4StaticRoutingHelper ipv4RoutingHelper;
     Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
     remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
@@ -272,6 +275,7 @@ std::cout<<"NIHandover"<<std::endl;
       }
     }
     one->RemoveSub(device->GetNode()->GetId());
+    Simulator::Schedule(Seconds(200),&NetworkManager::RequestPSol,this,two->GetId(),device,two->GetTechnology(),0);
     return true;
   }
   return false;
