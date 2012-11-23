@@ -110,12 +110,20 @@ MihNetDevice::UpdateParameter(uint8_t command, double parameter)
 {
   if(command==1)
   {
+  Vector speed=this->GetNode()->GetObject<MobilityModel>()->GetVelocity();
+  double velocity=sqrt(speed.x*speed.x+speed.y*speed.y+speed.z*speed.z);
      //NS_LOG_DEBUG(this<<"Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
-if(GetNode()->GetId()==4)
+/**if(GetNode()->GetId()==4)
 NS_LOG_DEBUG(this<<"2Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
 if(GetNode()->GetId()==0)
-NS_LOG_DEBUG(this<<"0Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
-     if(parameter<1200&&parameter >800)
+NS_LOG_DEBUG(this<<"0Recibido de WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");*/
+     if(velocity>=5)
+     {
+       //NS_LOG_DEBUG(this<<"Wifi Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       p_wifi=1;
+hop_wifi=false;
+     }
+     else if(parameter<1200&&parameter >800)
      {
        //NS_LOG_DEBUG(this<<"Perdiendo WiFi "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        hop_wifi=true;
@@ -135,15 +143,15 @@ hop_wifi=false;
   else if(command==2)
   {
      //NS_LOG_DEBUG(this<<"Recibido de WiMAX "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
-     if(parameter<10000&&parameter >9870)
+     if(parameter<9900&&parameter >9870 && Simulator::Now().GetSeconds()>10)
      {
        //NS_LOG_DEBUG(this <<"Perdiendo WiMAX "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
        hop_wimax=true;
        timeout_wimax=Simulator::Now().GetSeconds();
      }
-     else if(parameter<9870)
+     else if(parameter<9870 && Simulator::Now().GetSeconds()>10)
      {
-       //NS_LOG_DEBUG(this<<"WiMAX Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s");
+       //NS_LOG_DEBUG(this<<"WiMAX Perdido "<<parameter<<" en tiempo "<<Simulator::Now().GetSeconds()<<" s"<<GetNode()->GetId());
        p_wimax=0;
 hop_wimax=false;
      }
@@ -226,12 +234,14 @@ MihNetDevice::eval()
 {
   if(m_timeout+10<Simulator::Now().GetSeconds())
 {
+double clte=p_lte/4;
+  double cwimax=p_wimax/2;
+NS_LOG_DEBUG(p_wifi<<";"<<clte<<";"<<cwimax<<";"<<Simulator::Now().GetSeconds ()<<" from "<<GetNode()->GetId());   
   if(!m_dependent)
 {
-  double clte=p_lte/4;
-  double cwimax=p_wimax/2;
   Vector speed=this->GetNode()->GetObject<MobilityModel>()->GetVelocity();
   double velocity=sqrt(speed.x*speed.x+speed.y*speed.y+speed.z*speed.z);
+//  NS_LOG_DEBUG(this<<"Wifi "<<p_wifi<<", Lte "<<clte<<", Wimax "<<cwimax<<" from "<<GetNode()->GetId());   
   if(p_wifi>cwimax && p_wifi>clte && clte>cwimax)
   {
     //NS_LOG_DEBUG(this<<"Wifi "<<p_wifi<<", Lte "<<clte<<", Wimax "<<cwimax<<GetNode()->GetId());

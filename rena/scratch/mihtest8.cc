@@ -82,7 +82,7 @@ int main (int argc, char *argv[])
   cmd.AddValue ("duration", "duration of the simulation in seconds", duration);
   cmd.AddValue ("verbose", "turn on all WimaxNetDevice log components", verbose);
   cmd.Parse (argc, argv);
-  LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
+  //LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
   LogComponentEnable ("MihNetDevice", LOG_LEVEL_INFO);
   LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
   //LogComponentEnable ("WifiNetDevice", LOG_LEVEL_ALL);

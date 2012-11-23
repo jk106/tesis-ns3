@@ -210,16 +210,25 @@ else
   if(sel!=-1)
   {
     two=m_netcharts[sel];
-    two->AddRouting(device->GetMihAddress(),device->GetNode()->GetId());
-    Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,two->GetTechnology());
-    //device->Activate(two->GetTechnology());
-    device->UpdateNetId(two->GetId());
-    Ipv4StaticRoutingHelper ipv4RoutingHelper;
-    Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
-    remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
-    remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[sel]);
-    one->RemoveSub(device->GetNode()->GetId());
-    return true;
+    std::vector<int> vec=two->GetSubs();
+    if((vec.size()<2&&two->GetTechnology()==1)||(vec.size()<5&&two->GetTechnology()==2)||two->GetTechnology()==3)
+    {
+      two->RemoveRouting(device->GetMihAddress(),device->GetNode()->GetId());
+      two->AddRouting(device->GetMihAddress(),device->GetNode()->GetId());
+      Simulator::Schedule(Seconds(0.05),&MihNetDevice::Activate,device,two->GetTechnology());
+      //device->Activate(tech_new);
+      device->UpdateNetId(two->GetId());
+      Ipv4StaticRoutingHelper ipv4RoutingHelper;
+      Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (lma->GetObject<Ipv4> ());
+      remoteHostStaticRouting->RemoveStaticRoute (device->GetMihAddress());
+      remoteHostStaticRouting->AddNetworkRouteTo (device->GetMihAddress(), Ipv4Mask ("255.0.0.0"), m_paths[j]);
+      one->RemoveSub(device->GetNode()->GetId());
+      return true;
+    }
+    else
+    {
+        return RequestPSol(netchartid,device,tech_old,3);
+    }
   }
   return false;
 }
