@@ -82,7 +82,7 @@ int main (int argc, char *argv[])
   cmd.AddValue ("duration", "duration of the simulation in seconds", duration);
   cmd.AddValue ("verbose", "turn on all WimaxNetDevice log components", verbose);
   cmd.Parse (argc, argv);
-  LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
+  //LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
   LogComponentEnable ("MihNetDevice", LOG_LEVEL_INFO);
   LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
   //LogComponentEnable ("WifiNetDevice", LOG_LEVEL_ALL);
@@ -281,9 +281,9 @@ uint32_t nCsma = 3;
 
   positionAlloc = CreateObject<ListPositionAllocator> ();
   
-  positionAlloc->Add (Vector (-0.0, 40.0, 0.0)); //MAG1AP
-  netWimax->SetApLocation(Vector(00.0, 40.0, 0.0));
-  positionAlloc->Add (Vector (0.0, 40.0, 0.0));  //MAG2AP
+  positionAlloc->Add (Vector (500.0, 40.0, 0.0)); //MAG1AP
+  netWimax->SetApLocation(Vector(500.0, 40.0, 0.0));
+  positionAlloc->Add (Vector (500.0, 40.0, 0.0));  //MAG2AP
   positionAlloc->Add (Vector (0.0, 0.0, 0.0));  //MAG2AP
   netLte->SetApLocation(Vector(00.0, 0.0, 0.0));
   
